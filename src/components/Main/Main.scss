@@ -1,0 +1,16 @@
+@import "../../sassStyles/mixins";
+
+.main {
+	display: flex;
+	height: 150vh; //temp
+	flex-grow: 1;
+	@include breakpoint(sm) {
+		width: $breakpoint-sm - $sidebar-sm;
+	}
+	@include breakpoint(md) {
+		width: $breakpoint-md - $sidebar-md;
+	}
+	@include breakpoint(lg) {
+		width: $breakpoint-lg - $sidebar-lg;
+	}
+}

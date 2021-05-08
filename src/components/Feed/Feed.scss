@@ -1,0 +1,8 @@
+@import "../../sassStyles/variables";
+
+.feed {
+	flex-grow: 1;
+	border-left: 1px solid $border-primary;
+	border-right: 1px solid $border-primary;
+	padding: 1rem;
+}
