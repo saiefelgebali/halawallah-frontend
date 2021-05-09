@@ -1,6 +1,6 @@
 import React from "react";
-import NavigationDefault from "./NavigationDefault";
-import NavigationTouch from "./NavigationTouch";
+import NavigationDefault from "../NavigationDefault/NavigationDefault";
+import NavigationTouch from "../NavigationTouch/NavigationTouch";
 import { isTouchDevice } from "../../util/touch";
 
 function Navigation() {
