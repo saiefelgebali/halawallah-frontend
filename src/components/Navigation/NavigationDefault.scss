@@ -5,19 +5,21 @@
 	display: flex;
 	justify-content: flex-end;
 	flex-grow: 1;
-	transition: 0.2s ease-out;
 	@include breakpoint(xs) {
 		transition: 0s;
-		flex-grow: 0;
+		min-width: $sidebar-xs;
 		width: $sidebar-xs;
 	}
 	@include breakpoint(sm) {
+		min-width: $sidebar-sm;
 		width: $sidebar-sm;
 	}
 	@include breakpoint(md) {
+		min-width: $sidebar-md;
 		width: $sidebar-md;
 	}
 	@include breakpoint(lg) {
+		min-width: $sidebar-lg;
 		width: $sidebar-lg;
 	}
 	.banner {
@@ -26,12 +28,15 @@
 		top: 0;
 		width: inherit;
 		height: 100%;
+		background-color: $body-background;
+		z-index: 1;
 		// Styling
 		padding: 1rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		overflow-y: auto;
+		// border-right: 1px solid $border-primary;
 		.menu {
 			display: flex;
 			flex-direction: column;

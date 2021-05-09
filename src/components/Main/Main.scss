@@ -2,15 +2,34 @@
 
 .main {
 	display: flex;
-	height: 150vh; //temp
 	flex-grow: 1;
+
+	div:first-of-type {
+		transition: 0.2s ease-out;
+	}
+
+	@include breakpoint(xs) {
+		min-width: 0;
+		div:first-of-type {
+			max-width: $breakpoint-md - $sidebar-md;
+		}
+	}
 	@include breakpoint(sm) {
 		width: $breakpoint-sm - $sidebar-sm;
+		div:first-of-type {
+			max-width: $breakpoint-sm - $sidebar-sm;
+		}
 	}
 	@include breakpoint(md) {
 		width: $breakpoint-md - $sidebar-md;
+		div:first-of-type {
+			max-width: $breakpoint-md - $sidebar-md;
+		}
 	}
 	@include breakpoint(lg) {
 		width: $breakpoint-lg - $sidebar-lg;
+		div:first-of-type {
+			max-width: $breakpoint-lg - $sidebar-lg;
+		}
 	}
 }

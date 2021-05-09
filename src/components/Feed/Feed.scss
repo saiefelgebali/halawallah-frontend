@@ -1,8 +1,8 @@
 @import "../../sassStyles/variables";
+@import "../../sassStyles/mixins";
 
 .feed {
-	flex-grow: 1;
-	border-left: 1px solid $border-primary;
-	border-right: 1px solid $border-primary;
-	padding: 1rem;
+	// border-right: 1px solid $border-primary;
+	display: flex;
+	flex-direction: column;
 }

@@ -9,7 +9,14 @@ function Main() {
 		<main className='main'>
 			<Switch>
 				<Route path='/home'>
-					<Feed />
+					<div>
+						<Feed />
+					</div>
+				</Route>
+				<Route path='/'>
+					<div>
+						<Feed />
+					</div>
 				</Route>
 			</Switch>
 		</main>
