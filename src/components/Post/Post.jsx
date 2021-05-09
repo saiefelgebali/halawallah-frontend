@@ -1,5 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import PostComments from "./PostComments";
+import Username from "./Username";
 import "./Post.scss";
 
 // Top section of post
@@ -10,6 +11,7 @@ const PostHead = () => (
 			<ProfilePicture
 				username='saiefelgebali'
 				src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
+				onDragStart={(e) => e.preventDefault()}
 			/>
 			<Username username='saiefelgebali' />
 		</div>
@@ -36,29 +38,22 @@ const PostBody = () => (
 
 // Bottom section of post
 // Contains caption, profile, actions and comments
-const PostFoot = () => (
-	<div className='foot'>
-		<div className='details'>
-			<Username username='saiefelgebali' />
-			<span className='caption'>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Eligendi, tempore at. Aspernatur magnam aut optio nesciunt
-				cumque non minus ullam voluptatem ducimus consectetur maiores,
-				maxime illo, praesentium exercitationem iusto ad.
-			</span>
+const PostFoot = () => {
+	return (
+		<div className='foot'>
+			<div className='details'>
+				<Username username='saiefelgebali' />
+				<span className='caption'>
+					Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+					Eligendi, tempore at. Aspernatur magnam aut optio nesciunt
+					cumque non minus ullam voluptatem ducimus consectetur
+					maiores, maxime illo, praesentium exercitationem iusto ad.
+				</span>
+				<PostComments />
+			</div>
 		</div>
-		<div className='comments'>
-			<div className='header'>Comments (0)</div>
-		</div>
-	</div>
-);
-
-// Utility Components
-const Username = ({ username }) => (
-	<Link to={`/profile/${username}`} className='username'>
-		{username}
-	</Link>
-);
+	);
+};
 
 const ProfilePicture = ({ username, src }) => (
 	<Link to={`/profile/${username}`} className='pfp'>

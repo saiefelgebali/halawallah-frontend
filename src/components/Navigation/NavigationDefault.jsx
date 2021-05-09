@@ -10,29 +10,37 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./NavigationDefault.scss";
 
-function NavigationDefault() {
-	// Menu Setup
-	const PagesMenu = () => (
-		<div className='menu'>
-			<MenuItem icon={faHome} label='Home' to='/home' />
-			<MenuItem icon={faPlus} label='Create' to='/create' />
-			<MenuItem icon={faSearch} label='Search' to='/search' />
-			<MenuItem icon={faComments} label='Messages' to='/messages' />
-		</div>
-	);
-
-	// Menu Item Layout to be Repeated
-	const MenuItem = ({ icon, label, to }) => (
-		<Link to={to || "#"} className='item'>
+// Menu Setup
+const PagesMenu = () => (
+	<div className='menu'>
+		<div className='item'>
 			<div className='content'>
 				<div className='icon'>
-					<FontAwesomeIcon icon={icon} />
+					<div className='hw-logo'>هلا</div>
 				</div>
-				<div className='label'>{label}</div>
+				<div className='label'>Hala Wallah</div>
 			</div>
-		</Link>
-	);
+		</div>
+		<MenuItem icon={faHome} label='Home' to='/home' />
+		<MenuItem icon={faPlus} label='Create' to='/create' />
+		<MenuItem icon={faSearch} label='Search' to='/search' />
+		<MenuItem icon={faComments} label='Messages' to='/messages' />
+	</div>
+);
 
+// Menu Item Layout to be Repeated
+const MenuItem = ({ icon, label, to }) => (
+	<Link to={to || "#"} className='item'>
+		<div className='content'>
+			<div className='icon'>
+				<FontAwesomeIcon icon={icon} />
+			</div>
+			<div className='label'>{label}</div>
+		</div>
+	</Link>
+);
+
+function NavigationDefault() {
 	return (
 		<header className='sidebar'>
 			<div className='banner'>
