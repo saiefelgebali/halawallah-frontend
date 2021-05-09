@@ -97,9 +97,20 @@
 			}
 			.section {
 				padding: 1rem;
-				.comment {
-					padding: 1rem 0rem;
-					border-bottom: 1px solid $border-primary;
+				padding-bottom: 0;
+				.list {
+					display: flex;
+					flex-direction: column;
+					.comment {
+						padding: 1rem 0rem;
+						border-bottom: 1px solid $border-primary;
+					}
+					.show-more {
+						cursor: pointer;
+						color: $primary;
+						font-weight: 600;
+						padding: 1rem 0rem;
+					}
 				}
 			}
 			.compose {

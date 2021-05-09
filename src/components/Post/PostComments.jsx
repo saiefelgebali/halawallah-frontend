@@ -3,7 +3,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Username from "./Username";
 
-export const Comment = () => {
+// Maps out comments
+// Handle pagination
+const Comments = () => {
+	return (
+		<div className='list'>
+			<Comment />
+			<Comment />
+			<Comment />
+			<div className='show-more'>Show more</div>
+		</div>
+	);
+};
+
+const Comment = () => {
 	return (
 		<div className='comment'>
 			<Username username='commenter' />
@@ -32,8 +45,6 @@ const ComposeComment = () => {
 	);
 };
 
-// Comments relating to a specific post
-// Handle creating and getting new comments
 function PostComments() {
 	// Comment section is active state
 	const [collapsed, setCollapsed] = useState(true);
@@ -49,9 +60,7 @@ function PostComments() {
 			</div>
 			<div className='section'>
 				<ComposeComment />
-				<div className='list'>
-					<Comment />
-				</div>
+				<Comments />
 			</div>
 		</div>
 	);
