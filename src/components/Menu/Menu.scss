@@ -1,0 +1,54 @@
+@import "../../sassStyles/mixins";
+@import "../../sassStyles/variables";
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+	.item {
+		cursor: pointer;
+		user-select: none;
+		color: $primary;
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		transition: 0.1s;
+		border-radius: 50%;
+		width: 4rem;
+		padding: 1rem;
+		@include breakpoint(lg) {
+			border-radius: 2rem;
+			padding: 1rem 2rem;
+			width: 100%;
+			height: 100%;
+		}
+		.content {
+			display: flex;
+			gap: 1rem;
+			width: 100%;
+			justify-content: center;
+			@include breakpoint(lg) {
+				justify-content: flex-start;
+			}
+			.icon {
+				svg {
+					height: 2rem;
+					width: 2rem;
+				}
+			}
+			.label {
+				overflow-x: hidden;
+				text-overflow: ellipsis;
+				display: none;
+				@include breakpoint(lg) {
+					display: block;
+				}
+			}
+		}
+	}
+	.item:hover {
+		background-color: $primary;
+		color: white;
+	}
+}
