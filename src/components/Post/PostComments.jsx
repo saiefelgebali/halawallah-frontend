@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import Username from "./Username";
+import Username from "../_shared/Username";
+import styles from "./PostComments.module.scss";
 
 // Maps out comments
 // Handle pagination
 const Comments = () => {
 	return (
-		<div className='list'>
+		<div className={styles.list}>
 			<Comment />
 			<Comment />
 			<Comment />
-			<div className='show-more'>Show more</div>
+			<div className={styles["show-more"]}>Show more</div>
 		</div>
 	);
 };
 
 const Comment = () => {
 	return (
-		<div className='comment'>
-			<Username username='commenter' />
+		<div className={styles.comment}>
+			<Username username='commenter' className={styles.username} />
 			<span>
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam,
 				ad iusto quos porro ducimus veritatis quisquam perferendis
@@ -32,7 +33,7 @@ const Comment = () => {
 
 const ComposeComment = () => {
 	return (
-		<div className='compose'>
+		<div className={styles.compose}>
 			<textarea
 				name='text'
 				id=''
@@ -51,14 +52,17 @@ function PostComments() {
 	const toggleCollapsed = () => setCollapsed((prev) => !prev);
 
 	return (
-		<div className={`comments ${collapsed ? "collapsed" : ""}`}>
-			<div className='header' onClick={toggleCollapsed}>
+		<div
+			className={`${styles.comments} ${
+				collapsed ? styles.collapsed : ""
+			}`}>
+			<div className={styles.header} onClick={toggleCollapsed}>
 				<div>Comments (0)</div>
-				<div className='arrow'>
+				<div className={styles.arrow}>
 					<FontAwesomeIcon icon={faChevronDown} />
 				</div>
 			</div>
-			<div className='section'>
+			<div className={styles.section}>
 				<ComposeComment />
 				<Comments />
 			</div>

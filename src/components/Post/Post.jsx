@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
 import PostComments from "./PostComments";
-import Username from "./Username";
-import "./Post.scss";
+import Username from "../_shared/Username";
+import styles from "./Post.module.scss";
 
 // Top section of post
 // Contains profile & post details
 const PostHead = () => (
-	<div className='head'>
-		<div className='section'>
+	<div className={styles.head}>
+		<div className={styles.section}>
 			<ProfilePicture
 				username='saiefelgebali'
 				src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
 				onDragStart={(e) => e.preventDefault()}
 			/>
-			<Username username='saiefelgebali' />
+			<Username username='saiefelgebali' className={styles.username} />
 		</div>
-		<div className='section'>
-			<div className='timestamp'>11:59 AM</div>
-			<div className='settings'></div>
+		<div className={styles.section}>
+			<div className={styles.timestamp}>11:59 AM</div>
+			<div className={styles.settings}></div>
 		</div>
 	</div>
 );
@@ -25,8 +25,8 @@ const PostHead = () => (
 // Middle section of post
 // Contains the actual content of the post
 const PostBody = () => (
-	<div className='body'>
-		<div className='content'>
+	<div className={styles.body}>
+		<div className={styles.content}>
 			<img
 				src='https://i.ytimg.com/vi/-pKIqFjM65I/maxresdefault.jpg'
 				alt=''
@@ -40,10 +40,13 @@ const PostBody = () => (
 // Contains caption, profile, actions and comments
 const PostFoot = () => {
 	return (
-		<div className='foot'>
-			<div className='details'>
-				<Username username='saiefelgebali' />
-				<span className='caption'>
+		<div className={styles.foot}>
+			<div className={styles.details}>
+				<Username
+					username='saiefelgebali'
+					className={styles.username}
+				/>
+				<span className={styles.caption}>
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 					Eligendi, tempore at. Aspernatur magnam aut optio nesciunt
 					cumque non minus ullam voluptatem ducimus consectetur
@@ -56,7 +59,7 @@ const PostFoot = () => {
 };
 
 const ProfilePicture = ({ username, src }) => (
-	<Link to={`/profile/${username}`} className='pfp'>
+	<Link to={`/profile/${username}`} className={styles.pfp}>
 		<img src={src} alt='' />
 	</Link>
 );
@@ -64,7 +67,7 @@ const ProfilePicture = ({ username, src }) => (
 // Complete Post Component
 function Post() {
 	return (
-		<div className='post'>
+		<div className={styles.post}>
 			<PostHead />
 			<PostBody />
 			<PostFoot />

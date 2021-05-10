@@ -1,0 +1,9 @@
+@import "../../sassStyles/variables";
+
+.menu {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+}

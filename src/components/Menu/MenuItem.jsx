@@ -1,32 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./MenuItem.module.scss";
 
-const MenuItem = ({ icon, label, to, onClick }) => {
-	// Return a page link menu item if a value for 'to' is passed
-	if (to)
-		return (
-			<Link to={to} className='item'>
-				<div className='content'>
-					<div className='icon'>
-						<FontAwesomeIcon icon={icon} />
-					</div>
-					<div className='label'>{label}</div>
-				</div>
-			</Link>
-		);
-
-	// Return a generic menu item
-	return (
-		<div className='item' onClick={onClick}>
-			<div className='content'>
-				<div className='icon'>
-					<FontAwesomeIcon icon={icon} />
-				</div>
-				<div className='label'>{label}</div>
-			</div>
-		</div>
-	);
+const MenuItemIcon = ({ icon }) => {
+	// If a valid FontAwesomeIcon is passed, use it
+	if (icon && icon.icon && icon.prefix)
+		return <FontAwesomeIcon icon={icon} />;
+	else return icon;
 };
+
+function MenuItem({ icon, label, to, onClick }) {
+	// Return a link menu item if a value for 'to' is passed
+	if (to) return <MenuItemLink icon={icon} label={label} to={to} />;
+
+	// Return a generic menu item with an onClick function
+	return <MenuItemClick icon={icon} label={label} onClick={onClick} />;
+}
+
+// Has an onClick function
+const MenuItemClick = ({ icon, label, onClick }) => (
+	<li className={styles.item} onClick={onClick}>
+		<div className={styles.content}>
+			<div className={styles.icon}>
+				<MenuItemIcon icon={icon} />
+			</div>
+			<div className={styles.label}>{label}</div>
+		</div>
+	</li>
+);
+
+// When clicked navigates to link
+const MenuItemLink = ({ icon, label, to }) => (
+	<li className={styles.item}>
+		<Link to={to}>
+			<div className={styles.content}>
+				<div className={styles.icon}>
+					<MenuItemIcon icon={icon} />
+				</div>
+				<div className={styles.label}>{label}</div>
+			</div>
+		</Link>
+	</li>
+);
 
 export default MenuItem;
