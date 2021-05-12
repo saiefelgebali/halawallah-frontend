@@ -1,0 +1,25 @@
+@import "../../sassStyles/variables";
+
+.item {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 1rem;
+	border-radius: 1rem;
+	white-space: nowrap;
+	transition: background-color 0.2s ease-out;
+	color: $primary;
+	font-weight: 500;
+	&:hover {
+		background-color: darken($struct-white, 10);
+	}
+	.left {
+		margin-right: 1rem;
+	}
+	.label {
+		margin-right: 1rem;
+	}
+	.right {
+		margin-left: auto;
+	}
+}
