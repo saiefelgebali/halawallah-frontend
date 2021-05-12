@@ -1,42 +1,62 @@
 @import "../../sassStyles/variables";
+
+$speed: 250ms;
+$offset: 2rem;
+
 .dropdown {
+	// Positioning
 	user-select: none;
 	position: absolute;
-	bottom: 125%;
+	bottom: 100%;
+	transform: translateY(-$offset);
 	left: 0;
 	z-index: 10;
+	// Structure
 	display: flex;
 	flex-direction: column;
 	min-width: 100%;
 	padding: 0.5rem;
+	overflow: hidden;
+	// Style
 	border: 1px solid $border-primary;
 	border-radius: 1rem;
 	background-color: $struct-white;
-	animation: fade-in 0.2s ease-out;
-
-	.item {
-		display: flex;
-		cursor: pointer;
-		width: 100%;
-		padding: 1rem;
-		border-radius: 1rem;
-		white-space: nowrap;
-		transition: background-color 0.2s ease-out;
-		&:hover {
-			background-color: darken($struct-white, 10);
-		}
+	box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+	pointer-events: none;
+	&.open {
+		opacity: 1;
+		animation: fade-in 0.2s ease-out;
+		pointer-events: all;
+	}
+	&.closed {
+		opacity: 0;
+		animation: fade-out 0.2s ease-out;
+		pointer-events: none;
 	}
 
 	@keyframes fade-in {
 		0% {
 			opacity: 0;
-			bottom: 100%;
+			transform: translateY(0rem);
 		}
 		75% {
-			opacity: 1;
+			transform: translateY(-$offset);
 		}
 		100% {
-			bottom: 125%;
+			opacity: 1;
+		}
+	}
+	@keyframes fade-out {
+		0% {
+			opacity: 1;
+			transform: translateY(-$offset);
+		}
+		75% {
+			transform: translateY(0);
+		}
+		100% {
+			opacity: 0;
 		}
 	}
 }

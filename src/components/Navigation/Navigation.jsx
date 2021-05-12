@@ -1,12 +1,13 @@
 import React from "react";
 import NavigationDefault from "../NavigationDefault/NavigationDefault";
-import NavigationTouch from "../NavigationTouch/NavigationTouch";
+// import NavigationTouch from "../NavigationTouch/NavigationTouch";
 import { isTouchDevice } from "../../util/touch";
 
 function Navigation() {
 	// Touch-based UI Navigation
 	if (isTouchDevice()) {
-		return <NavigationTouch />;
+		return <NavigationDefault />;
+		// return <NavigationTouch />;
 	}
 
 	// Default UI

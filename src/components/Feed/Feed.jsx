@@ -1,10 +1,10 @@
 import React from "react";
 import Post from "../Post/Post";
-import "./Feed.scss";
+import styles from "./Feed.module.scss";
 
 function Feed() {
 	return (
-		<div className='feed'>
+		<div className={styles.feed}>
 			<Post />
 			<Post />
 		</div>

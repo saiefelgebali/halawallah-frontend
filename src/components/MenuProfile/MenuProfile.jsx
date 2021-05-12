@@ -5,16 +5,16 @@ import Menu from "../Menu/Menu";
 import MenuItem from "../Menu/MenuItem";
 
 function MenuProfile() {
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState();
 
 	return (
 		<Menu>
-			<Dropdown open={open} />
+			<Dropdown open={open} setOpen={setOpen} />
 
 			<MenuItem
 				icon={faUser}
 				label='Profile'
-				onClick={() => setOpen(!open)}
+				onClick={() => setOpen(true)}
 			/>
 		</Menu>
 	);

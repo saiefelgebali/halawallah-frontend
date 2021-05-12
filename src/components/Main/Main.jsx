@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import Feed from "../Feed/Feed";
-import "./Main.scss";
+import styles from "./Main.module.scss";
 
 function Main() {
 	// Handle routing
 	return (
-		<main className='main'>
+		<main className={styles.main}>
 			<Switch>
 				<Route path='/home'>
 					<div>

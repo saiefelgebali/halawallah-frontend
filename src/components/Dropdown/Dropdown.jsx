@@ -1,25 +1,58 @@
-// import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
+import { faCog, faMoon } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Dropdown.module.scss";
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import DropdownItem from "../DropdownItem/DropdownItem";
 
-function Dropdown({ open }) {
-	// const [activeMenu, setActiveMenu] = useState("main");
+function Dropdown({ open, setOpen }) {
+	const dropdown = useRef();
 
-	function DropdownItem(props) {
-		return (
-			<div className={styles.item}>
-				{props.leftIcon}
-				{props.children}
-				{props.rightIcon}
-			</div>
-		);
-	}
+	// Handle dropdown exit
+	useEffect(() => {
+		// Add event listeners if dropdown open
+		if (open && dropdown && dropdown.current) {
+			addListeners();
+		}
+
+		function handleClose(event) {
+			// Block if event is targeted at dropdown
+			if (event.composedPath().includes(dropdown.current)) {
+				return;
+			}
+			// Close dropdown and remove listeners
+			removeListeners();
+			setOpen(false);
+			// Set dropdown animation
+			dropdown.current.classList.add(styles.closed);
+		}
+
+		function addListeners() {
+			document.addEventListener("click", handleClose);
+			document.addEventListener("scroll", handleClose);
+		}
+
+		function removeListeners() {
+			document.removeEventListener("click", handleClose);
+			document.removeEventListener("scroll", handleClose);
+		}
+
+		return () => {
+			removeListeners();
+		};
+	}, [open, setOpen]);
 
 	return (
-		<div className={styles.dropdown}>
-			<div className={styles.menu}>
-				<DropdownItem goToMenu='settings'>Wag1</DropdownItem>
-				<DropdownItem goToMenu='settings'>Wag2</DropdownItem>
-			</div>
+		<div
+			ref={dropdown}
+			className={`${styles.dropdown} ${open ? styles.open : ""}`}>
+			<DropdownMenu>
+				<DropdownItem
+					leftIcon={faCog}
+					label='Settings'
+					goToMenu='settings'
+				/>
+				<DropdownItem leftIcon={faMoon} label='Dark Mode' />
+			</DropdownMenu>
 		</div>
 	);
 }
