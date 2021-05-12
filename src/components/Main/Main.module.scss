@@ -7,7 +7,6 @@
 	div:first-of-type {
 		transition: 0.2s ease-out;
 	}
-
 	@include breakpoint(xs) {
 		min-width: 0;
 		div:first-of-type {

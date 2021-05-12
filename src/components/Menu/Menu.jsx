@@ -3,7 +3,7 @@ import styles from "./Menu.module.scss";
 
 function Menu({ children }) {
 	// Generic menu component
-	return <ul className={styles.menu}>{children}</ul>;
+	return <div className={styles.menu}>{children}</div>;
 }
 
 export default Menu;
