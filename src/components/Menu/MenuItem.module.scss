@@ -3,7 +3,6 @@
 
 .item {
 	cursor: pointer;
-	list-style: none;
 	user-select: none;
 	position: relative;
 	color: $primary;
@@ -29,6 +28,8 @@
 			justify-content: flex-start;
 		}
 		.icon {
+			height: 2rem;
+			width: 2rem;
 			svg {
 				height: 2rem;
 				width: 2rem;
@@ -43,10 +44,12 @@
 			}
 		}
 	}
-	&:hover {
-		background-color: $primary;
-		.content {
-			color: white;
+	@media (hover: hover) {
+		&:hover {
+			background-color: $primary;
+			.content {
+				color: white;
+			}
 		}
 	}
 }

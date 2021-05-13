@@ -1,0 +1,21 @@
+$speed: 250ms;
+
+.enter {
+	position: absolute;
+	transform: translateX(-110%);
+}
+
+.enterActive {
+	transform: translateX(0%);
+	transition: all $speed ease;
+}
+
+.exit {
+	transform: translateX(0%);
+	position: absolute;
+}
+
+.exitActive {
+	transform: translateX(-110%);
+	transition: all $speed ease;
+}

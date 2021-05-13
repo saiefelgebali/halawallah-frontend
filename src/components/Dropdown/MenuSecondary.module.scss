@@ -1,0 +1,18 @@
+$speed: 250ms;
+
+.enter {
+	transform: translateX(110%);
+}
+
+.enterActive {
+	transform: translateX(0%);
+	transition: transform $speed ease;
+}
+
+.exit {
+}
+
+.exitActive {
+	transform: translateX(110%);
+	transition: transform $speed ease;
+}

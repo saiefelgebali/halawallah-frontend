@@ -32,14 +32,32 @@
 		display: flex;
 		justify-content: space-between;
 		.section {
+			color: $primary;
 			display: flex;
 			align-items: center;
 			.pfp {
 				margin-right: 1rem;
 			}
+			.username {
+				margin-right: 1rem;
+			}
 			.timestamp {
-				color: $primary;
-				font-weight: 400;
+				font-weight: 500;
+			}
+			.options {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 100%;
+				.icon {
+					height: 2rem;
+					width: 2rem;
+					> svg {
+						height: 100%;
+						width: 100%;
+					}
+				}
 			}
 		}
 	}

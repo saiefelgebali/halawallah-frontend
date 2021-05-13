@@ -1,29 +1,42 @@
 @import "../../sassStyles/variables";
 
 $speed: 250ms;
-$offset: 2rem;
+$offset: 1rem;
 
 .dropdown {
 	// Positioning
-	user-select: none;
 	position: absolute;
-	bottom: 100%;
-	transform: translateY(-$offset);
-	left: 0;
-	z-index: 10;
+	z-index: 15;
+	&.over {
+		bottom: 100%;
+		transform: translateY(-$offset);
+	}
+
+	&.under {
+		top: 100%;
+		transform: translateY($offset);
+	}
+
+	&.left {
+		left: 0;
+	}
+
+	&.right {
+		right: 0;
+	}
 	// Structure
-	display: flex;
-	flex-direction: column;
 	min-width: 100%;
-	padding: 0.5rem;
 	overflow: hidden;
 	// Style
+	user-select: none;
 	border: 1px solid $border-primary;
 	border-radius: 1rem;
 	background-color: $struct-white;
 	box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
 	opacity: 0;
 	pointer-events: none;
+	overflow: hidden;
+	transition: height 0.2s ease;
 	&.open {
 		opacity: 1;
 		animation: fade-in 0.2s ease-out;
@@ -41,7 +54,12 @@ $offset: 2rem;
 			transform: translateY(0rem);
 		}
 		75% {
-			transform: translateY(-$offset);
+			&.over {
+				transform: translateY(-$offset);
+			}
+			&.under {
+				transform: translateY($offset);
+			}
 		}
 		100% {
 			opacity: 1;
@@ -50,7 +68,12 @@ $offset: 2rem;
 	@keyframes fade-out {
 		0% {
 			opacity: 1;
-			transform: translateY(-$offset);
+			&.over {
+				transform: translateY($offset);
+			}
+			&.under {
+				transform: translateY(-$offset);
+			}
 		}
 		75% {
 			transform: translateY(0);
