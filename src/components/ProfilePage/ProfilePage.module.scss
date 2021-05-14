@@ -2,29 +2,61 @@
 @import "../../sassStyles/mixins";
 
 .profile {
+	user-select: none;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	.profileHead {
-		background-color: blue;
-		user-select: none;
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		border: 1px solid $border-primary;
-		margin-bottom: 2rem;
-		border-radius: 1rem;
 		background-color: $post-background;
+		display: grid;
+		padding: 1rem;
+		.details {
+			display: flex;
+			margin-bottom: 1rem;
+			.left {
+				.pfp {
+					width: 4rem;
+					height: 4rem;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 0.2rem;
+					}
+				}
+			}
+			.right {
+				margin-left: 1rem;
+				.username {
+					font-size: 1.4rem;
+					font-weight: 600;
+					color: $primary;
+				}
+				.bio {
+					color: lighten(black, 40);
+				}
+			}
+		}
+		.control {
+			display: flex;
+			.editButton {
+				cursor: pointer;
+				background-color: $primary;
+				color: white;
+				border-radius: 1rem;
+				padding: 0.5rem 1rem;
+				margin: 0rem 0.5rem;
+				width: 100%;
+			}
+		}
 	}
 	.profileContent {
-		background-color: blueviolet;
 		user-select: none;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		border: 1px solid $border-primary;
-		margin-bottom: 2rem;
-		border-radius: 1rem;
 		background-color: $post-background;
+		padding: 1rem;
 	}
 }

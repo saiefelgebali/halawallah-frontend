@@ -21,15 +21,19 @@
 		}
 	}
 	@include breakpoint(md) {
-		width: $breakpoint-md - $sidebar-md;
+		width: $breakpoint-sm;
+		// width: $breakpoint-md - $sidebar-md;
 		div:first-of-type {
-			max-width: $breakpoint-md - $sidebar-md;
+			max-width: $breakpoint-sm;
+			// max-width: $breakpoint-md - $sidebar-md;
 		}
 	}
 	@include breakpoint(lg) {
-		width: $breakpoint-lg - $sidebar-lg;
+		width: $breakpoint-sm;
+		// width: $breakpoint-lg - $sidebar-lg;
 		div:first-of-type {
-			max-width: $breakpoint-lg - $sidebar-lg;
+			max-width: $breakpoint-sm;
+			// max-width: $breakpoint-lg - $sidebar-lg;
 		}
 	}
 }
