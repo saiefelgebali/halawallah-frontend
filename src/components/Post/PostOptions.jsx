@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function PostOptions() {
 	const [open, setOpen] = useState(false);
-	const [activeMenu, setActiveMenu] = useState("main");
 
 	return (
 		<div className={styles.options}>
@@ -16,7 +15,7 @@ function PostOptions() {
 				<FontAwesomeIcon icon={faEllipsisH} />
 			</div>
 
-			<Dropdown open={open} setOpen={setOpen} activeMenu={activeMenu}>
+			<Dropdown open={open} setOpen={setOpen} activeMenu={"main"}>
 				<DropdownMenu name='main'>
 					<DropdownItem label='Delete' left />
 				</DropdownMenu>
