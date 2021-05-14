@@ -5,14 +5,11 @@ import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import Menu from "../Menu/Menu";
 import MenuItem from "../Menu/MenuItem";
 import {
-	faChevronLeft,
 	faChevronRight,
 	faCog,
-	faMoon,
-	faSignOutAlt,
 	faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import Switch from "../_shared/Switch";
+import SettingsMenu from "./SettingsMenu";
 
 function MenuProfile() {
 	/**
@@ -41,23 +38,6 @@ function MenuProfile() {
 		</DropdownMenu>
 	);
 
-	const SettingsMenu = () => (
-		<DropdownMenu name='settings' secondary>
-			<h2>Settings</h2>
-			<DropdownItem
-				label='Back'
-				leftIcon={faChevronLeft}
-				action={() => setActiveMenu("main")}
-			/>
-			<DropdownItem
-				label='Dark Mode'
-				leftIcon={faMoon}
-				right={<Switch />}
-			/>
-			<DropdownItem label='Log Out' leftIcon={faSignOutAlt} />
-		</DropdownMenu>
-	);
-
 	return (
 		<Menu>
 			<Dropdown
@@ -67,7 +47,7 @@ function MenuProfile() {
 				over
 				left>
 				{MainMenu()}
-				{SettingsMenu()}
+				{SettingsMenu({ setActiveMenu })}
 			</Dropdown>
 			<MenuItem
 				icon={faUser}

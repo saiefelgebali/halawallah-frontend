@@ -5,7 +5,7 @@
 	cursor: pointer;
 	user-select: none;
 	position: relative;
-	color: $primary;
+	color: var(--nav-item-foreground);
 	font-size: 1.25rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
@@ -46,9 +46,9 @@
 	}
 	@media (hover: hover) {
 		&:hover {
-			background-color: $primary;
+			background-color: var(--nav-item-background-hover);
 			.content {
-				color: white;
+				color: var(--white);
 			}
 		}
 	}

@@ -5,10 +5,10 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	border: 1px solid $border-primary;
+	border: 1px solid var(--border-primary);
 	margin-bottom: 2rem;
 	border-radius: 1rem;
-	background-color: $post-background;
+	background-color: var(--post-background);
 
 	.pfp {
 		cursor: pointer;
@@ -32,7 +32,7 @@
 		display: flex;
 		justify-content: space-between;
 		.section {
-			color: $primary;
+			color: var(--text-primary);
 			display: flex;
 			align-items: center;
 			.pfp {

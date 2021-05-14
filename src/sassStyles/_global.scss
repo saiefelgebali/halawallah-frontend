@@ -1,13 +1,5 @@
 @import "./variables";
-
-// Colors
-:root {
-	--color-page-background: #{$struct-light};
-}
-
-.dark {
-	--color-page-background: #{$struct-dark};
-}
+@import "./themes";
 
 // Setup
 * {
@@ -15,6 +7,7 @@
 	margin: 0;
 	padding: 0;
 	-webkit-tap-highlight-color: transparent;
+	transition: background-color 1000ms ease;
 }
 
 a {
@@ -24,8 +17,9 @@ a {
 }
 
 body {
-	background-color: var(--color-page-background);
+	background-color: var(--page-background);
 	line-height: 1.5;
+	transition: background-color 1000ms ease, color 500ms ease;
 }
 
 // Global Components

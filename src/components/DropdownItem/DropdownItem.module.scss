@@ -8,7 +8,7 @@
 	border-radius: 1rem;
 	white-space: nowrap;
 	transition: background-color 0.2s ease-out;
-	color: $primary;
+	color: var(--text-primary);
 	font-weight: 500;
 
 	.left {
