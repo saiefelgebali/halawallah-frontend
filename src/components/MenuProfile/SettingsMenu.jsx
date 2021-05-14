@@ -9,18 +9,19 @@ import DropdownItem from "../DropdownItem/DropdownItem";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 
 function SettingsMenu({ setActiveMenu }) {
+	// Check if dark mode is on
+	function isDarkMode() {
+		return document.body.classList.contains("dark");
+	}
+
 	// Handle Dark Mode
-	function setDarkMode() {
-		return (document.body.className = "dark");
-	}
-	function setLightMode() {
-		return (document.body.className = "light");
-	}
 	function toggleDarkMode(event) {
 		if (event.target.checked) {
-			setDarkMode();
+			localStorage.setItem("theme", "dark");
+			document.body.classList.replace("light", "dark");
 		} else {
-			setLightMode();
+			localStorage.setItem("theme", "light");
+			document.body.classList.replace("dark", "light");
 		}
 	}
 
@@ -35,7 +36,9 @@ function SettingsMenu({ setActiveMenu }) {
 			<DropdownItem
 				label='Dark Mode'
 				leftIcon={faMoon}
-				right={<Switch onChange={toggleDarkMode} />}
+				right={
+					<Switch checked={isDarkMode()} onChange={toggleDarkMode} />
+				}
 			/>
 			<DropdownItem label='Log Out' leftIcon={faSignOutAlt} />
 		</DropdownMenu>

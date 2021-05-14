@@ -4,8 +4,14 @@ import reducer from "./reducer";
 export const Store = createContext();
 
 export function StoreProvider({ children }) {
+	// Get initial theme from localStorage - default white
+	const theme = localStorage.getItem("theme") || "light";
+
+	// Set default theme
+	document.body.className = theme;
+
 	const initialState = {
-		theme: "dark",
+		theme,
 	};
 
 	const [state, dispatch] = useReducer(reducer, initialState);

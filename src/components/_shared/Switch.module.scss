@@ -20,7 +20,7 @@ $speed: 150ms;
 		right: 0;
 		bottom: 0;
 		background-color: #ccc;
-		transition: $speed;
+		transition: background-color $speed;
 		&.rounded {
 			border-radius: 34px;
 		}
