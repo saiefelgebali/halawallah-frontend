@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import Feed from "../Feed/Feed";
+import ProfilePage from "../ProfilePage/ProfilePage";
 import styles from "./Main.module.scss";
 
 function Main() {
@@ -9,14 +10,13 @@ function Main() {
 		<main className={styles.main}>
 			<Switch>
 				<Route path='/home'>
-					<div>
-						<Feed />
-					</div>
+					<Feed />
+				</Route>
+				<Route path='/profile/:username'>
+					<ProfilePage />
 				</Route>
 				<Route path='/'>
-					<div>
-						<Feed />
-					</div>
+					<Feed />
 				</Route>
 			</Switch>
 		</main>

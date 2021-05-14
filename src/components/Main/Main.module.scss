@@ -9,7 +9,7 @@
 		transition: 0.2s ease-out;
 	}
 	@include breakpoint(xs) {
-		min-width: 0;
+		width: 100%;
 		div:first-of-type {
 			max-width: $breakpoint-md - $sidebar-md;
 		}
