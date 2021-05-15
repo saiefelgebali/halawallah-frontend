@@ -48,7 +48,7 @@
 		&:hover {
 			background-color: var(--nav-item-background-hover);
 			.content {
-				color: var(--white);
+				color: var(--nav-item-foreground-hover);
 			}
 		}
 	}

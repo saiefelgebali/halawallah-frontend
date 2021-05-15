@@ -18,7 +18,6 @@ a {
 body {
 	background-color: var(--page-background);
 	line-height: 1.5;
-	transition: background-color 1000ms ease, color 500ms ease;
 }
 
 // Global Components
@@ -29,7 +28,7 @@ body {
 .username {
 	cursor: pointer;
 	font-weight: 600;
-	color: $primary;
+	color: var(--username);
 }
 
 .username:hover {

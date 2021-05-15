@@ -7,22 +7,25 @@
 	padding: 1rem;
 	border-radius: 1rem;
 	white-space: nowrap;
-	transition: background-color 0.2s ease-out;
-	color: var(--text-primary);
+	color: var(--text);
 	font-weight: 500;
+	transition: background-color 0.2s ease-out;
 
 	.left {
 		margin-right: 1rem;
 	}
+
 	.label {
 		margin-right: 1rem;
 	}
+
 	.right {
 		margin-left: auto;
 	}
+
 	@media (hover: hover) {
 		&:hover {
-			background-color: darken($struct-white, 10);
+			background-color: var(--dropdown-item-hover);
 		}
 	}
 }

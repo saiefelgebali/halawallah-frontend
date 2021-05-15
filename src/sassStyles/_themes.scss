@@ -1,9 +1,12 @@
 // Structure Colors
 :root {
-	--white: #ffffff;
+	--white0: #ffffff;
 	--gray0: #f2f4f3;
-	--gray1: #b6b8ba;
-	--black: #000000;
+	--gray1: #d8dbdd;
+	--gray2: #b6b8ba;
+	--gray2: #505253;
+	--black0: #000000;
+	--black1: #07020d;
 
 	// Theme Colors
 	--blue: #273469;
@@ -12,38 +15,54 @@
 	--green: #28502e;
 }
 
-// Setup
-:root {
-	--page-background: var(--gray0);
-	--post-background: var(--white);
-	--border-primary: var(--gray1);
-	--text-title: var(--blue);
-	--text-primary: var(--black);
-	--text-secondary: var(--gray1);
-	--nav-item-background-hover: var(--blue);
-	--nav-item-foreground: var(--blue);
-}
-
 .light {
-	--page-background: var(--gray0);
-	--post-background: var(--white);
-	--border-primary: var(--gray1);
+	// General
+	--username: var(--blue);
+
+	// Text
+	--text: var(--black0);
 	--text-title: var(--blue);
-	--text-primary: var(--black);
-	--text-secondary: var(--gray1);
+
+	// Page
+	--page-background: var(--gray0);
+
+	// Navbar
 	--nav-item-background-hover: var(--blue);
 	--nav-item-foreground: var(--blue);
-	--dropdown-background: var(--white);
+	--nav-item-foreground-hover: var(--white0);
+
+	// Post
+	--post-background: var(--white0);
+	--post-border: var(--gray1);
+
+	// Dropdown
+	--dropdown-background: var(--white0);
+	--dropdown-box-shadow: rgba(0, 0, 0, 0.2);
+	--dropdown-item-hover: var(--gray1);
 }
 
 .dark {
-	--page-background: var(--black);
-	--post-background: var(--gray1);
-	--border-primary: var(--white);
-	--text-title: var(--blue);
-	--text-primary: var(--white);
-	--text-secondary: var(--white);
+	// General
+	--username: var(--white0);
+
+	// Text
+	--text: var(--white0);
+	--text-title: var(--white0);
+
+	// Page
+	--page-background: var(--black1);
+
+	// Navbar
 	--nav-item-background-hover: var(--blue);
-	--nav-item-foreground: var(--white);
-	--dropdown-background: var(--gray1);
+	--nav-item-foreground: var(--white0);
+	--nav-item-foreground-hover: var(--white0);
+
+	// Post
+	--post-background: var(--black0);
+	--post-border: var(--white0);
+
+	// Dropdown
+	--dropdown-background: var(--black0);
+	--dropdown-box-shadow: rgba(255, 255, 255, 0.8);
+	--dropdown-item-hover: var(--gray2);
 }
