@@ -1,0 +1,68 @@
+// Structure Colors
+:root {
+	--white0: #ffffff;
+	--gray0: #f2f4f3;
+	--gray1: #d8dbdd;
+	--gray2: #b6b8ba;
+	--gray2: #505253;
+	--black0: #000000;
+	--black1: #07020d;
+
+	// Theme Colors
+	--blue: #273469;
+	--red: #e84855;
+	--yellow: #f9dc5c;
+	--green: #28502e;
+}
+
+.light {
+	// General
+	--username: var(--blue);
+
+	// Text
+	--text: var(--black0);
+	--text-title: var(--blue);
+
+	// Page
+	--page-background: var(--gray0);
+
+	// Navbar
+	--nav-item-background-hover: var(--blue);
+	--nav-item-foreground: var(--blue);
+	--nav-item-foreground-hover: var(--white0);
+
+	// Post
+	--post-background: var(--white0);
+	--post-border: var(--gray1);
+
+	// Dropdown
+	--dropdown-background: var(--white0);
+	--dropdown-box-shadow: rgba(0, 0, 0, 0.2);
+	--dropdown-item-hover: var(--gray1);
+}
+
+.dark {
+	// General
+	--username: var(--white0);
+
+	// Text
+	--text: var(--white0);
+	--text-title: var(--white0);
+
+	// Page
+	--page-background: var(--black1);
+
+	// Navbar
+	--nav-item-background-hover: var(--blue);
+	--nav-item-foreground: var(--white0);
+	--nav-item-foreground-hover: var(--white0);
+
+	// Post
+	--post-background: var(--black0);
+	--post-border: var(--white0);
+
+	// Dropdown
+	--dropdown-background: var(--black0);
+	--dropdown-box-shadow: rgba(255, 255, 255, 0.8);
+	--dropdown-item-hover: var(--gray2);
+}

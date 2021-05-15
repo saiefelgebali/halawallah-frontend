@@ -5,12 +5,12 @@
 	margin-top: 1rem;
 	.header {
 		padding: 1rem;
-		border-top: 1px solid $border-primary;
+		border-top: 1px solid var(--post-border);
 		font-weight: 600;
-		color: $primary;
 		cursor: pointer;
 		display: flex;
 		justify-content: space-between;
+		color: var(--text-title);
 		.arrow {
 			transition: 0.2s ease-out;
 		}
@@ -21,16 +21,17 @@
 		.list {
 			display: flex;
 			flex-direction: column;
+			color: var(--text);
 			.comment {
 				.username {
+					color: var(--post-username);
 					margin-right: 0.5rem;
 				}
 				padding: 1rem 0rem;
-				border-bottom: 1px solid $border-primary;
+				border-bottom: 1px solid var(--post-border);
 			}
 			.show-more {
 				cursor: pointer;
-				color: $primary;
 				font-weight: 600;
 				padding: 1rem 0rem;
 			}

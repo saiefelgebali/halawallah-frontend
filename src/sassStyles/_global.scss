@@ -1,13 +1,5 @@
 @import "./variables";
-
-// Colors
-:root {
-	--color-page-background: #{$struct-light};
-}
-
-.dark {
-	--color-page-background: #{$struct-dark};
-}
+@import "./themes";
 
 // Setup
 * {
@@ -24,7 +16,7 @@ a {
 }
 
 body {
-	background-color: var(--color-page-background);
+	background-color: var(--page-background);
 	line-height: 1.5;
 }
 
@@ -36,7 +28,7 @@ body {
 .username {
 	cursor: pointer;
 	font-weight: 600;
-	color: $primary;
+	color: var(--username);
 }
 
 .username:hover {

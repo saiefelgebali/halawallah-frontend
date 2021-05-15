@@ -28,7 +28,7 @@
 		top: 0;
 		width: inherit;
 		height: 100%;
-		background-color: $body-background;
+		background-color: var(--body-background);
 		z-index: 1;
 		// Styling
 		padding: 1rem;

@@ -6,7 +6,6 @@ $offset: 1rem;
 .dropdown {
 	// Positioning
 	position: absolute;
-	z-index: 15;
 	&.over {
 		bottom: 100%;
 		transform: translateY(-$offset);
@@ -24,18 +23,18 @@ $offset: 1rem;
 	&.right {
 		right: 0;
 	}
+
 	// Structure
 	min-width: 100%;
 	overflow: hidden;
-	// Style
+	border-radius: 0.5rem;
 	user-select: none;
-	border: 1px solid $border-primary;
-	border-radius: 1rem;
-	background-color: $struct-white;
-	box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
-	opacity: 0;
 	pointer-events: none;
-	overflow: hidden;
+
+	// Style
+	opacity: 0;
+	background-color: var(--dropdown-background);
+	box-shadow: 0px 0px 8px 0px var(--dropdown-box-shadow);
 	transition: height 0.2s ease;
 	&.open {
 		opacity: 1;

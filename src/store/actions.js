@@ -1,10 +1,10 @@
-export const lightMode = (dispatch) => {
+export const setLightMode = (dispatch) => {
 	return dispatch({
 		type: "LIGHT_MODE",
 	});
 };
 
-export const darkMode = (dispatch) => {
+export const setDarkMode = (dispatch) => {
 	return dispatch({
 		type: "DARK_MODE",
 	});

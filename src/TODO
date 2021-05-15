@@ -1,10 +1,15 @@
 [X] Update scss files to be modular
-[ ] Post Options 
+[X] Post Options 
+[X] Dark Mode
+[ ] Set up colors for light and dark themes
 
-[ ] Search page
-[ ] Messages page
+[ ] Dropdown button, :focus-within method instead of event listeners
+[ ] Add clip-rect to dropdowns to create little points
+
 [ ] Profile page
 [ ] Post page
+[ ] Search page
+[ ] Messages page
 [ ] Notifications page
 [ ] Notification Sounds
 
