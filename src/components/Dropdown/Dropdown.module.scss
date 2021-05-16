@@ -6,6 +6,7 @@ $offset: 1rem;
 .dropdown {
 	// Positioning
 	position: absolute;
+	z-index: 10;
 	&.over {
 		bottom: 100%;
 		transform: translateY(-$offset);
