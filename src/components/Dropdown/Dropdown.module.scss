@@ -6,7 +6,6 @@ $offset: 1rem;
 .dropdown {
 	// Positioning
 	position: absolute;
-	z-index: 10;
 	&.over {
 		bottom: 100%;
 		transform: translateY(-$offset);
@@ -30,22 +29,12 @@ $offset: 1rem;
 	overflow: hidden;
 	border-radius: 0.5rem;
 	user-select: none;
-	pointer-events: none;
 
 	// Style
 	background-color: var(--dropdown-background);
 	box-shadow: 0px 0px 8px 0px var(--dropdown-box-shadow);
 	transition: height 0.2s ease;
-	&.open {
-		opacity: 1;
-		animation: fade-in 0.2s ease-out;
-		pointer-events: all;
-	}
-	&.closed {
-		opacity: 0;
-		animation: fade-out 0.2s ease-out;
-		pointer-events: none;
-	}
+	animation: fade-in 0.2s ease-out;
 
 	@keyframes fade-in {
 		0% {
@@ -53,15 +42,15 @@ $offset: 1rem;
 			transform: translateY(0rem);
 		}
 		75% {
+			opacity: 1;
+		}
+		100% {
 			&.over {
 				transform: translateY(-$offset);
 			}
 			&.under {
 				transform: translateY($offset);
 			}
-		}
-		100% {
-			opacity: 1;
 		}
 	}
 	@keyframes fade-out {

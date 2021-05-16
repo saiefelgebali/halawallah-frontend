@@ -1,13 +1,10 @@
 import React, { useState } from "react";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "../../../../components/Dropdown/Dropdown";
 import Menu from "../../../../components/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem";
-import {
-	faChevronRight,
-	faCog,
-	faUser,
-} from "@fortawesome/free-solid-svg-icons";
 import SettingsMenu from "./SettingsMenu";
+import MainMenu from "./MainMenu";
 
 function MenuProfile() {
 	/**
@@ -22,28 +19,19 @@ function MenuProfile() {
 	 * @returns {JSX.Element}
 	 */
 
-	const MainMenu = () => (
-		<div name='main'>
-			<div label='settings' gotoMenu='settings'></div>
-		</div>
-	);
+	const [open, setOpen] = useState(false);
 
 	return (
 		<Menu>
-			<Dropdown
-				button={<MenuItem icon={faUser} label='Profile' />}
-				over
-				left>
-				<div>
-					<div leftIcon={faCog} label='Settings' gotoMenu='settings'>
-						Wag1
-					</div>
-					<div leftIcon={faUser} label='Profile' link='/profile'>
-						Wag1
-					</div>
-				</div>
-				<MainMenu />
+			<Dropdown open={open} setOpen={setOpen} over left>
+				{MainMenu()}
+				{SettingsMenu()}
 			</Dropdown>
+			<MenuItem
+				icon={faUser}
+				label={"saiefelgebali"}
+				onClick={() => setOpen(!open)}
+			/>
 		</Menu>
 	);
 }

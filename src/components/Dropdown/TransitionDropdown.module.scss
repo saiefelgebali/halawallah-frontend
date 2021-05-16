@@ -1,0 +1,22 @@
+$speed: 250ms;
+
+.enter {
+	opacity: 0;
+}
+
+.enterActive {
+	opacity: 1;
+	transition: all $speed ease;
+}
+
+.exit {
+	opacity: 1;
+	bottom: 150%;
+	transform: translateY(100%);
+}
+
+.exitActive {
+	opacity: 0;
+	transform: translateY(-110%);
+	transition: all $speed ease;
+}

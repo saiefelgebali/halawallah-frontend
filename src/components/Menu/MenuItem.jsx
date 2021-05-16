@@ -10,25 +10,16 @@ const MenuItemIcon = ({ icon }) => {
 	else return icon;
 };
 
-function MenuItem({ icon, label, to, onClick, children }) {
+function MenuItem({ icon, label, to, onClick }) {
 	// Return a link menu item if a value for 'to' is passed
-	if (to)
-		return (
-			<MenuItemLink icon={icon} label={label} to={to}>
-				{children}
-			</MenuItemLink>
-		);
+	if (to) return <MenuItemLink icon={icon} label={label} to={to} />;
 
 	// Return a generic menu item with an onClick function
-	return (
-		<MenuItemClick icon={icon} label={label} onClick={onClick}>
-			{children}
-		</MenuItemClick>
-	);
+	return <MenuItemClick icon={icon} label={label} onClick={onClick} />;
 }
 
 // Has an onClick function
-const MenuItemClick = ({ icon, label, onClick, children }) => (
+const MenuItemClick = ({ icon, label, onClick }) => (
 	<div className={styles.item} onClick={onClick}>
 		<div className={styles.content}>
 			<div className={styles.icon}>
@@ -36,12 +27,11 @@ const MenuItemClick = ({ icon, label, onClick, children }) => (
 			</div>
 			<div className={styles.label}>{label}</div>
 		</div>
-		{children}
 	</div>
 );
 
 // When clicked navigates to link
-const MenuItemLink = ({ icon, label, to, children }) => (
+const MenuItemLink = ({ icon, label, to }) => (
 	<Link to={to} className={styles.item}>
 		<div className={styles.content}>
 			<div className={styles.icon}>
@@ -49,7 +39,6 @@ const MenuItemLink = ({ icon, label, to, children }) => (
 			</div>
 			<div className={styles.label}>{label}</div>
 		</div>
-		{children}
 	</Link>
 );
 
