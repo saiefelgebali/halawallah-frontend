@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Dropdown from "../../../../components/Dropdown/Dropdown";
-import DropdownItem from "../../../../components/DropdownItem/DropdownItem";
-import DropdownMenu from "../../../../components/DropdownMenu/DropdownMenu";
 import Menu from "../../../../components/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem";
 import {
@@ -23,37 +21,31 @@ function MenuProfile() {
 	 *
 	 * @returns {JSX.Element}
 	 */
-	const [open, setOpen] = useState(false);
-	const [activeMenu, setActiveMenu] = useState("main");
 
 	const MainMenu = () => (
-		<DropdownMenu name='main'>
-			<DropdownItem
-				label='Settings'
-				leftIcon={faCog}
-				rightIcon={faChevronRight}
-				action={() => setActiveMenu("settings")}
-			/>
-			<DropdownItem label='Profile' leftIcon={faUser} />
-		</DropdownMenu>
+		<div name='main'>
+			<div label='settings' gotoMenu='settings'></div>
+		</div>
 	);
 
 	return (
 		<Menu>
-			<Dropdown
-				open={open}
-				setOpen={setOpen}
-				activeMenu={activeMenu}
-				over
-				left>
-				{MainMenu()}
-				{SettingsMenu({ setActiveMenu })}
-			</Dropdown>
-			<MenuItem
-				icon={faUser}
-				label='Profile'
-				onClick={() => setOpen(true)}
-			/>
+			<MenuItem icon={faUser} label='Profile'>
+				<Dropdown over left>
+					<div>
+						<div
+							leftIcon={faCog}
+							label='Settings'
+							gotoMenu='settings'>
+							Wag1
+						</div>
+						<div leftIcon={faUser} label='Profile' link='/profile'>
+							Wag1
+						</div>
+					</div>
+					<MainMenu />
+				</Dropdown>
+			</MenuItem>
 		</Menu>
 	);
 }

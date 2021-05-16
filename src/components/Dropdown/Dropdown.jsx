@@ -3,8 +3,10 @@ import { CSSTransition } from "react-transition-group";
 import MenuPrimary from "./MenuPrimary.module.scss";
 import MenuSecondary from "./MenuSecondary.module.scss";
 import styles from "./Dropdown.module.scss";
+import dropdownItemStyles from "./DropdownItem.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Dropdown({ open, setOpen, activeMenu, children, over, left }) {
+function OldDropdown({ activeMenu, children, over, left }) {
 	/**
 	 * @summary Modular dropdown component, enables dropdown menu UI functionality
 	 *
@@ -21,6 +23,8 @@ function Dropdown({ open, setOpen, activeMenu, children, over, left }) {
 	 * @prop {Function} setOpen    - set the open state from parent Element.
 	 * @prop {String}   activeMenu - The name of menu that is currently selected.
 	 */
+
+	const [open, setOpen] = useState(false);
 
 	// Reference to main dropdown div
 	const dropdownRef = useRef();
@@ -112,6 +116,73 @@ function Dropdown({ open, setOpen, activeMenu, children, over, left }) {
 				onEnter={calculateHeight}>
 				{menu}
 			</CSSTransition>
+		</div>
+	);
+}
+
+function Dropdown({ children }) {
+	// Children prop is an array of DropdownMenus
+
+	const Menus = () => {
+		// Ensure menus are in an array
+		const MenusArray = Array.isArray(children) ? children : [children];
+
+		return MenusArray.map((menu, index) => (
+			<DropdownMenu menu={menu.props} key={index}>
+				{menu.props.children}
+			</DropdownMenu>
+		));
+	};
+
+	// Local Menu function uses constructed menu passed through children
+	const DropdownMenu = ({ menu, children }) => {
+		if (!children) return null;
+
+		// Ensure items are in an array
+		const ItemsArray = Array.isArray(children) ? children : [children];
+
+		return ItemsArray.map((item, index) => (
+			<DropdownItem item={item.props} key={index} />
+		));
+	};
+
+	// Local Item uses constructed items passed into Menu through children
+	const DropdownItem = ({ item }) => {
+		if (!item) return null;
+
+		const { left, right, leftIcon, rightIcon, label, action, gotoMenu } =
+			item;
+
+		console.log(item);
+
+		// Element to be displayed on the left.
+		const LeftComponent = () => (
+			<div className={dropdownItemStyles.left}>
+				{leftIcon ? <FontAwesomeIcon icon={leftIcon} /> : left}
+			</div>
+		);
+
+		// Element to be displayed on the right.
+		const RightComponent = () => (
+			<div className={dropdownItemStyles.right}>
+				{rightIcon ? <FontAwesomeIcon icon={rightIcon} /> : right}
+			</div>
+		);
+
+		return (
+			<label
+				className={dropdownItemStyles.item}
+				onClick={() => action && action()}>
+				<LeftComponent />
+				<div className={dropdownItemStyles.label}>{label}</div>
+				<RightComponent />
+			</label>
+		);
+	};
+
+	return (
+		<div className={`${styles.dropdown} ${styles.over} ${styles.left}`}>
+			<Menus />
 		</div>
 	);
 }

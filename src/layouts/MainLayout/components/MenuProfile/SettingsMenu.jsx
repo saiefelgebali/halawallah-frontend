@@ -5,10 +5,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Switch from "../../../../components/_shared/Switch";
-import DropdownItem from "../../../../components/DropdownItem/DropdownItem";
-import DropdownMenu from "../../../../components/DropdownMenu/DropdownMenu";
 
-function SettingsMenu({ setActiveMenu }) {
+function SettingsMenu() {
 	// Check if dark mode is on
 	function isDarkMode() {
 		return document.body.classList.contains("dark");
@@ -25,24 +23,7 @@ function SettingsMenu({ setActiveMenu }) {
 		}
 	}
 
-	return (
-		<DropdownMenu name='settings' secondary>
-			<h2>Settings</h2>
-			<DropdownItem
-				label='Back'
-				leftIcon={faChevronLeft}
-				action={() => setActiveMenu("main")}
-			/>
-			<DropdownItem
-				label='Dark Mode'
-				leftIcon={faMoon}
-				right={
-					<Switch checked={isDarkMode()} onChange={toggleDarkMode} />
-				}
-			/>
-			<DropdownItem label='Log Out' leftIcon={faSignOutAlt} />
-		</DropdownMenu>
-	);
+	return <div name='settings' secondary></div>;
 }
 
 export default SettingsMenu;
