@@ -4,6 +4,7 @@ import MenuPrimary from "./MenuPrimary.module.scss";
 import MenuSecondary from "./MenuSecondary.module.scss";
 import styles from "./Dropdown.module.scss";
 import dropdownItemStyles from "./DropdownItem.module.scss";
+import dropdownMenuStyles from "./DropdownMenu.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function OldDropdown({ activeMenu, children, over, left }) {
@@ -142,7 +143,9 @@ function Dropdown({ children }) {
 		const ItemsArray = Array.isArray(children) ? children : [children];
 
 		return ItemsArray.map((item, index) => (
-			<DropdownItem item={item.props} key={index} />
+			<div className={dropdownMenuStyles.menu}>
+				<DropdownItem item={item.props} key={index} />
+			</div>
 		));
 	};
 
