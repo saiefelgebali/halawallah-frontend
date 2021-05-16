@@ -4,9 +4,9 @@ import {
 	faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import Switch from "../_shared/Switch";
-import DropdownItem from "../DropdownItem/DropdownItem";
-import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import Switch from "../../../../components/_shared/Switch";
+import DropdownItem from "../../../../components/DropdownItem/DropdownItem";
+import DropdownMenu from "../../../../components/DropdownMenu/DropdownMenu";
 
 function SettingsMenu({ setActiveMenu }) {
 	// Check if dark mode is on

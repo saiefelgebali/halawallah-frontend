@@ -1,0 +1,22 @@
+@import "../../sassStyles/mixins";
+
+.main {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	header {
+		@include breakpoint(xs) {
+			display: none;
+		}
+	}
+
+	// Fill remaining area
+	> .content {
+		overflow: hidden;
+		max-width: 576px;
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+	}
+}

@@ -1,7 +1,7 @@
 [X] Update scss files to be modular
 [X] Post Options 
 [X] Dark Mode
-[ ] Set up colors for light and dark themes
+[X] Set up colors for light and dark themes
 
 [ ] Dropdown button, :focus-within method instead of event listeners
 [ ] Add clip-rect to dropdowns to create little points

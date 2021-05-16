@@ -5,13 +5,10 @@ export const Store = createContext();
 
 export function StoreProvider({ children }) {
 	// Get initial theme from localStorage - default white
-	const theme = localStorage.getItem("theme") || "light";
-
-	// Set default theme
-	document.body.className = theme;
+	const initialTheme = localStorage.getItem("theme") || "light";
 
 	const initialState = {
-		theme,
+		initialTheme,
 	};
 
 	const [state, dispatch] = useReducer(reducer, initialState);

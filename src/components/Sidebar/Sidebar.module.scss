@@ -3,24 +3,26 @@
 
 .sidebar {
 	display: flex;
-	justify-content: flex-end;
-	flex-grow: 1;
 	@include breakpoint(xs) {
 		transition: 0s;
 		min-width: $sidebar-xs;
 		width: $sidebar-xs;
+		max-width: $sidebar-xs;
 	}
 	@include breakpoint(sm) {
 		min-width: $sidebar-sm;
 		width: $sidebar-sm;
+		max-width: $sidebar-sm;
 	}
 	@include breakpoint(md) {
 		min-width: $sidebar-md;
 		width: $sidebar-md;
+		max-width: $sidebar-md;
 	}
 	@include breakpoint(lg) {
 		min-width: $sidebar-lg;
 		width: $sidebar-lg;
+		max-width: $sidebar-lg;
 	}
 	.banner {
 		// Fix to top
@@ -36,5 +38,11 @@
 		flex-direction: column;
 		justify-content: space-between;
 		overflow-x: visible;
+		&.left {
+			left: 0;
+		}
+		&.right {
+			right: 0;
+		}
 	}
 }

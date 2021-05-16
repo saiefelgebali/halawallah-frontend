@@ -1,9 +1,9 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import Navigation from "./components/Navigation/Navigation";
-import Main from "./components/Main/Main";
-import "./App.scss";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Store } from "./store/store";
 import { useContext } from "react";
+import HomePage from "./pages/HomePage/HomePage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import styles from "./App.module.scss";
 
 function App() {
 	/**
@@ -15,24 +15,35 @@ function App() {
 
 	const { state } = useContext(Store);
 
-	// Apply css theme
-	switch (state.theme) {
+	// Apply css theme on page load
+	switch (state.initialTheme) {
 		case "light":
-			document.body.classList.add = "light";
+			document.body.classList.add("light");
 			break;
 		case "dark":
-			document.body.classList.add = "dark";
+			document.body.classList.add("dark");
 			break;
 		default:
-			document.body.classList.add = "light";
+			document.body.classList.add("light");
 			break;
 	}
 
 	return (
-		<div id='app'>
+		<div id={styles.app}>
 			<Router>
-				<Navigation />
-				<Main />
+				<Switch>
+					<Route exact path='/home'>
+						<HomePage />
+					</Route>
+					<Route exact path='/profile/:username'>
+						<ProfilePage />
+					</Route>
+
+					{/* Default Route */}
+					<Route path='/'>
+						<HomePage />
+					</Route>
+				</Switch>
 			</Router>
 		</div>
 	);

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Dropdown from "../Dropdown/Dropdown";
-import DropdownItem from "../DropdownItem/DropdownItem";
-import DropdownMenu from "../DropdownMenu/DropdownMenu";
-import Menu from "../Menu/Menu";
-import MenuItem from "../Menu/MenuItem";
+import Dropdown from "../../../../components/Dropdown/Dropdown";
+import DropdownItem from "../../../../components/DropdownItem/DropdownItem";
+import DropdownMenu from "../../../../components/DropdownMenu/DropdownMenu";
+import Menu from "../../../../components/Menu/Menu";
+import MenuItem from "../../../../components/Menu/MenuItem";
 import {
 	faChevronRight,
 	faCog,

@@ -1,0 +1,53 @@
+@import "../../../../sassStyles/mixins";
+
+.head {
+	padding: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--content-border);
+	background-color: var(--content-background);
+	overflow: hidden;
+	.profile {
+		margin-bottom: 1rem;
+		display: flex;
+		gap: 1rem;
+		.pfp {
+			img {
+				width: 4rem;
+				height: 4rem;
+				border-radius: 0.5rem;
+				object-fit: cover;
+			}
+		}
+		.details {
+			.display {
+				color: var(--text-title);
+				font-weight: 600;
+				font-size: 1.6rem;
+			}
+			.username {
+				color: var(--text-secondary);
+				&::before {
+					content: "@";
+				}
+			}
+			.bio {
+				color: var(--text);
+			}
+		}
+	}
+	.controls {
+		display: flex;
+		justify-content: space-evenly;
+		gap: 1rem;
+		> * {
+			width: 100%;
+			border-radius: 0.5rem;
+		}
+		.editButton {
+			color: white;
+			background-color: var(--blue);
+			border-color: var(--blue);
+		}
+	}
+}
