@@ -5,7 +5,7 @@
 	margin-top: 1rem;
 	.header {
 		padding: 1rem;
-		border-top: 1px solid var(--post-border);
+		border-top: 1px solid var(--content-border);
 		font-weight: 600;
 		cursor: pointer;
 		display: flex;
@@ -24,11 +24,10 @@
 			color: var(--text);
 			.comment {
 				.username {
-					color: var(--post-username);
 					margin-right: 0.5rem;
 				}
 				padding: 1rem 0rem;
-				border-bottom: 1px solid var(--post-border);
+				border-bottom: 1px solid var(--content-border);
 			}
 			.show-more {
 				cursor: pointer;

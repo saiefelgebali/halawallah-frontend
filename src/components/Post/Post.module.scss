@@ -7,8 +7,8 @@
 	width: 100%;
 	margin-bottom: 2rem;
 	border-radius: 0.5rem;
-	border: 1px solid var(--post-border);
-	background-color: var(--post-background);
+	border: 1px solid var(--content-border);
+	background-color: var(--content-background);
 
 	.pfp {
 		cursor: pointer;
@@ -21,7 +21,7 @@
 			height: 100%;
 			object-fit: cover;
 			border-radius: 25%;
-			border: 1px solid var(--post-border);
+			border: 1px solid var(--content-border);
 			transition: border-radius 0.2s ease;
 		}
 		img:hover {
