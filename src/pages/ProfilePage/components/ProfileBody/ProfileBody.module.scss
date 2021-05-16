@@ -1,0 +1,64 @@
+.profileBody {
+	.viewSelector {
+		border: 1px solid var(--content-border);
+		border-radius: 0.5rem;
+		background-color: var(--content-background);
+		display: flex;
+		justify-content: space-evenly;
+		margin-bottom: 1rem;
+
+		> .view {
+			user-select: none;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem;
+			width: 100%;
+			border-right: 1px solid var(--content-border);
+			color: var(--text);
+			&:last-of-type {
+				border-right: none;
+			}
+			&:active {
+				padding-top: 1.1rem;
+				padding-bottom: 0.9rem;
+			}
+		}
+	}
+
+	.content {
+		&.grid {
+			background-color: var(--content-background);
+			border: 2px solid var(--content-border);
+			border-radius: 0.5rem;
+			overflow: hidden;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 4px;
+			.postPreview {
+				position: relative;
+				display: flex;
+				width: 100%;
+				padding-bottom: 100%;
+				.content {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+				}
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+		&.feed {
+			display: flex;
+			flex-direction: column;
+			.postPreview {
+				display: none;
+			}
+		}
+	}
+}
