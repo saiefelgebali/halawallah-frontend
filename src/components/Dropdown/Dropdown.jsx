@@ -121,7 +121,7 @@ function OldDropdown({ activeMenu, children, over, left }) {
 	);
 }
 
-function Dropdown({ children }) {
+function Dropdown({ button, children }) {
 	// Children prop is an array of DropdownMenus
 
 	const Menus = () => {
@@ -184,9 +184,12 @@ function Dropdown({ children }) {
 	};
 
 	return (
-		<div className={`${styles.dropdown} ${styles.over} ${styles.left}`}>
-			<Menus />
-		</div>
+		<>
+			<div className={`${styles.dropdown} ${styles.over} ${styles.left}`}>
+				<Menus />
+			</div>
+			{button}
+		</>
 	);
 }
 

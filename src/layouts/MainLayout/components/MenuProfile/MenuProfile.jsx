@@ -30,22 +30,20 @@ function MenuProfile() {
 
 	return (
 		<Menu>
-			<MenuItem icon={faUser} label='Profile'>
-				<Dropdown over left>
-					<div>
-						<div
-							leftIcon={faCog}
-							label='Settings'
-							gotoMenu='settings'>
-							Wag1
-						</div>
-						<div leftIcon={faUser} label='Profile' link='/profile'>
-							Wag1
-						</div>
+			<Dropdown
+				button={<MenuItem icon={faUser} label='Profile' />}
+				over
+				left>
+				<div>
+					<div leftIcon={faCog} label='Settings' gotoMenu='settings'>
+						Wag1
 					</div>
-					<MainMenu />
-				</Dropdown>
-			</MenuItem>
+					<div leftIcon={faUser} label='Profile' link='/profile'>
+						Wag1
+					</div>
+				</div>
+				<MainMenu />
+			</Dropdown>
 		</Menu>
 	);
 }
