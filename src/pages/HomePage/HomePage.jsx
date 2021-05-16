@@ -1,11 +1,14 @@
 import React from "react";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
 import Feed from "./components/Feed/Feed";
+import styles from "./HomePage.module.scss";
 
 function HomePage() {
 	return (
 		<MainLayout>
-			<Feed />
+			<div className={styles.main}>
+				<Feed />
+			</div>
 		</MainLayout>
 	);
 }
