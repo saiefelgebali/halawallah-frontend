@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import styles from "./App.module.scss";
 import CreatePage from "./pages/CreatePage/CreatePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
 	/**
@@ -36,9 +37,15 @@ function App() {
 					<Route exact path='/home'>
 						<HomePage />
 					</Route>
+
 					<Route exact path='/create'>
 						<CreatePage />
 					</Route>
+
+					<Route exact path='/login'>
+						<LoginPage />
+					</Route>
+
 					<Route exact path='/profile/:username'>
 						<ProfilePage />
 					</Route>
