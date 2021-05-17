@@ -10,8 +10,8 @@
 	.profile {
 		margin-bottom: 1rem;
 		display: flex;
-		gap: 1rem;
 		.pfp {
+			margin-right: 1rem;
 			img {
 				width: 4rem;
 				height: 4rem;
@@ -39,8 +39,17 @@
 	.controls {
 		display: flex;
 		justify-content: space-evenly;
-		gap: 1rem;
 		> * {
+			margin-right: 0.5rem;
+			margin-left: 0.5rem;
+			&:last-of-type {
+				margin-right: 0rem;
+				margin-left: 0.5rem;
+			}
+			&:first-of-type {
+				margin-right: 0.5rem;
+				margin-left: 0rem;
+			}
 			width: 100%;
 			border-radius: 0.5rem;
 		}
