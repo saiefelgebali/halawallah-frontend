@@ -6,7 +6,8 @@
 [ ] Dropdown button, :focus-within method instead of event listeners
 [ ] Add clip-rect to dropdowns to create little points
 
-[ ] Profile page
+[X] Profile page
+[X] Create page
 [ ] Post page
 [ ] Search page
 [ ] Messages page

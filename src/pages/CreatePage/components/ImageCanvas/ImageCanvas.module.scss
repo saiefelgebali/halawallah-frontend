@@ -10,6 +10,8 @@
 	touch-action: none;
 	user-select: none;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
 
 	#imgInput + label {
 		cursor: pointer;
@@ -23,6 +25,11 @@
 		border-radius: 0.5rem;
 		color: var(--button-foreground-primary);
 		background-color: var(--button-background-primary);
+
+		&.active {
+			color: var(--button-foreground-secondary);
+			background-color: var(--button-background-secondary);
+		}
 	}
 
 	#canvas {

@@ -26,7 +26,9 @@
 			justify-content: flex-start;
 		}
 		.icon {
-			margin-right: 1rem;
+			@include breakpoint(lg) {
+				margin-right: 1rem;
+			}
 			height: 2rem;
 			width: 2rem;
 			svg {

@@ -55,13 +55,15 @@ function ImageCanvas() {
 				onChange={handleImageChange}
 			/>
 			{active ? (
-				<label htmlFor={styles.imgInput}>Change Image</label>
+				<label htmlFor={styles.imgInput} className={styles.active}>
+					Change Image
+				</label>
 			) : (
 				<label htmlFor={styles.imgInput}>Select Image</label>
 			)}
 			<canvas id={styles.canvas} ref={canvas} height={0}></canvas>
 
-			<div id={styles.slider} className={active && styles.active}>
+			<div id={styles.slider} className={active ? styles.active : null}>
 				<label htmlFor={styles.slider}>Zoom</label>
 				<input
 					ref={slider}
