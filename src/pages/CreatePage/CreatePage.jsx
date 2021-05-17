@@ -1,6 +1,6 @@
 import React from "react";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
-import ImageCanvas from "./components/ImageCanvas/ImageCanvas";
+import CreateForm from "./components/CreateForm/CreateForm";
 import styles from "./CreatePage.module.scss";
 
 function CreatePage() {
@@ -11,7 +11,7 @@ function CreatePage() {
 					<h1>Create</h1>
 				</div>
 
-				<ImageCanvas />
+				<CreateForm />
 			</div>
 		</MainLayout>
 	);
