@@ -26,6 +26,7 @@ img {
 }
 
 body {
+	user-select: none;
 	background-color: var(--page-background);
 	line-height: 1.5;
 	overflow-y: scroll;

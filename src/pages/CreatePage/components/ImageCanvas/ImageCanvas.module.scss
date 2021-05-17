@@ -1,0 +1,46 @@
+#imgInput {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.container {
+	touch-action: none;
+	user-select: none;
+	width: 100%;
+
+	#imgInput + label {
+		cursor: pointer;
+		margin: 1rem 0rem;
+		font-weight: 500;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: 1rem;
+		border-radius: 0.5rem;
+		color: var(--button-foreground-primary);
+		background-color: var(--button-background-primary);
+	}
+
+	#canvas {
+		cursor: move;
+		border-radius: 0.5rem;
+		touch-action: none;
+	}
+	#slider {
+		margin: 1rem 0rem;
+		display: none;
+	}
+	#slider.active {
+		display: block;
+	}
+	#slider label {
+		color: var(--text);
+	}
+	#slider input {
+		padding: 2rem 0rem;
+	}
+}

@@ -40,6 +40,12 @@
 	--dropdown-background: var(--white0);
 	--dropdown-box-shadow: rgba(0, 0, 0, 0.2);
 	--dropdown-item-hover: var(--gray1);
+
+	// Button
+	--button-background-primary: var(--blue);
+	--button-foreground-primary: var(--white0);
+	--button-background-secondary: var(--blue);
+	--button-foreground-secondary: var(--white0);
 }
 
 .dark {
@@ -67,4 +73,10 @@
 	--dropdown-background: var(--black0);
 	--dropdown-box-shadow: rgba(255, 255, 255, 0.8);
 	--dropdown-item-hover: var(--gray2);
+
+	// Button
+	--button-background-primary: var(--blue);
+	--button-foreground-primary: var(--white0);
+	--button-background-secondary: var(--blue);
+	--button-foreground-secondary: var(--white0);
 }

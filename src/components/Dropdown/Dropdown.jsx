@@ -16,7 +16,7 @@ function Dropdown({ open, setOpen, over, left, children }) {
 	// Setup menu height
 	useEffect(() => {
 		setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
-	}, [setMenuHeight]);
+	}, []);
 
 	// Enable ways to close dropdown
 	useEffect(() => {
