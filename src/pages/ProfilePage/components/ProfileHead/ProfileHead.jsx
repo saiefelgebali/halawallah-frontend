@@ -24,8 +24,8 @@ function ProfileHead() {
 				</div>
 			</div>
 			<div className={styles.controls}>
-				<button className={styles.editButton}>Edit</button>
-				<button className={styles.editButton}>Edit</button>
+				<button className={`btn ${styles.editButton}`}>Edit</button>
+				<button className={`btn ${styles.editButton}`}>Settings</button>
 			</div>
 		</div>
 	);

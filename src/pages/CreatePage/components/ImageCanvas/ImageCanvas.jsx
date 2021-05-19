@@ -55,7 +55,9 @@ function ImageCanvas() {
 				onChange={handleImageChange}
 			/>
 			{active ? (
-				<label htmlFor={styles.imgInput} className={styles.active}>
+				<label
+					htmlFor={styles.imgInput}
+					className={`btn ${styles.active}`}>
 					Change Image
 				</label>
 			) : (

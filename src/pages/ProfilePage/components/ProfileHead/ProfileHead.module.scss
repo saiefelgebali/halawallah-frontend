@@ -53,10 +53,13 @@
 			width: 100%;
 			border-radius: 0.5rem;
 		}
-		.editButton {
+	}
+
+	.editButton {
+		background-color: var(--blue);
+		color: var(--white0);
+		&:hover {
 			color: white;
-			background-color: var(--blue);
-			border-color: var(--blue);
 		}
 	}
 }

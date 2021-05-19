@@ -10,6 +10,7 @@
 
 	// Theme Colors
 	--blue: #273469;
+	--gray: #7e8287;
 	--red: #e84855;
 	--yellow: #f9dc5c;
 	--green: #28502e;
@@ -49,6 +50,13 @@
 
 	// Input
 	--input-box-shadow: rgba(39, 52, 105, 0.2);
+
+	// Auth
+	--auth-body-background: var(--blue);
+	--auth-form-background: var(--gray0);
+	--auth-box-shadow: rgba(0, 0, 0, 0.4);
+	--auth-text: var(--black0);
+	--auth-text-title: var(--blue);
 }
 
 .dark {
@@ -85,4 +93,11 @@
 
 	// Input
 	--input-box-shadow: rgba(153, 161, 184, 0.8);
+
+	// Auth
+	--auth-body-background: var(--gray2);
+	--auth-form-background: var(--gray0);
+	--auth-box-shadow: rgba(0, 0, 0, 0.4);
+	--auth-text: var(--black0);
+	--auth-text-title: var(--blue);
 }

@@ -27,14 +27,14 @@ function CreateForm() {
 				<ImageCanvas />
 				<div className={styles.caption}>
 					<textarea
-						className={styles.captionInput}
+						className={`form-control ${styles.captionInput}`}
 						rows={2}
 						placeholder='Say something...'
 					/>
 				</div>
 				<input
 					type='submit'
-					className={styles.postButton}
+					className={`btn ${styles.postButton}`}
 					value='Post!'></input>
 			</form>
 		</div>

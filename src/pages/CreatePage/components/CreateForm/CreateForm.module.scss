@@ -1,6 +1,10 @@
 .create {
 	color: var(--text);
 
+	.captionInput {
+		resize: none;
+	}
+
 	.postButton {
 		cursor: pointer;
 		margin: 1rem 0rem;
@@ -13,5 +17,8 @@
 		border-radius: 0.5rem;
 		color: var(--button-foreground-primary);
 		background-color: var(--button-background-primary);
+		&:hover {
+			color: white;
+		}
 	}
 }

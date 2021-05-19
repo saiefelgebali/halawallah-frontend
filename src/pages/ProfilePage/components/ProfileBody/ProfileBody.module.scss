@@ -16,7 +16,7 @@
 			padding: 1rem;
 			width: 100%;
 			border-right: 1px solid var(--content-border);
-			color: var(--text);
+			color: var(--text-title);
 			&:last-of-type {
 				border-right: none;
 			}
@@ -28,6 +28,7 @@
 	}
 
 	.content {
+		margin-bottom: 1rem;
 		&.grid {
 			background-color: var(--content-background);
 			border: 2px solid var(--content-border);
@@ -35,7 +36,7 @@
 			overflow: hidden;
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
-			gap: 4px;
+			gap: 2px;
 			.postPreview {
 				position: relative;
 				display: flex;

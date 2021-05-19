@@ -1,0 +1,17 @@
+// Theme Colors
+$primary: #273469;
+$secondary: #7e8287;
+$danger: #e84855;
+$warning: #f9dc5c;
+$info: #3185fc;
+$success: #28502e;
+
+@import "bootstrap/scss/bootstrap.scss";
+
+.btn-secondary {
+	color: white;
+	&:hover {
+		background-color: darken($secondary, 2);
+		color: white;
+	}
+}
