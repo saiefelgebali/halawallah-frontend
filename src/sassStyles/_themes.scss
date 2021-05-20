@@ -19,6 +19,7 @@
 .light {
 	// General
 	--username: var(--blue);
+	--loading: var(--blue);
 
 	// Text
 	--text: var(--black0);
@@ -62,6 +63,7 @@
 .dark {
 	// General
 	--username: var(--white0);
+	--loading: var(--blue);
 
 	// Text
 	--text: var(--white0);

@@ -15,3 +15,7 @@ $success: #28502e;
 		color: white;
 	}
 }
+
+input.invalid:placeholder-shown {
+	border-color: $danger;
+}

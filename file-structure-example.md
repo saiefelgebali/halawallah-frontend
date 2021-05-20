@@ -1,4 +1,4 @@
-Example used from (*"How to structure files in large React projects"*)[https://www.youtube.com/watch?v=1uQ9j8ynQlM&t=46s]
+Example used from [*"How to structure files in large React projects"*](https://www.youtube.com/watch?v=1uQ9j8ynQlM&t=46s)
 
 ```
 index.ts

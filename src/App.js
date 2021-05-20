@@ -31,34 +31,45 @@ function App() {
 			break;
 	}
 
+	// Route unauthenticated users
+	if (!state.isAuthenticated) {
+		return (
+			<div id={styles.app}>
+				<Router>
+					<Switch>
+						<Route exact path='/login' component={LoginPage} />
+
+						<Route
+							exact
+							path='/register'
+							component={RegisterPage}
+						/>
+
+						{/* Default Route */}
+						<Route path='/' component={LoginPage} />
+					</Switch>
+				</Router>
+			</div>
+		);
+	}
+
+	// Route authenticated users
 	return (
 		<div id={styles.app}>
 			<Router>
 				<Switch>
-					<Route exact path='/login'>
-						<LoginPage />
-					</Route>
+					<Route exact path='/home' component={HomePage} />
 
-					<Route exact path='/register'>
-						<RegisterPage />
-					</Route>
+					<Route exact path='/create' component={CreatePage} />
 
-					<Route exact path='/home'>
-						<HomePage />
-					</Route>
-
-					<Route exact path='/create'>
-						<CreatePage />
-					</Route>
-
-					<Route exact path='/profile/:username'>
-						<ProfilePage />
-					</Route>
+					<Route
+						exact
+						path='/profile/:username'
+						component={ProfilePage}
+					/>
 
 					{/* Default Route */}
-					<Route path='/'>
-						<HomePage />
-					</Route>
+					<Route path='/' component={HomePage} />
 				</Switch>
 			</Router>
 		</div>

@@ -16,6 +16,10 @@
 		width: 100%;
 
 		.title {
+			height: 80px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 			color: var(--auth-text-title);
 			border-bottom: 1px solid var(--auth-text-title);
 			margin-bottom: 1rem;
