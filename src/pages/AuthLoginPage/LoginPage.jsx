@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
+import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../graphql/mutations";
-import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
+import { Store } from "../../store/store";
+import { login as loginAction } from "../../store/actions";
 
 function LoginPage() {
+	// Login State Management
+	const { dispatch } = useContext(Store);
+
 	const [error, setError] = useState({ message: null, type: null });
 
 	const [login, { loading }] = useMutation(LOGIN);
@@ -31,7 +36,8 @@ function LoginPage() {
 			const res = await login({ variables: { username, password } });
 			const { refreshToken, accessToken } = res.data?.login;
 
-			console.log(accessToken, refreshToken);
+			// Save Login Details
+			loginAction(dispatch, { refreshToken, accessToken });
 		} catch (e) {
 			// Handle errors sent by server
 			setError({ message: e.message, type: "danger" });

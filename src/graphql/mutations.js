@@ -8,3 +8,10 @@ export const LOGIN = gql`
 		}
 	}
 `;
+
+export const LOGOUT = gql`
+	mutation Logout($token: String!) {
+		logout(token: $token)
+		# Returns true or false
+	}
+`;

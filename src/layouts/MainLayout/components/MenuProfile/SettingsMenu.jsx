@@ -1,12 +1,31 @@
+import { useMutation } from "@apollo/client";
 import {
 	faChevronLeft,
 	faMoon,
 	faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Switch from "../../../../components/_shared/Switch";
+import { Store } from "../../../../store/store";
+import { logout as logoutAction } from "../../../../store/actions";
+import { LOGOUT } from "../../../../graphql/mutations";
 
 function SettingsMenu() {
+	const { state, dispatch } = useContext(Store);
+	const [logout] = useMutation(LOGOUT, {
+		variables: { token: state.refreshToken },
+	});
+
+	// Handle logging out
+	async function handleLogout() {
+		// Delete refreshToken from system
+		await logout();
+		// Update application state
+		logoutAction(dispatch);
+	}
+
+	//#region Dark Mode
+
 	// Dark mode with default value
 	const [isDarkMode, setIsDarkMode] = useState(
 		document.body.classList.contains("dark")
@@ -34,6 +53,7 @@ function SettingsMenu() {
 			setIsDarkMode(false);
 		}
 	}
+	//#endregion
 
 	return (
 		<div name='settings' secondary>
@@ -45,7 +65,11 @@ function SettingsMenu() {
 					<Switch checked={isDarkMode} onChange={toggleDarkMode} />
 				}
 			/>
-			<div leftIcon={faSignOutAlt} label='Log out' />
+			<div
+				leftIcon={faSignOutAlt}
+				label='Log out'
+				action={handleLogout}
+			/>
 		</div>
 	);
 }

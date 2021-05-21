@@ -1,13 +1,17 @@
 export default function reducer(state, action) {
 	switch (action.type) {
-		case "LIGHT_MODE":
+		case "LOGIN":
 			return {
-				theme: "light",
+				...state,
+				refreshToken: action.refreshToken,
+				isAuthenticated: true,
 			};
 
-		case "DARK_MODE":
+		case "LOGOUT":
 			return {
-				theme: "dark",
+				...state,
+				refreshToken: null,
+				isAuthenticated: false,
 			};
 
 		default:

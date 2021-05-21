@@ -1,11 +1,8 @@
-export const setLightMode = (dispatch) => {
-	return dispatch({
-		type: "LIGHT_MODE",
-	});
+export const login = (dispatch, { refreshToken, accessToken }) => {
+	// Login user by saving relevant refreshToken
+	return dispatch({ type: "LOGIN", refreshToken, accessToken });
 };
 
-export const setDarkMode = (dispatch) => {
-	return dispatch({
-		type: "DARK_MODE",
-	});
+export const logout = (dispatch) => {
+	return dispatch({ type: "LOGOUT" });
 };
