@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "../../../../components/Dropdown/Dropdown";
 import Menu from "../../../../components/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem";
 import SettingsMenu from "./SettingsMenu";
 import MainMenu from "./MainMenu";
+import { ProfileContext } from "../../../../context/profileContext";
 
 function MenuProfile() {
 	/**
@@ -21,6 +22,8 @@ function MenuProfile() {
 
 	const [open, setOpen] = useState(false);
 
+	const profileContext = useContext(ProfileContext);
+
 	return (
 		<Menu>
 			<Dropdown open={open} setOpen={setOpen} over left>
@@ -29,7 +32,7 @@ function MenuProfile() {
 			</Dropdown>
 			<MenuItem
 				icon={faUser}
-				label={"saiefelgebali"}
+				label={profileContext?.user?.username}
 				onClick={() => setOpen(!open)}
 			/>
 		</Menu>

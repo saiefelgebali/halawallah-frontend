@@ -4,6 +4,7 @@ export default function reducer(state, action) {
 			return {
 				...state,
 				refreshToken: action.refreshToken,
+				accessToken: action.accessToken,
 				isAuthenticated: true,
 			};
 
@@ -11,6 +12,7 @@ export default function reducer(state, action) {
 			return {
 				...state,
 				refreshToken: null,
+				accessToken: null,
 				isAuthenticated: false,
 			};
 

@@ -3,7 +3,7 @@ import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { LOGIN } from "../../graphql/mutations";
+import { LOGIN } from "../../graphql/mutation";
 import { Store } from "../../store/store";
 import { login as loginAction } from "../../store/actions";
 
