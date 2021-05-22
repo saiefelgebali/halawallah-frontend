@@ -13,6 +13,7 @@
 
 	// Fill remaining area
 	> .content {
+		padding: 1rem 0rem;
 		overflow: hidden;
 		max-width: 576px;
 		flex-grow: 1;

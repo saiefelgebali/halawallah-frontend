@@ -5,7 +5,7 @@ import styles from "./Post.module.scss";
 import PostOptions from "./PostOptions";
 
 // Complete Post Component
-function Post() {
+function Post({ post }) {
 	/**
 	 * @summary Individual Post
 	 *
@@ -21,12 +21,12 @@ function Post() {
 		<div className={styles.head}>
 			<div className={styles.section}>
 				<ProfilePicture
-					username='saiefelgebali'
-					src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
+					username={post.profile.user.username}
+					src={post.profile.pfp}
 					onDragStart={(e) => e.preventDefault()}
 				/>
 				<Username
-					username='saiefelgebali'
+					username={post.profile.user.username}
 					className={styles.username}
 				/>
 				<div className={styles.timestamp}>11:59 AM</div>
@@ -43,8 +43,8 @@ function Post() {
 		<div className={styles.body}>
 			<div className={styles.content}>
 				<img
-					src='https://i.ytimg.com/vi/-pKIqFjM65I/maxresdefault.jpg'
-					alt=''
+					src={post.image}
+					alt={`${post.profile.user.username}'s post`}
 					onDragStart={(e) => e.preventDefault()}
 				/>
 			</div>
@@ -58,17 +58,11 @@ function Post() {
 			<div className={styles.foot}>
 				<div className={styles.details}>
 					<Username
-						username='saiefelgebali'
+						username={post.profile.user.username}
 						className={styles.username}
 					/>
-					<span className={styles.caption}>
-						Lorem, ipsum dolor sit amet consectetur adipisicing
-						elit. Eligendi, tempore at. Aspernatur magnam aut optio
-						nesciunt cumque non minus ullam voluptatem ducimus
-						consectetur maiores, maxime illo, praesentium
-						exercitationem iusto ad.
-					</span>
-					<PostComments />
+					<span className={styles.caption}>{post.caption}</span>
+					<PostComments post={post} />
 				</div>
 			</div>
 		);

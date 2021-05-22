@@ -4,35 +4,37 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Username from "../_shared/Username";
 import styles from "./PostComments.module.scss";
 
-function PostComments({ height }) {
+function PostComments({ post }) {
 	// Comment section is active state
 	const [collapsed, setCollapsed] = useState(true);
 	const toggleCollapsed = () => setCollapsed((prev) => !prev);
+
+	// Store comment objects
+	const [comments, setComments] = useState([...post.comments.data]);
 
 	// Maps out comments
 	// Handle pagination
 	const Comments = () => {
 		return (
 			<div className={styles.list}>
-				<Comment />
-				<Comment />
-				<Comment />
-				<div className={styles["show-more"]}>Show more</div>
+				{comments.map((comment) => (
+					<Comment key={comment.comment_idp} comment={comment} />
+				))}
+				{post.comments.hasMore && (
+					<div className={styles.showMore}>Show more</div>
+				)}
 			</div>
 		);
 	};
 
-	const Comment = () => {
+	const Comment = ({ comment }) => {
 		return (
 			<div className={styles.comment}>
-				<Username username='commenter' className={styles.username} />
-				<span>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-					Totam, ad iusto quos porro ducimus veritatis quisquam
-					perferendis corrupti quidem exercitationem architecto. Dicta
-					nostrum exercitationem eveniet quaerat quidem. Officia,
-					asperiores id!
-				</span>
+				<Username
+					username={comment.profile.user.username}
+					className={styles.username}
+				/>
+				<span>{comment.text}</span>
 			</div>
 		);
 	};
@@ -58,7 +60,7 @@ function PostComments({ height }) {
 				collapsed ? styles.collapsed : ""
 			}`}>
 			<div className={styles.header} onClick={toggleCollapsed}>
-				<div>Comments (0)</div>
+				<div>{`Comments (${post.comments.count})`}</div>
 				<div className={styles.arrow}>
 					<FontAwesomeIcon icon={faChevronDown} />
 				</div>
