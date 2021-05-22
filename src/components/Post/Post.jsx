@@ -44,7 +44,7 @@ function Post({ post }) {
 			<div className={styles.content}>
 				<img
 					src={post.image}
-					alt={`${post.profile.user.username}'s post`}
+					alt=''
 					onDragStart={(e) => e.preventDefault()}
 				/>
 			</div>

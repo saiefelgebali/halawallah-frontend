@@ -1,15 +1,16 @@
-import axios from "axios";
+const API = `${process.env.REACT_APP_BACKEND}/api`;
+const UPLOAD_POST = `${API}/upload/post/`;
+// const UPLOAD_PFP = `${API}/upload/pfp/`;
 
 export async function uploadPost({ image, caption }) {
 	const token = "Bearer " + localStorage.getItem("accessToken");
-	console.log(token);
 
 	const data = new FormData();
 
 	data.append("image", image);
 	data.append("caption", caption);
 
-	await fetch("http://127.0.0.1:5000/api/upload/post/", {
+	await fetch(UPLOAD_POST, {
 		method: "POST",
 		headers: {
 			Authorization: token,

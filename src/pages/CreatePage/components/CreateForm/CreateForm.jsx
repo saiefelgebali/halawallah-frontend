@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { uploadPost } from "../../../../api/upload";
+import ErrorAlert from "../../../../components/ErrorAlert/ErrorAlert";
 import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses";
 import ImageCanvas from "../ImageCanvas/ImageCanvas";
 import styles from "./CreateForm.module.scss";
 
 function CreateForm() {
 	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState({ message: null, type: null });
 
 	async function handleSubmit(e) {
 		// Cancel default refresh screen
@@ -21,26 +23,32 @@ function CreateForm() {
 		canvas.toBlob(handleUpload);
 
 		async function handleUpload(image) {
-			await uploadPost({ image, caption });
+			try {
+				await uploadPost({ image, caption });
+			} catch {
+				setError({
+					message: "Could not upload post. Please try again later.",
+					type: "warning",
+				});
+			}
 			setLoading(false);
 		}
 	}
 	return (
 		<div className={styles.create}>
 			<form action='' onSubmit={handleSubmit}>
-				<fieldset disabled={loading}>
+				<fieldset disabled={false}>
 					<ImageCanvas />
 					{loading && <LoadingElipses loading={loading} />}
-					<div className={styles.caption}>
-						<textarea
-							className={`form-control ${styles.captionInput}`}
-							rows={2}
-							placeholder='Say something...'
-						/>
-					</div>
+					{error && <ErrorAlert error={error} />}
+					<textarea
+						className={`form-control ${styles.captionInput}`}
+						rows={2}
+						placeholder='Say something...'
+					/>
 					<input
 						type='submit'
-						className={`btn ${styles.postButton}`}
+						className={`btn btn-primary ${styles.postButton}`}
 						value='Post!'
 					/>
 				</fieldset>

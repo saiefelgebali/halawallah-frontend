@@ -14,22 +14,10 @@
 	flex-direction: column;
 
 	#imgInput + label {
-		cursor: pointer;
+		width: 100%;
 		margin: 1rem 0rem;
 		font-weight: 500;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
 		padding: 1rem;
-		border-radius: 0.5rem;
-		color: var(--button-foreground-primary);
-		background-color: var(--button-background-primary);
-
-		&.active {
-			color: var(--button-foreground-secondary);
-			background-color: var(--button-background-secondary);
-		}
 	}
 
 	#canvas {

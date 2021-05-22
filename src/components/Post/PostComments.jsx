@@ -10,7 +10,7 @@ function PostComments({ post }) {
 	const toggleCollapsed = () => setCollapsed((prev) => !prev);
 
 	// Store comment objects
-	const [comments, setComments] = useState([...post.comments.data]);
+	const [comments] = useState([...post.comments.data]);
 
 	// Maps out comments
 	// Handle pagination
