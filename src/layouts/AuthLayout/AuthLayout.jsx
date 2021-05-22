@@ -8,7 +8,7 @@ function AuthLayout({ title, loading, children }) {
 			<div className={styles.content}>
 				<div className={styles.title}>
 					<h1>{title}</h1>
-					{loading ? <LoadingElipses /> : null}
+					{loading && <LoadingElipses />}
 				</div>
 				<div className={styles.form}>{children}</div>
 			</div>
