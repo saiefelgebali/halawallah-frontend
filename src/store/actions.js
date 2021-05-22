@@ -6,7 +6,7 @@ export const login = (dispatch, { refreshToken, accessToken }) => {
 };
 
 export const logout = (dispatch) => {
-	localStorage.setItem("accessToken", null);
-	localStorage.setItem("refreshToken", null);
+	localStorage.clear("accessToken");
+	localStorage.clear("refreshToken");
 	return dispatch({ type: "LOGOUT" });
 };

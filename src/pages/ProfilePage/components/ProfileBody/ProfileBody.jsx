@@ -9,135 +9,47 @@ const Views = {
 	Feed: 1,
 };
 
-function ProfileBody() {
+function ProfileBody({ profile }) {
 	const [view, setView] = useState(Views.Grid);
+	const [posts] = useState([...profile.posts.data]);
 
+	const PostsGrid = () => {
+		// Component mapping out posts as previews in a grid
+		const Previews = () =>
+			posts.map((post) => {
+				// Dont show preview if no image
+				if (!post.image) return null;
+
+				// Map out post images in grid layout
+				return (
+					<div key={post.post_id} className={styles.postPreview}>
+						<div className={styles.content}>
+							<img src={post.image} alt='' />
+						</div>
+					</div>
+				);
+			});
+
+		return (
+			<div className={`${styles.content} ${styles.grid}`}>
+				<Previews />
+			</div>
+		);
+	};
+
+	// Profile Post Feed
+	const PostFeed = () => (
+		<div className={`${styles.content} ${styles.feed}`}>
+			{posts.map((post) => (
+				<Post key={post.post_id} post={post} />
+			))}
+		</div>
+	);
 	const ProfileContent = () => {
 		if (view === Views.Grid) {
-			return (
-				<div className={`${styles.content} ${styles.grid}`}>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://i.ytimg.com/vi/-pKIqFjM65I/maxresdefault.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://i.ytimg.com/vi/-pKIqFjM65I/maxresdefault.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-					<div className={styles.postPreview}>
-						<div className={styles.content}>
-							<img
-								src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-								alt=''
-							/>
-						</div>
-					</div>
-				</div>
-			);
+			return <PostsGrid />;
 		} else if (view === Views.Feed) {
-			return (
-				<div className={`${styles.content} ${styles.feed}`}>
-					<Post />
-					<Post />
-					<Post />
-				</div>
-			);
+			return <PostFeed />;
 		}
 	};
 

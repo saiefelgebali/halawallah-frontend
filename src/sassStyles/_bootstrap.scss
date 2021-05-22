@@ -10,7 +10,9 @@ $success: #28502e;
 
 .btn-secondary {
 	color: white;
-	&:hover {
+	&:hover,
+	&:focus,
+	&:active {
 		background-color: darken($secondary, 2);
 		color: white;
 	}

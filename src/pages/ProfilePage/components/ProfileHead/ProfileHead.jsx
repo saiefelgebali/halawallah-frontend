@@ -1,31 +1,28 @@
 import React from "react";
 import styles from "./ProfileHead.module.scss";
 
-function ProfileHead() {
+function ProfileHead({ profile }) {
 	return (
 		<div className={styles.head}>
 			<div className={styles.profile}>
 				<div className={styles.pfp}>
-					<img
-						src='https://pbs.twimg.com/profile_images/1192781853712887808/lQI-thTv.jpg'
-						alt=''
-					/>
+					<img src={profile.pfp} alt='' />
 				</div>
 				<div className={styles.details}>
-					<div className={styles.display}>Saief Ahmed</div>
-					<div className={styles.username}>saiefelgebali</div>
-					<div className={styles.bio}>
-						Lorem ipsum dolor sit, amet consectetur adipisicing
-						elit. Illo harum cumque blanditiis nihil mollitia,
-						dolores iure accusantium aspernatur nemo aliquid
-						assumenda quo atque repudiandae consequatur voluptates
-						eos aut hic ipsam?
+					<div className={styles.display}>{profile.display}</div>
+					<div className={styles.username}>
+						{profile.user.username}
 					</div>
+					<div className={styles.bio}>{profile.bio}</div>
 				</div>
 			</div>
 			<div className={styles.controls}>
-				<button className={`btn ${styles.editButton}`}>Edit</button>
-				<button className={`btn ${styles.editButton}`}>Settings</button>
+				<button className={`btn btn-primary ${styles.editButton}`}>
+					Edit
+				</button>
+				<button className={`btn btn-secondary ${styles.editButton}`}>
+					Settings
+				</button>
 			</div>
 		</div>
 	);

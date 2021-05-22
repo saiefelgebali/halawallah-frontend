@@ -1,8 +1,10 @@
-import { gql } from "@apollo/client";
+import gql from "graphql-tag";
+import { POSTS, PROFILE_POSTS } from "./fragments";
 
 export const ME = gql`
 	query Me {
 		me {
+			profile_id
 			user {
 				username
 			}
@@ -17,30 +19,27 @@ export const FEED = gql`
 			count
 			hasMore
 			data {
-				post_id
-				image
-				caption
-				profile {
-					pfp
-					user {
-						username
-					}
-				}
-				comments(offset: 0, limit: 3) {
-					count
-					hasMore
-					data {
-						comment_id
-						text
-						profile {
-							pfp
-							user {
-								username
-							}
-						}
-					}
-				}
+				...posts
 			}
 		}
 	}
+	${POSTS}
+`;
+
+export const PROFILE = gql`
+	query Profile($username: String!, $offset: Int!, $limit: Int!) {
+		getProfileByUsername(username: $username) {
+			profile_id
+			display
+			bio
+			pfp
+			user {
+				username
+			}
+			posts(offset: $offset, limit: $limit) {
+				...profilePosts
+			}
+		}
+	}
+	${PROFILE_POSTS}
 `;

@@ -2,12 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Store } from "./store/store";
 import { useContext } from "react";
 import { setTheme } from "./util/theme";
-import {
-	ApolloClient,
-	ApolloProvider,
-	createHttpLink,
-	InMemoryCache,
-} from "@apollo/client";
+import { ApolloClient, ApolloProvider, createHttpLink } from "@apollo/client";
+import { cache } from "./cache";
 import { setContext } from "@apollo/client/link/context";
 import LoginPage from "./pages/AuthLoginPage/LoginPage";
 import RegisterPage from "./pages/AuthRegisterPage/RegisterPage";
@@ -94,7 +90,7 @@ function App() {
 
 	const client = new ApolloClient({
 		link: authLink.concat(httpLink),
-		cache: new InMemoryCache(),
+		cache: cache,
 		fetchOptions: {
 			mode: "no-cors",
 		},

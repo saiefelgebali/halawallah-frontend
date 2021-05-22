@@ -18,7 +18,7 @@ function PostComments({ post }) {
 		return (
 			<div className={styles.list}>
 				{comments.map((comment) => (
-					<Comment key={comment.comment_idp} comment={comment} />
+					<Comment key={comment.comment_id} comment={comment} />
 				))}
 				{post.comments.hasMore && (
 					<div className={styles.showMore}>Show more</div>
