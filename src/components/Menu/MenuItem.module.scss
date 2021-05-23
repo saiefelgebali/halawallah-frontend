@@ -45,12 +45,10 @@
 			}
 		}
 	}
-	@media (hover: hover) {
-		&:hover {
-			background-color: var(--nav-item-background-hover);
-			.content {
-				color: var(--nav-item-foreground-hover);
-			}
+	&:hover {
+		background-color: var(--nav-item-background-hover);
+		.content {
+			color: var(--nav-item-foreground-hover);
 		}
 	}
 }

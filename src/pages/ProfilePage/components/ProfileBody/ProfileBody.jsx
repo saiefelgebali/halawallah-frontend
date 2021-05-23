@@ -3,7 +3,6 @@ import { faLayerGroup, faTh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./ProfileBody.module.scss";
 import Feed from "../../../../components/Feed/Feed";
-import { useQuery } from "@apollo/client";
 import { PROFILE_POSTS } from "../../../../graphql/query";
 
 const Views = {
@@ -14,24 +13,11 @@ const Views = {
 function ProfileBody({ username }) {
 	const [view, setView] = useState(Views.Grid);
 
-	const { data, loading, fetchMore } = useQuery(PROFILE_POSTS, {
-		variables: { username, offset: 0, limit: 4 },
-		notifyOnNetworkStatusChange: true,
-		fetchPolicy: "cache-first",
-		nextFetchPolicy: "network-only",
-	});
-
-	const feed = data?.getPostsByUsername;
-
-	if (!feed) return null;
-
 	// Profile Post Feed
 	const PostFeed = () => (
 		<Feed
-			feed={feed.data}
-			fetchMore={fetchMore}
-			hasMore={feed.hasMore}
-			loading={loading}
+			query={PROFILE_POSTS}
+			variables={{ username }}
 			grid={view === Views.Grid}
 		/>
 	);

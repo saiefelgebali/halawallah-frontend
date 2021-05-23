@@ -3,14 +3,38 @@ import Post from "../Post/Post";
 import PostPreview from "../Post/PostPreview";
 import LoadingElipses from "../LoadingElipses/LoadingElipses";
 import styles from "./Feed.module.scss";
+import { useQuery } from "@apollo/client";
 
-function Feed({ feed, hasMore, loading, fetchMore, grid }) {
+function Feed({ query, variables, grid }) {
 	/**
 	 * Outputs posts from "feed" param
 	 * Handle pagination
 	 * Infinite scroll by way of IntersectionObserver
 	 */
 
+	const { data, loading, fetchMore } = useQuery(query, {
+		variables: {
+			...variables,
+			offset: 0,
+			limit: 6,
+		},
+		fetchPolicy: "cache-first",
+		nextFetchPolicy: "network-only",
+	});
+
+	const paginatedPostsData = (() => {
+		if (!data) return null;
+
+		// Return first prop from object
+		// eg. "feed" or "getPostsByUsername" objects
+		return data[Object.keys(data)[0]];
+	})();
+
+	// Extract data
+	const feed = paginatedPostsData?.data;
+	const hasMore = paginatedPostsData?.hasMore;
+
+	// Infinite scroll
 	const observer = useRef();
 
 	const observerRef = useCallback(
