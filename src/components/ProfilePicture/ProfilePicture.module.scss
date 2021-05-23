@@ -10,10 +10,6 @@
 		border-radius: 25%;
 		// border: 1px solid var(--content-border);
 		transition: border-radius 0.2s ease;
-
-		&:hover {
-			border-radius: 50%;
-		}
 	}
 
 	.placeholder {
@@ -22,8 +18,5 @@
 		height: 100%;
 		transition: padding 0.2s ease-out;
 		color: var(--text-title);
-		&:hover {
-			padding: 2px;
-		}
 	}
 }

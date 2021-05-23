@@ -7,7 +7,6 @@
 	--gray2: #505253;
 	--black0: #000000;
 	--black1: #07020d;
-	--black2: #0f173a;
 
 	// Theme Colors
 	--blue: #273469;
@@ -40,6 +39,7 @@
 	// Content
 	--content-background: var(--white0);
 	--content-border: var(--gray1);
+	--content-hover: var(--gray1);
 
 	// Dropdown
 	--dropdown-background: var(--white0);
@@ -86,6 +86,7 @@
 	// Content
 	--content-background: var(--black0);
 	--content-border: var(--white0);
+	--content-hover: var(--gray2);
 
 	// Dropdown
 	--dropdown-background: var(--black0);
