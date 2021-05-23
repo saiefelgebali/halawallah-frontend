@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { uploadPost } from "../../../../api/upload";
 import { handleInvalid } from "../../../../util/form";
 import ErrorAlert from "../../../../components/ErrorAlert/ErrorAlert";
@@ -7,6 +8,7 @@ import ImageCanvas from "../ImageCanvas/ImageCanvas";
 import styles from "./CreateForm.module.scss";
 
 function CreateForm() {
+	const history = useHistory();
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState({ message: null, type: null });
 
@@ -19,6 +21,7 @@ function CreateForm() {
 
 		// Start posting
 		setLoading(true);
+		setError({});
 
 		// Convert canvas image to file
 		canvas.toBlob(handleUpload);
@@ -26,6 +29,7 @@ function CreateForm() {
 		async function handleUpload(image) {
 			try {
 				await uploadPost({ image, caption });
+				history.push("/home");
 			} catch {
 				setError({
 					message: "Could not upload post. Please try again later.",
@@ -36,6 +40,16 @@ function CreateForm() {
 		}
 	}
 
+	const Loading = () => {
+		if (!loading) return null;
+
+		return (
+			<div className={styles.loading}>
+				<LoadingElipses className={styles.loadingElipses} />
+			</div>
+		);
+	};
+
 	return (
 		<div className={styles.create}>
 			<form
@@ -44,7 +58,7 @@ function CreateForm() {
 				onInvalid={(e) => handleInvalid(e, setError)}>
 				<fieldset disabled={false}>
 					<ImageCanvas />
-					{loading && <LoadingElipses loading={loading} />}
+					<Loading />
 					{error && <ErrorAlert error={error} />}
 					<textarea
 						className={`form-control ${styles.captionInput}`}

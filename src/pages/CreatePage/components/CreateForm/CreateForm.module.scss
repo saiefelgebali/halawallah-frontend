@@ -1,3 +1,5 @@
+@import "../../../../sassStyles/variables";
+
 .create {
 	color: var(--text);
 
@@ -10,5 +12,20 @@
 		margin: 1rem 0rem;
 		font-weight: 500;
 		padding: 1rem;
+	}
+}
+
+.loading {
+	background-color: var(--content-background);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border: 1px solid var(--content-border);
+	border-radius: $content-border-radius;
+	margin-bottom: 1rem;
+	.loadingElipses {
+		div {
+			background-color: var(--text-title);
+		}
 	}
 }
