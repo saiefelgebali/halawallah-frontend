@@ -20,9 +20,6 @@ function NavbarBottom() {
 			<Link to='/create'>
 				<FontAwesomeIcon icon={faPlus} />
 			</Link>
-			<Link to='/search'>
-				<FontAwesomeIcon icon={faSearch} />
-			</Link>
 			<ProfilePicture username={me?.user?.username} src={me?.pfp} />
 		</Navbar>
 	);

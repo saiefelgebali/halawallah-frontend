@@ -6,9 +6,9 @@ import { faComments, faHome } from "@fortawesome/free-solid-svg-icons";
 function NavbarTop() {
 	return (
 		<Navbar>
-			<div>
+			<a href='/home'>
 				<FontAwesomeIcon icon={faHome} />
-			</div>
+			</a>
 			<div>
 				<FontAwesomeIcon icon={faComments} />
 			</div>

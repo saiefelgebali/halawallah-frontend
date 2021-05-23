@@ -1,27 +1,15 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses";
 import { PROFILE_DETAILS } from "../../../../graphql/query";
 import styles from "./ProfileHead.module.scss";
 
 function ProfileHead({ username }) {
-	const { data, loading } = useQuery(PROFILE_DETAILS, {
+	const { data } = useQuery(PROFILE_DETAILS, {
 		variables: { username },
 		fetchPolicy: "cache-first",
 	});
 
 	const profile = data?.getProfileByUsername;
-
-	const Loading = () => {
-		if (!loading) return null;
-
-		// Return a loading elipses styled like a post
-		return (
-			<div className={styles.loading}>
-				<LoadingElipses className={styles.loadingElipses} />
-			</div>
-		);
-	};
 
 	const ProfileDetails = () => {
 		if (!profile) return null;
@@ -56,7 +44,6 @@ function ProfileHead({ username }) {
 
 	return (
 		<>
-			<Loading />
 			<ProfileDetails />
 		</>
 	);

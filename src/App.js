@@ -14,6 +14,7 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 
 import styles from "./App.module.scss";
 import { ProfileContextProvider } from "./context/profileContext";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function Unauthenticated() {
 	// Route unauthenticated users
@@ -47,6 +48,12 @@ function Authenticated() {
 								exact
 								path='/create'
 								component={CreatePage}
+							/>
+
+							<Route
+								exact
+								path='/search'
+								component={SearchPage}
 							/>
 
 							<Route

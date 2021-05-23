@@ -5,7 +5,7 @@ import LoadingElipses from "../LoadingElipses/LoadingElipses";
 import styles from "./Feed.module.scss";
 import { useQuery } from "@apollo/client";
 
-function Feed({ query, variables, grid }) {
+function Feed({ query, variables, toggleViews, grid }) {
 	/**
 	 * Outputs posts from "feed" param
 	 * Handle pagination
