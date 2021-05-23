@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const POSTS = gql`
+export const POSTS_FRAGMENT = gql`
 	fragment posts on Post {
 		post_id
 		image
@@ -28,15 +28,4 @@ export const POSTS = gql`
 			}
 		}
 	}
-`;
-
-export const PROFILE_POSTS = gql`
-	fragment profilePosts on PaginatedPosts {
-		count
-		hasMore
-		data {
-			...posts
-		}
-	}
-	${POSTS}
 `;

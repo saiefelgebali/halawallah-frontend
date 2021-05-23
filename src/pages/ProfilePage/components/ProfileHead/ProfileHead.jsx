@@ -1,7 +1,18 @@
+import { useQuery } from "@apollo/client";
 import React from "react";
+import { PROFILE_DETAILS } from "../../../../graphql/query";
 import styles from "./ProfileHead.module.scss";
 
-function ProfileHead({ profile }) {
+function ProfileHead({ username }) {
+	const { data, loading } = useQuery(PROFILE_DETAILS, {
+		variables: { username },
+		fetchPolicy: "cache-first",
+	});
+
+	const profile = data?.getProfileByUsername;
+
+	if (loading) return <div>Loading</div>;
+
 	return (
 		<div className={styles.head}>
 			<div className={styles.profile}>

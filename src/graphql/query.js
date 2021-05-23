@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { POSTS, PROFILE_POSTS } from "./fragments";
+import { POSTS_FRAGMENT } from "./fragments";
 
 export const ME = gql`
 	query Me {
@@ -23,11 +23,11 @@ export const FEED = gql`
 			}
 		}
 	}
-	${POSTS}
+	${POSTS_FRAGMENT}
 `;
 
-export const PROFILE = gql`
-	query Profile($username: String!, $offset: Int!, $limit: Int!) {
+export const PROFILE_DETAILS = gql`
+	query ProfileDetails($username: String!) {
 		getProfileByUsername(username: $username) {
 			profile_id
 			display
@@ -36,10 +36,22 @@ export const PROFILE = gql`
 			user {
 				username
 			}
-			posts(offset: $offset, limit: $limit) {
-				...profilePosts
+		}
+	}
+`;
+export const PROFILE_POSTS = gql`
+	query ProfilePosts($username: String!, $offset: Int!, $limit: Int!) {
+		getPostsByUsername(
+			username: $username
+			offset: $offset
+			limit: $limit
+		) {
+			count
+			hasMore
+			data {
+				...posts
 			}
 		}
 	}
-	${PROFILE_POSTS}
+	${POSTS_FRAGMENT}
 `;

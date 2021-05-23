@@ -1,0 +1,24 @@
+.loading {
+	background-color: var(--content-background);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border: 1px solid var(--content-border);
+	border-radius: 0.5rem;
+	.loadingElipses {
+		div {
+			background-color: var(text-title);
+		}
+	}
+}
+
+.grid {
+	background-color: var(--content-background);
+	border: 2px solid var(--content-border);
+	border-radius: 0.5rem;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2px;
+	margin-bottom: 1rem;
+}

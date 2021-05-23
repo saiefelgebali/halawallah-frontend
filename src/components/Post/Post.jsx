@@ -5,7 +5,7 @@ import styles from "./Post.module.scss";
 import PostOptions from "./PostOptions";
 
 // Complete Post Component
-function Post({ post }) {
+function Post({ post, observerRef }) {
 	/**
 	 * @summary Individual Post
 	 *
@@ -18,7 +18,7 @@ function Post({ post }) {
 	// Top section of post
 	// Contains profile & post details
 	const PostHead = () => (
-		<div className={styles.head}>
+		<div className={styles.head} ref={observerRef}>
 			<div className={styles.section}>
 				<ProfilePicture
 					username={post.profile.user.username}
