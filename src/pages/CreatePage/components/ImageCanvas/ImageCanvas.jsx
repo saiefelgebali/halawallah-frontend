@@ -50,9 +50,11 @@ function ImageCanvas() {
 		<div className={styles.container} ref={container}>
 			<input
 				id={styles.imgInput}
+				name='image'
 				type='file'
 				accept='.png, .jpg'
 				onChange={handleImageChange}
+				required
 			/>
 			{active ? (
 				<label htmlFor={styles.imgInput} className='btn btn-secondary'>

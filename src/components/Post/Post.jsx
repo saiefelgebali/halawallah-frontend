@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import PostComments from "./PostComments";
 import Username from "../_shared/Username";
 import styles from "./Post.module.scss";
 import PostOptions from "./PostOptions";
+import ProfilePicture from "../ProfilePicture/ProfilePicture";
 
 // Complete Post Component
 function Post({ post, observerRef }) {
@@ -67,12 +67,6 @@ function Post({ post, observerRef }) {
 			</div>
 		);
 	};
-
-	const ProfilePicture = ({ username, src }) => (
-		<Link to={`/profile/${username}`} className={styles.pfp}>
-			<img src={src} alt='' />
-		</Link>
-	);
 
 	return (
 		<div className={styles.post}>

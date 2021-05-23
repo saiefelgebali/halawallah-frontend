@@ -7,6 +7,7 @@ import { cache } from "./cache";
 import { setContext } from "@apollo/client/link/context";
 import LoginPage from "./pages/AuthLoginPage/LoginPage";
 import RegisterPage from "./pages/AuthRegisterPage/RegisterPage";
+import MainLayout from "./layouts/MainLayout/MainLayout";
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import CreatePage from "./pages/CreatePage/CreatePage";
@@ -38,20 +39,26 @@ function Authenticated() {
 		<div id={styles.app}>
 			<ProfileContextProvider>
 				<Router>
-					<Switch>
-						<Route exact path='/home' component={HomePage} />
+					<MainLayout>
+						<Switch>
+							<Route exact path='/home' component={HomePage} />
 
-						<Route exact path='/create' component={CreatePage} />
+							<Route
+								exact
+								path='/create'
+								component={CreatePage}
+							/>
 
-						<Route
-							exact
-							path='/profile/:username'
-							component={ProfilePage}
-						/>
+							<Route
+								exact
+								path='/profile/:username'
+								component={ProfilePage}
+							/>
 
-						{/* Default Route */}
-						<Route path='/' component={HomePage} />
-					</Switch>
+							{/* Default Route */}
+							<Route path='/' component={HomePage} />
+						</Switch>
+					</MainLayout>
 				</Router>
 			</ProfileContextProvider>
 		</div>

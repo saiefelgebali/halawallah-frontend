@@ -1,3 +1,5 @@
+@import "../../../../sassStyles/variables";
+
 #imgInput {
 	position: absolute !important;
 	height: 1px;
@@ -22,7 +24,7 @@
 
 	#canvas {
 		cursor: move;
-		border-radius: 0.5rem;
+		border-radius: $content-border-radius;
 		touch-action: none;
 	}
 	#slider {

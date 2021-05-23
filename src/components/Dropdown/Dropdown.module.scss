@@ -6,6 +6,7 @@ $offset: 1rem;
 .dropdown {
 	// Positioning
 	position: absolute;
+	z-index: 10;
 	&.over {
 		bottom: 100%;
 		transform: translateY(-$offset);
@@ -27,7 +28,7 @@ $offset: 1rem;
 	// Structure
 	min-width: 100%;
 	overflow: hidden;
-	border-radius: 0.5rem;
+	border-radius: $content-border-radius;
 	user-select: none;
 
 	// Style

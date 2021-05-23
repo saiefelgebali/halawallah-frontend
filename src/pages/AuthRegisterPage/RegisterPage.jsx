@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { handleInvalid } from "../../util/form";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
 
@@ -38,24 +39,11 @@ function RegisterPage() {
 		fieldSet.disabled = false;
 	}
 
-	function handleInvalid(event) {
-		// Block default behaviour
-		event.preventDefault();
-
-		event.target.classList.add("invalid");
-
-		// Set warning error
-		const fieldName = event.target.name;
-
-		setError({
-			message: `Check your entry for the ${fieldName} field`,
-			type: "warning",
-		});
-	}
-
 	return (
 		<AuthLayout title='Register'>
-			<form onSubmit={handleSubmit} onInvalid={handleInvalid}>
+			<form
+				onSubmit={handleSubmit}
+				onInvalid={(e) => handleInvalid(e, setError)}>
 				<fieldset>
 					<input
 						type='text'

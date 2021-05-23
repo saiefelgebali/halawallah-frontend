@@ -1,7 +1,9 @@
+@import "../../../../sassStyles/variables";
+
 .profileBody {
 	.viewSelector {
 		border: 1px solid var(--content-border);
-		border-radius: 0.5rem;
+		border-radius: $content-border-radius;
 		background-color: var(--content-background);
 		display: flex;
 		justify-content: space-evenly;
@@ -32,7 +34,7 @@
 		&.grid {
 			background-color: var(--content-background);
 			border: 2px solid var(--content-border);
-			border-radius: 0.5rem;
+			border-radius: $content-border-radius;
 			overflow: hidden;
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;

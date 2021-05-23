@@ -1,22 +1,21 @@
 @import "../../sassStyles/mixins";
+@import "../../sassStyles/variables";
 
 .main {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 
-	header {
-		@include breakpoint(xs) {
-			display: none;
-		}
+	@include breakpoint(xs) {
+		margin: $navbar-height 0rem;
 	}
 
 	// Fill remaining area
 	> .content {
 		padding: 1rem 0rem;
 		overflow: hidden;
-		width: 576px;
-		max-width: 576px;
+		width: $max-content-width;
+		max-width: $max-content-width;
 		flex-grow: 1;
 		display: flex;
 		justify-content: center;

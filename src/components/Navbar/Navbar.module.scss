@@ -1,0 +1,56 @@
+@import "../../sassStyles/mixins";
+@import "../../sassStyles/variables";
+
+.navbar {
+	position: fixed;
+
+	height: $navbar-height;
+	left: 0;
+	right: 0;
+	z-index: 10;
+
+	top: 0;
+	// border-bottom-left-radius: $content-border-radius;
+	// border-bottom-right-radius: $content-border-radius;
+	&.bottom {
+		top: auto;
+		bottom: 0;
+		height: $navbar-height + 1rem;
+		padding-bottom: 1rem;
+		// border-top-left-radius: $content-border-radius;
+		// border-top-right-radius: $content-border-radius;
+		// border-bottom-left-radius: 0;
+		// border-bottom-right-radius: 0;
+	}
+
+	display: none;
+	justify-content: center;
+	background-color: var(--navbar-background);
+	color: var(--navbar-color);
+	box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+
+	@include breakpoint(xs) {
+		display: flex;
+	}
+	.content {
+		padding: 1rem;
+		max-width: $max-content-width;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		> * {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			color: var(--text-title);
+			> * {
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+}

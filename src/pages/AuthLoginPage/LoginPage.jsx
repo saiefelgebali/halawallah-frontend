@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
+import { handleInvalid } from "../../util/form";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../graphql/mutation";
@@ -47,24 +48,11 @@ function LoginPage() {
 		fieldSet.disabled = false;
 	}
 
-	function handleInvalid(event) {
-		// Block default behaviour
-		event.preventDefault();
-
-		event.target.classList.add("invalid");
-
-		// Set warning error
-		const fieldName = event.target.name;
-
-		setError({
-			message: `Check your entry for the ${fieldName} field`,
-			type: "warning",
-		});
-	}
-
 	return (
 		<AuthLayout title='Login' loading={loading}>
-			<form onSubmit={handleSubmit} onInvalid={handleInvalid}>
+			<form
+				onSubmit={handleSubmit}
+				onInvalid={(e) => handleInvalid(e, setError)}>
 				<fieldset>
 					<input
 						type='text'

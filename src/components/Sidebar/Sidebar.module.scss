@@ -4,10 +4,7 @@
 .sidebar {
 	display: flex;
 	@include breakpoint(xs) {
-		transition: 0s;
-		min-width: $sidebar-xs;
-		width: $sidebar-xs;
-		max-width: $sidebar-xs;
+		display: none;
 	}
 	@include breakpoint(sm) {
 		min-width: $sidebar-sm;

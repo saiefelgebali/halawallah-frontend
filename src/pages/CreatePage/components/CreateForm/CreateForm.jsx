@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { uploadPost } from "../../../../api/upload";
+import { handleInvalid } from "../../../../util/form";
 import ErrorAlert from "../../../../components/ErrorAlert/ErrorAlert";
 import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses";
 import ImageCanvas from "../ImageCanvas/ImageCanvas";
@@ -34,9 +35,13 @@ function CreateForm() {
 			setLoading(false);
 		}
 	}
+
 	return (
 		<div className={styles.create}>
-			<form action='' onSubmit={handleSubmit}>
+			<form
+				action=''
+				onSubmit={handleSubmit}
+				onInvalid={(e) => handleInvalid(e, setError)}>
 				<fieldset disabled={false}>
 					<ImageCanvas />
 					{loading && <LoadingElipses loading={loading} />}

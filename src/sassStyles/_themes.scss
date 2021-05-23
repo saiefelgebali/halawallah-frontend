@@ -7,6 +7,7 @@
 	--gray2: #505253;
 	--black0: #000000;
 	--black1: #07020d;
+	--black2: #0f173a;
 
 	// Theme Colors
 	--blue: #273469;
@@ -30,6 +31,8 @@
 	--page-background: var(--gray0);
 
 	// Navbar
+	--navbar-background: var(--white0);
+	--navbar-color: var(--blue);
 	--nav-item-background-hover: var(--blue);
 	--nav-item-foreground: var(--blue);
 	--nav-item-foreground-hover: var(--white0);
@@ -74,6 +77,8 @@
 	--page-background: var(--black1);
 
 	// Navbar
+	--navbar-background: var(--black1);
+	--navbar-color: var(--white0);
 	--nav-item-background-hover: var(--blue);
 	--nav-item-foreground: var(--white0);
 	--nav-item-foreground-hover: var(--white0);

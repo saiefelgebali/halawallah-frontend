@@ -8,7 +8,9 @@ export function ProfileContextProvider({ children }) {
 	// Keep current profile details stored
 
 	// const { loading, error, data } = useQuery(ME);
-	const { data } = useQuery(ME);
+	const { data } = useQuery(ME, {
+		fetchPolicy: "cache-first",
+	});
 
 	const me = data?.me;
 
