@@ -31,7 +31,11 @@ function SearchPage() {
 	// Map out search results
 	const SearchResult = ({ result }) => (
 		<Link className={styles.result} to={`profile/${result.user.username}`}>
-			<ProfilePicture username={result.user.username} block />
+			<ProfilePicture
+				username={result.user.username}
+				src={result.pfp}
+				block
+			/>
 			<div className={styles.username}>{result.user.username}</div>
 		</Link>
 	);

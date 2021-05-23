@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { handleInvalid } from "../../util/form";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
+import { useMutation } from "@apollo/client";
+import { CREATE_USER } from "../../graphql/mutation";
 
 function RegisterPage() {
+	// To enable redirecting
+	const history = useHistory();
+
 	const [error, setError] = useState({ message: null, type: null });
 
-	function handleSubmit(event) {
+	const [createUser, { loading }] = useMutation(CREATE_USER);
+
+	async function handleSubmit(event) {
 		// Block default behaviour
 		event.preventDefault();
 
@@ -15,21 +22,21 @@ function RegisterPage() {
 		const form = event.target;
 		const fieldSet = form.querySelector("fieldset");
 
-		// const username = form.elements.username.value;
+		const username = form.elements.username.value;
+		const password = form.elements.password.value;
 		// const email = form.elements.email.value;
-		// const password = form.elements.password.value;
 
 		try {
 			// Disable form while loading
 			fieldSet.disabled = true;
 
 			// Make Mutation & get details
-			/* 
-			const res = await login({ variables: { username, password } });
-			const { refreshToken, accessToken } = res.data?.login;
+			const res = await createUser({ variables: { username, password } });
 
-			console.log(accessToken, refreshToken);
-			*/
+			// Redirect to login page
+			if (res) {
+				history.push("/login");
+			}
 		} catch (e) {
 			// Handle errors sent by server
 			setError({ message: e.message, type: "danger" });
@@ -40,7 +47,7 @@ function RegisterPage() {
 	}
 
 	return (
-		<AuthLayout title='Register'>
+		<AuthLayout title='Register' loading={loading}>
 			<form
 				onSubmit={handleSubmit}
 				onInvalid={(e) => handleInvalid(e, setError)}>

@@ -15,3 +15,15 @@ export const LOGOUT = gql`
 		# Returns true or false
 	}
 `;
+
+export const CREATE_USER = gql`
+	mutation CreateUser($username: String!, $password: String!) {
+		createUser(username: $username, password: $password) {
+			user {
+				username
+			}
+			profile_id
+			display
+		}
+	}
+`;
