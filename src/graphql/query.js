@@ -55,3 +55,19 @@ export const PROFILE_POSTS = gql`
 	}
 	${POSTS_FRAGMENT}
 `;
+
+export const SEARCH_PROFILE = gql`
+	query SearchProfile($query: String!, $offset: Int!, $limit: Int!) {
+		searchProfile(query: $query, offset: $offset, limit: $limit) {
+			count
+			hasMore
+			data {
+				profile_id
+				pfp
+				user {
+					username
+				}
+			}
+		}
+	}
+`;

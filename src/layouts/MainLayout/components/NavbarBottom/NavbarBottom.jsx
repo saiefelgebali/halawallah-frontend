@@ -8,7 +8,7 @@ import { faHome, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function NavbarBottom() {
 	const me = useContext(ProfileContext);
-	console.log(me);
+
 	return (
 		<Navbar bottom>
 			<Link to='/home'>

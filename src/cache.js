@@ -27,7 +27,7 @@ export const cache = new InMemoryCache({
 				getPostsByUsername: {
 					// Don't cache separate results based on
 					// any of this field's arguments.
-					keyArgs: false,
+					keyArgs: ["username"],
 
 					merge: (existing, incoming, { args: { offset = 0 } }) => {
 						const merged = { ...incoming };

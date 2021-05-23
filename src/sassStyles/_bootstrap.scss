@@ -13,7 +13,8 @@ $success: #28502e;
 	&:hover,
 	&:focus,
 	&:active {
-		background-color: darken($secondary, 2);
+		background-color: #6b6f73;
+		border-color: #65696d;
 		color: white;
 	}
 }

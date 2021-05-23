@@ -19,6 +19,14 @@
 				border-radius: $content-border-radius;
 				object-fit: cover;
 			}
+			.placeholder {
+				width: 4rem;
+				height: 4rem;
+				padding: 1rem;
+				color: var(--text-title);
+				border-radius: $content-border-radius;
+				border: 1px solid var(--content-border);
+			}
 		}
 		.details {
 			.display {

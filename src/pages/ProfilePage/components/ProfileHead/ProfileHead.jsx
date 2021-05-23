@@ -3,6 +3,9 @@ import React from "react";
 import { PROFILE_DETAILS } from "../../../../graphql/query";
 import styles from "./ProfileHead.module.scss";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
 function ProfileHead({ username }) {
 	const { data } = useQuery(PROFILE_DETAILS, {
 		variables: { username },
@@ -19,7 +22,14 @@ function ProfileHead({ username }) {
 			<div className={styles.head}>
 				<div className={styles.profile}>
 					<div className={styles.pfp}>
-						<img src={profile.pfp} alt='' />
+						{profile.pfp ? (
+							<img src={profile.pfp} alt='' />
+						) : (
+							<FontAwesomeIcon
+								icon={faUser}
+								className={styles.placeholder}
+							/>
+						)}
 					</div>
 					<div className={styles.details}>
 						<div className={styles.display}>{profile.display}</div>

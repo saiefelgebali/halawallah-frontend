@@ -83,15 +83,20 @@ function Feed({ query, variables, toggleViews, grid }) {
 	};
 
 	// Show posts in a feed
-	const PostsFeed = ({ observerIndex }) =>
-		feed.map((post, index) => (
-			<Post
-				key={post.post_id}
-				post={post}
-				// Add observerRef if index matches observerIndex
-				observerRef={index + 1 === observerIndex ? observerRef : null}
-			/>
-		));
+	const PostsFeed = ({ observerIndex }) => (
+		<div className={styles.feed}>
+			{feed.map((post, index) => (
+				<Post
+					key={post.post_id}
+					post={post}
+					// Add observerRef if index matches observerIndex
+					observerRef={
+						index + 1 === observerIndex ? observerRef : null
+					}
+				/>
+			))}
+		</div>
+	);
 
 	// Show posts in a grid
 	const PostsGrid = ({ observerIndex }) => (

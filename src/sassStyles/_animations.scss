@@ -1,0 +1,20 @@
+@keyframes fade-in {
+	from {
+		opacity: 0%;
+	}
+	to {
+		opacity: 100%;
+	}
+}
+
+@keyframes delayed-fade-in {
+	0% {
+		opacity: 0%;
+	}
+	75% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}

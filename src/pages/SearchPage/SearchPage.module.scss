@@ -1,0 +1,52 @@
+@import "../../sassStyles/variables";
+@import "../../sassStyles/animations";
+
+.search {
+	padding: 1rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.searchInput {
+		margin-bottom: 1rem;
+	}
+
+	.searchResults {
+		background-color: var(--content-background);
+		border-radius: $content-border-radius;
+		border: 1px solid var(--content-border);
+
+		padding: 1rem;
+		&:empty {
+			padding: 0;
+			border: none;
+		}
+
+		.result {
+			display: flex;
+			align-items: center;
+			padding: 1rem;
+			border-bottom: 1px solid var(--content-border);
+			&:last-of-type {
+				border-bottom: none;
+			}
+			.username {
+				color: var(--text-title);
+				margin-left: 1rem;
+			}
+		}
+	}
+	.loading {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		animation: delayed-fade-in 1s;
+
+		.loadingElipses {
+			div {
+				background-color: var(--text-title);
+			}
+		}
+	}
+}
