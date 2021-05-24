@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import ProfilePicture from "../../../../components/ProfilePicture/ProfilePicture";
 import Dropdown from "../../../../components/Dropdown/Dropdown";
 import Menu from "../../../../components/Menu/Menu";
 import MenuItem from "../../../../components/Menu/MenuItem";
@@ -31,7 +31,7 @@ function MenuProfile() {
 				{SettingsMenu()}
 			</Dropdown>
 			<MenuItem
-				icon={faUser}
+				icon={<ProfilePicture src={profileContext.pfp} />}
 				label={profileContext?.user?.username}
 				onClick={() => setOpen(!open)}
 			/>

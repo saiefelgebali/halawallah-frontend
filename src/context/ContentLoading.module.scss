@@ -1,0 +1,28 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	.icon {
+		margin: 4rem;
+		color: var(--text-title);
+		.logo {
+			animation: float 4s cubic-bezier(0.6, 0, 0, 0.6) infinite alternate;
+			width: 100%;
+
+			@keyframes float {
+				0% {
+					transform: scale(1);
+				}
+				100% {
+					transform: scale(0.9);
+				}
+			}
+		}
+	}
+}

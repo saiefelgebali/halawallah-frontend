@@ -38,8 +38,8 @@ function Authenticated() {
 	// Route authenticated users
 	return (
 		<div id={styles.app}>
-			<ProfileContextProvider>
-				<Router>
+			<Router>
+				<ProfileContextProvider>
 					<MainLayout>
 						<Switch>
 							<Route exact path='/home' component={HomePage} />
@@ -66,8 +66,8 @@ function Authenticated() {
 							<Route path='/' component={HomePage} />
 						</Switch>
 					</MainLayout>
-				</Router>
-			</ProfileContextProvider>
+				</ProfileContextProvider>
+			</Router>
 		</div>
 	);
 }

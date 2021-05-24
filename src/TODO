@@ -3,16 +3,18 @@
 [X] Dark Mode
 [X] Set up colors for light and dark themes
 
-[ ] Dropdown button, :focus-within method instead of event listeners
-[ ] Add clip-rect to dropdowns to create little points
+[ ] Twitter-like Loading DOM
 
+[X] Home page
 [X] Profile page
 [X] Create page
+[X] Register page
+[X] Login page
 [ ] Post page
-[ ] Search page
+[X] Search page
 [ ] Messages page
 [ ] Notifications page
 [ ] Notification Sounds
 
-[ ] Apollo Server
+[X] Apollo Client
 [ ] Socket.io Connection
