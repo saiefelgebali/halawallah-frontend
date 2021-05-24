@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from "../../../../components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../../../assets/logo.svg";
+import Logo from "../../../../assets/Logo";
 
 function NavbarTop() {
 	return (
 		<Navbar>
 			<a href='/home'>
-				<img src={logo} alt='' />
+				<Logo />
 			</a>
 			<div>
 				<FontAwesomeIcon icon={faComments} />

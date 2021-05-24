@@ -23,17 +23,17 @@
 			border: none;
 		}
 
-		.result {
+		> * {
 			display: flex;
 			align-items: center;
 			padding: 1rem;
 			border-bottom: 1px solid var(--content-border);
 			transition: background-color 0.2s ease;
-			&:first-of-type {
+			&:first-child {
 				border-top-left-radius: $content-border-radius;
 				border-top-right-radius: $content-border-radius;
 			}
-			&:last-of-type {
+			&:last-child {
 				border-bottom: none;
 				border-bottom-left-radius: $content-border-radius;
 				border-bottom-right-radius: $content-border-radius;
@@ -41,6 +41,11 @@
 			.username {
 				color: var(--text-title);
 				margin-left: 1rem;
+			}
+			&.showMore {
+				display: flex;
+				justify-content: flex-end;
+				color: var(--text-title);
 			}
 			&:hover {
 				cursor: pointer;
