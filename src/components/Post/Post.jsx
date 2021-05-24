@@ -3,6 +3,7 @@ import Username from "../_shared/Username";
 import styles from "./Post.module.scss";
 import PostOptions from "./PostOptions";
 import ProfilePicture from "../ProfilePicture/ProfilePicture";
+import Timestamp from "../Timestamp/Timestamp";
 
 // Complete Post Component
 function Post({ post, observerRef }) {
@@ -29,7 +30,9 @@ function Post({ post, observerRef }) {
 					username={post.profile.user.username}
 					className={styles.username}
 				/>
-				<div className={styles.timestamp}>11:59 AM</div>
+				<div className={styles.timestamp}>
+					<Timestamp timestamp={post.created_at} />
+				</div>
 			</div>
 			<div className={styles.section}>
 				<PostOptions />

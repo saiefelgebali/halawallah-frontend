@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { uploadPost } from "../../../../api/upload";
 import { handleInvalid } from "../../../../util/form";
@@ -11,6 +11,14 @@ function CreateForm() {
 	const history = useHistory();
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState({ message: null, type: null });
+	const [success, setSuccess] = useState();
+
+	useEffect(() => {
+		// Redirect to home on successful post
+		if (success) {
+			history.push("/home");
+		}
+	}, [success, history]);
 
 	async function handleSubmit(e) {
 		// Cancel default refresh screen
@@ -29,7 +37,7 @@ function CreateForm() {
 		async function handleUpload(image) {
 			try {
 				await uploadPost({ image, caption });
-				history.push("/home");
+				setSuccess(true);
 			} catch {
 				setError({
 					message: "Could not upload post. Please try again later.",

@@ -5,6 +5,7 @@ export const POSTS_FRAGMENT = gql`
 		post_id
 		image
 		caption
+		created_at
 		profile {
 			profile_id
 			pfp
