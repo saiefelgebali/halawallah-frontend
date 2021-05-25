@@ -27,3 +27,19 @@ export const CREATE_USER = gql`
 		}
 	}
 `;
+
+export const CREATE_COMMENT = gql`
+	mutation CreateComment($post_id: Int!, $text: String!) {
+		createComment(post_id: $post_id, text: $text) {
+			comment_id
+			text
+			profile {
+				profile_id
+				pfp
+				user {
+					username
+				}
+			}
+		}
+	}
+`;

@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { POSTS_FRAGMENT } from "./fragments";
+import { POSTS_FRAGMENT, COMMENTS_FRAGMENT } from "./fragments";
 
 export const ME = gql`
 	query Me {
@@ -70,4 +70,20 @@ export const SEARCH_PROFILE = gql`
 			}
 		}
 	}
+`;
+
+export const POST_COMMENTS = gql`
+	query PostComments($post_id: Int!, $offset: Int!, $limit: Int!) {
+		getPostById(post_id: $post_id) {
+			post_id
+			comments(offset: $offset, limit: $limit) {
+				count
+				hasMore
+				data {
+					...comments
+				}
+			}
+		}
+	}
+	${COMMENTS_FRAGMENT}
 `;

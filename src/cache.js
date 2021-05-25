@@ -41,6 +41,15 @@ export const cache = new InMemoryCache({
 						return merged;
 					},
 				},
+				getPostById: {
+					// Don't cache separate results based on
+					// any of this field's arguments.
+					keyArgs: ["post_id"],
+
+					merge: (existing, incoming, { args: { offset = 0 } }) => {
+						return incoming;
+					},
+				},
 			},
 		},
 	},
