@@ -74,14 +74,11 @@ export const SEARCH_PROFILE = gql`
 
 export const POST_COMMENTS = gql`
 	query PostComments($post_id: Int!, $offset: Int!, $limit: Int!) {
-		getPostById(post_id: $post_id) {
-			post_id
-			comments(offset: $offset, limit: $limit) {
-				count
-				hasMore
-				data {
-					...comments
-				}
+		getCommentsByPost(post_id: $post_id, offset: $offset, limit: $limit) {
+			count
+			hasMore
+			data {
+				...comments
 			}
 		}
 	}

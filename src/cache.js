@@ -41,13 +41,30 @@ export const cache = new InMemoryCache({
 						return merged;
 					},
 				},
-				getPostById: {
+				getCommentsByPost: {
 					// Don't cache separate results based on
 					// any of this field's arguments.
 					keyArgs: ["post_id"],
 
 					merge: (existing, incoming, { args: { offset = 0 } }) => {
-						return incoming;
+						const merged = { ...incoming };
+
+						// If offset is 0, reset cached data for post
+						// initial & refetch requests
+						if (offset === 0) {
+							merged.data = [];
+							for (let i = 0; i < incoming.data.length; ++i) {
+								merged.data[offset + i] = incoming.data[i];
+							}
+							return merged;
+						}
+
+						// Paginated requests
+						merged.data = existing ? existing.data.slice(0) : [];
+						for (let i = 0; i < incoming.data.length; ++i) {
+							merged.data[offset + i] = incoming.data[i];
+						}
+						return merged;
 					},
 				},
 			},
