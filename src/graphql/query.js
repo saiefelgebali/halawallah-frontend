@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { POSTS_FRAGMENT, COMMENTS_FRAGMENT } from "./fragments";
+import { POST_FRAGMENT, COMMENT_FRAGMENT } from "./fragments";
 
 export const ME = gql`
 	query Me {
@@ -23,7 +23,7 @@ export const FEED = gql`
 			}
 		}
 	}
-	${POSTS_FRAGMENT}
+	${POST_FRAGMENT}
 `;
 
 export const PROFILE_DETAILS = gql`
@@ -53,7 +53,7 @@ export const PROFILE_POSTS = gql`
 			}
 		}
 	}
-	${POSTS_FRAGMENT}
+	${POST_FRAGMENT}
 `;
 
 export const SEARCH_PROFILE = gql`
@@ -82,5 +82,14 @@ export const POST_COMMENTS = gql`
 			}
 		}
 	}
-	${COMMENTS_FRAGMENT}
+	${COMMENT_FRAGMENT}
+`;
+
+export const POST = gql`
+	query Post($post_id: Int!) {
+		getPostById(post_id: $post_id) {
+			...post
+		}
+	}
+	${POST_FRAGMENT}
 `;

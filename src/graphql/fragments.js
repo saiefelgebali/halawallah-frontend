@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const COMMENTS_FRAGMENT = gql`
+export const COMMENT_FRAGMENT = gql`
 	fragment comments on Comment {
 		comment_id
 		text
@@ -14,7 +14,7 @@ export const COMMENTS_FRAGMENT = gql`
 	}
 `;
 
-export const POSTS_FRAGMENT = gql`
+export const POST_FRAGMENT = gql`
 	fragment posts on Post {
 		post_id
 		image
@@ -35,5 +35,5 @@ export const POSTS_FRAGMENT = gql`
 			}
 		}
 	}
-	${COMMENTS_FRAGMENT}
+	${COMMENT_FRAGMENT}
 `;

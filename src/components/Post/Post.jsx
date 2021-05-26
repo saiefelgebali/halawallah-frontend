@@ -35,7 +35,7 @@ function Post({ post, observerRef }) {
 				</div>
 			</div>
 			<div className={styles.section}>
-				<PostOptions />
+				<PostOptions post={post} />
 			</div>
 		</div>
 	);
