@@ -12,8 +12,13 @@ import { DELETE_POST } from "../../graphql/mutation";
 import styles from "./Post.module.scss";
 import { useMutation } from "@apollo/client";
 
-function PostOptions({ post }) {
+function PostOptions({ me, post }) {
 	const [open, setOpen] = useState(false);
+
+	// Dont show options if not my post
+	if (me.profile_id !== post.profile.profile_id) {
+		return null;
+	}
 
 	const Menu = () => (
 		<div name='main'>

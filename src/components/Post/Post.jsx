@@ -4,6 +4,8 @@ import styles from "./Post.module.scss";
 import PostOptions from "./PostOptions";
 import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import Timestamp from "../Timestamp/Timestamp";
+import { useContext } from "react";
+import { ProfileContext } from "../../context/profileContext";
 
 // Complete Post Component
 function Post({ post, observerRef }) {
@@ -15,6 +17,8 @@ function Post({ post, observerRef }) {
 	 *
 	 * @returns {JSX.Element}
 	 */
+
+	const me = useContext(ProfileContext);
 
 	// Top section of post
 	// Contains profile & post details
@@ -35,7 +39,7 @@ function Post({ post, observerRef }) {
 				</div>
 			</div>
 			<div className={styles.section}>
-				<PostOptions post={post} />
+				<PostOptions me={me} post={post} />
 			</div>
 		</div>
 	);
