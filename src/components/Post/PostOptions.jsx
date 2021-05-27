@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import {
 	faCheck,
@@ -32,16 +32,16 @@ function PostOptions({ me, post }) {
 	);
 
 	const DeleteMenu = () => {
-		const [deletePost, { data, loading }] = useMutation(DELETE_POST, {
+		const [deletePost, { loading }] = useMutation(DELETE_POST, {
 			variables: { post_id: post.post_id },
+			update(cache, { data: deletePost }) {
+				// If delete is successful
+				if (deletePost) {
+					// Refresh page on success
+					window.location.reload();
+				}
+			},
 		});
-
-		useEffect(() => {
-			// Refresh page on success
-			if (data && data.deletePost) {
-				window.location.reload();
-			}
-		}, [data]);
 
 		if (loading) {
 			return (

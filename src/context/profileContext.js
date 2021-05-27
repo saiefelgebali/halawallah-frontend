@@ -16,7 +16,7 @@ export function ProfileContextProvider({ children }) {
 	const me = data?.me;
 
 	// Show floating loading icon
-	if (loading) {
+	if (!data && loading) {
 		return (
 			<div className={styles.container}>
 				<div className={styles.icon}>

@@ -10,6 +10,7 @@
 [X] Login page
 [X] Search page
 
+[R] Delete Post update cache // Refresh page on delete
 [ ] Edit Profile
 [ ] Delete comments
 [ ] Follow Profile

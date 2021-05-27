@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import { PROFILE_FRAGMENT } from "./fragments";
 
 export const LOGIN = gql`
 	mutation Login($username: String!, $password: String!) {
@@ -48,4 +49,13 @@ export const DELETE_POST = gql`
 	mutation DeletePosst($post_id: Int!) {
 		deletePost(post_id: $post_id)
 	}
+`;
+
+export const UPDATE_PROFILE = gql`
+	mutation UpdateProfile($display: String, $bio: String) {
+		updateProfile(display: $display, bio: $bio) {
+			...profile
+		}
+	}
+	${PROFILE_FRAGMENT}
 `;

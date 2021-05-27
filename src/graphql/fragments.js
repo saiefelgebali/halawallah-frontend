@@ -1,7 +1,19 @@
 import gql from "graphql-tag";
 
+export const PROFILE_FRAGMENT = gql`
+	fragment profile on Profile {
+		profile_id
+		pfp
+		display
+		bio
+		user {
+			username
+		}
+	}
+`;
+
 export const COMMENT_FRAGMENT = gql`
-	fragment comments on Comment {
+	fragment comment on Comment {
 		comment_id
 		text
 		profile {
@@ -15,7 +27,7 @@ export const COMMENT_FRAGMENT = gql`
 `;
 
 export const POST_FRAGMENT = gql`
-	fragment posts on Post {
+	fragment post on Post {
 		post_id
 		image
 		caption
@@ -31,7 +43,7 @@ export const POST_FRAGMENT = gql`
 			count
 			hasMore
 			data {
-				...comments
+				...comment
 			}
 		}
 	}

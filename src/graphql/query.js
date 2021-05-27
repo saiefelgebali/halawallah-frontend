@@ -19,7 +19,7 @@ export const FEED = gql`
 			count
 			hasMore
 			data {
-				...posts
+				...post
 			}
 		}
 	}
@@ -49,7 +49,7 @@ export const PROFILE_POSTS = gql`
 			count
 			hasMore
 			data {
-				...posts
+				...post
 			}
 		}
 	}
@@ -78,7 +78,7 @@ export const POST_COMMENTS = gql`
 			count
 			hasMore
 			data {
-				...comments
+				...comment
 			}
 		}
 	}

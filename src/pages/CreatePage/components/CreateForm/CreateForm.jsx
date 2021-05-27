@@ -17,6 +17,7 @@ function CreateForm() {
 		// Redirect to home on successful post
 		if (success) {
 			history.push("/home");
+			window.location.reload();
 		}
 	}, [success, history]);
 
