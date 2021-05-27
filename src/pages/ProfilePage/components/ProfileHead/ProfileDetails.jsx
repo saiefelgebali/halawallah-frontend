@@ -5,7 +5,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import ProfileHeadTemplate from "./ProfileHeadTemplate";
 
 // Fetch and show profile information
-export function ProfileDetails({ profile, setEditing }) {
+export function ProfileDetails({ profile, me, setEditing }) {
 	if (!profile) return null;
 
 	const ProfilePicture = () => {
@@ -20,11 +20,17 @@ export function ProfileDetails({ profile, setEditing }) {
 		return <img src={profile.pfp} alt='' />;
 	};
 
-	const Controls = () => (
-		<button className='btn btn-primary' onClick={() => setEditing(true)}>
-			Edit
-		</button>
-	);
+	const Controls = () => {
+		if (me.profile_id !== profile.profile_id) return null;
+
+		return (
+			<button
+				className='btn btn-primary'
+				onClick={() => setEditing(true)}>
+				Edit
+			</button>
+		);
+	};
 
 	return (
 		<ProfileHeadTemplate
