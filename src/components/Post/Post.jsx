@@ -1,4 +1,4 @@
-import PostComments from "./PostComments";
+import PostComments from "../PostComments/PostComments";
 import Username from "../_shared/Username";
 import styles from "./Post.module.scss";
 import PostOptions from "./PostOptions";

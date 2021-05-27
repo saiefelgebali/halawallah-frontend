@@ -1,0 +1,10 @@
+.comment {
+	.username {
+		margin-right: 0.5rem;
+	}
+	padding: 1rem 0rem;
+	border-bottom: 1px solid var(--content-border);
+	&:last-of-type {
+		border-bottom: none;
+	}
+}

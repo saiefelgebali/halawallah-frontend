@@ -2,16 +2,20 @@
 [X] Post Options 
 [X] Dark Mode
 [X] Set up colors for light and dark themes
-
-[ ] Twitter-like Loading DOM
-
+[X] Twitter-like Loading DOM
 [X] Home page
 [X] Profile page
 [X] Create page
 [X] Register page
 [X] Login page
-[ ] Post page
 [X] Search page
+
+[ ] Edit Profile
+[ ] Delete comments
+[ ] Follow Profile
+[ ] Fix delete post to use cache manipulation
+[ ] Add posts on upload dynamically 
+
 [ ] Messages page
 [ ] Notifications page
 [ ] Notification Sounds
