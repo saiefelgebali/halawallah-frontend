@@ -7,6 +7,8 @@ import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses
 import ImageCanvas from "../ImageCanvas/ImageCanvas";
 import styles from "./CreateForm.module.scss";
 
+import * as nsfwjs from "nsfwjs";
+
 function CreateForm() {
 	const history = useHistory();
 	const [loading, setLoading] = useState(false);
@@ -32,20 +34,53 @@ function CreateForm() {
 		setLoading(true);
 		setError({});
 
-		// Convert canvas image to file
-		canvas.toBlob(handleUpload);
+		// Pass image through nsfw filter
+		const isCleanImage = await filterNSFW(canvas);
+		console.log(isCleanImage);
+		if (isCleanImage) {
+			// Image is deemed clean
+			// Convert canvas image to file
+			// Upload image
+			canvas.toBlob(handleUpload);
+		} else {
+			// Could not pass through filter
+			setError({
+				message: "Sorry, this image violates our community guidelines",
+				type: "danger",
+			});
+		}
+		setLoading(false);
+
+		async function filterNSFW(canvas) {
+			// Load indecent content filter model
+			const model = await nsfwjs.load("/quant_nsfw_mobilenet/");
+
+			// Classify image
+			const predictions = await model.classify(canvas);
+
+			// Detect an indecent image - Set error
+			switch (predictions[0].className) {
+				case "Hentai":
+				case "Porn":
+				case "Sexy":
+					return false;
+
+				default:
+					return true;
+			}
+		}
 
 		async function handleUpload(image) {
 			try {
 				await uploadPost({ image, caption });
 				setSuccess(true);
-			} catch {
+			} catch (e) {
+				console.log(e);
 				setError({
 					message: "Could not upload post. Please try again later.",
 					type: "warning",
 				});
 			}
-			setLoading(false);
 		}
 	}
 
