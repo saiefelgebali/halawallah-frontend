@@ -59,3 +59,12 @@ export const UPDATE_PROFILE = gql`
 	}
 	${PROFILE_FRAGMENT}
 `;
+
+export const FOLLOW = gql`
+	mutation Follow($following_id: Int!) {
+		follow(following_id: $following_id) {
+			...profile
+		}
+	}
+	${PROFILE_FRAGMENT}
+`;

@@ -11,10 +11,9 @@
 [X] Search page
 
 [R] Delete Post update cache // Refresh page on delete
-[ ] Edit Profile
+[X] Edit Profile
 [ ] Delete comments
 [ ] Follow Profile
-[ ] Fix delete post to use cache manipulation
 [ ] Add posts on upload dynamically 
 
 [ ] Messages page

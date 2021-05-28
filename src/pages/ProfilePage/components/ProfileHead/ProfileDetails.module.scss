@@ -1,0 +1,16 @@
+.followButton {
+	&::after {
+		content: "Follow";
+	}
+}
+
+.followingButton {
+	&::after {
+		content: "Following";
+	}
+	&:hover {
+		&::after {
+			content: "Unfollow";
+		}
+	}
+}

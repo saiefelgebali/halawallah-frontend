@@ -31,7 +31,12 @@ function MenuProfile() {
 				{SettingsMenu()}
 			</Dropdown>
 			<MenuItem
-				icon={<ProfilePicture src={profileContext.pfp} />}
+				icon={
+					<ProfilePicture
+						src={profileContext.pfp}
+						username={profileContext.user.username}
+					/>
+				}
 				label={profileContext?.user?.username}
 				onClick={() => setOpen(!open)}
 			/>

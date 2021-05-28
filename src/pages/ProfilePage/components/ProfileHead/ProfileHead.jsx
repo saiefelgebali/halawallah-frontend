@@ -19,6 +19,8 @@ function ProfileHead({ username }) {
 	// Handle Edit mode
 	const [editing, setEditing] = useState(false);
 
+	if (!profile) return null;
+
 	if (editing)
 		return <ProfileEdit profile={profile} setEditing={setEditing} />;
 

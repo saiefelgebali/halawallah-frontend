@@ -6,6 +6,7 @@ export const PROFILE_FRAGMENT = gql`
 		pfp
 		display
 		bio
+		isFollowing
 		user {
 			username
 		}
