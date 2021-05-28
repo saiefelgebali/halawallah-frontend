@@ -8,9 +8,11 @@
 	&::after {
 		content: "Following";
 	}
-	&:hover {
-		&::after {
-			content: "Unfollow";
+	@media (hover: hover) {
+		&:hover {
+			&::after {
+				content: "Unfollow";
+			}
 		}
 	}
 }
