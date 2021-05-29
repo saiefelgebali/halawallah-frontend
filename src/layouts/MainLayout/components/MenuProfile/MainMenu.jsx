@@ -19,6 +19,7 @@ function MainMenu() {
 					<ProfilePicture
 						username={profileContext.user.username}
 						src={profileContext.pfp}
+						block
 					/>
 				}
 				label={profileContext.user.username}

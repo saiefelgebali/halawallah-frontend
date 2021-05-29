@@ -28,7 +28,7 @@ function MenuProfile() {
 		<Menu>
 			<Dropdown open={open} setOpen={setOpen} over left>
 				{MainMenu()}
-				{SettingsMenu(profileContext)}
+				{SettingsMenu()}
 			</Dropdown>
 			<MenuItem
 				icon={faUser}

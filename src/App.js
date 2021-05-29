@@ -11,6 +11,7 @@ import MainLayout from "./layouts/MainLayout/MainLayout";
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import CreatePage from "./pages/CreatePage/CreatePage";
+import NotificationPage from "./pages/NotificationPage/NotificatonPage";
 
 import styles from "./App.module.scss";
 import { ProfileContextProvider } from "./context/profileContext";
@@ -54,6 +55,12 @@ function Authenticated() {
 								exact
 								path='/search'
 								component={SearchPage}
+							/>
+
+							<Route
+								exact
+								path='/notifications'
+								component={NotificationPage}
 							/>
 
 							<Route
