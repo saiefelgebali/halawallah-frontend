@@ -10,17 +10,11 @@
 	z-index: 10;
 
 	top: 0;
-	// border-bottom-left-radius: $content-border-radius;
-	// border-bottom-right-radius: $content-border-radius;
 	&.bottom {
 		top: auto;
 		bottom: 0;
 		height: $navbar-height + 1rem;
 		padding-bottom: 1rem;
-		// border-top-left-radius: $content-border-radius;
-		// border-top-right-radius: $content-border-radius;
-		// border-bottom-left-radius: 0;
-		// border-bottom-right-radius: 0;
 	}
 
 	display: none;

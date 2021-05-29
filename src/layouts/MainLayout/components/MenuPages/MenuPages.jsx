@@ -1,5 +1,6 @@
 import React from "react";
 import {
+	faBell,
 	faComments,
 	faHome,
 	faPlus,
@@ -17,6 +18,7 @@ export default function MenuPages() {
 			<MenuItem icon={faHome} label='Home' to='/home' />
 			<MenuItem icon={faPlus} label='Create' to='/create' />
 			<MenuItem icon={faSearch} label='Search' to='/search' />
+			<MenuItem icon={faBell} label='Notifications' to='/notifications' />
 			<MenuItem icon={faComments} label='Messages' to='/messages' />
 		</Menu>
 	);

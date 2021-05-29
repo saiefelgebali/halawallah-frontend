@@ -4,7 +4,6 @@
 	user-select: none;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 	margin-bottom: 2rem;
 	border-radius: $content-border-radius;
 	border: 1px solid var(--content-border);
@@ -54,7 +53,8 @@
 			display: flex;
 			width: 100%;
 			img {
-				width: 100%;
+				max-width: 100%;
+				width: $max-content-width;
 				object-fit: cover;
 			}
 		}

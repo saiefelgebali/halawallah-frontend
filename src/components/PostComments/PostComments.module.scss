@@ -43,3 +43,12 @@
 	font-weight: 600;
 	padding: 1rem 0rem;
 }
+
+.loading {
+	> div {
+		> svg {
+			background-color: red;
+			color: var(--text-title);
+		}
+	}
+}

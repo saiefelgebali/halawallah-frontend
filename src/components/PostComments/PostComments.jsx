@@ -43,7 +43,7 @@ function PostComments({ post }) {
 	const Loading = () => {
 		if (!loading) return null;
 		return (
-			<div>
+			<div className={styles.loading}>
 				<LoadingElipses />
 			</div>
 		);

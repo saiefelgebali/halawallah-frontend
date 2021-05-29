@@ -5,6 +5,13 @@ export const cache = new InMemoryCache({
 		Profile: {
 			keyFields: ["profile_id"],
 		},
+		Post: {
+			keyFields: ["post_id"],
+		},
+		Comment: {
+			keyFields: ["comment_id"],
+		},
+
 		Query: {
 			fields: {
 				feed: {

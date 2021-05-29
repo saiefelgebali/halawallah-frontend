@@ -12,8 +12,9 @@
 
 [R] Delete Post update cache // Refresh page on delete
 [X] Edit Profile
+[X] Block NSFW Posts
 [ ] Delete comments
-[ ] Follow Profile
+[X] Follow Profile
 [ ] Add posts on upload dynamically 
 
 [ ] Messages page
