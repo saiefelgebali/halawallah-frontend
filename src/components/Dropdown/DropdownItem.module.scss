@@ -25,6 +25,7 @@
 
 	@media (hover: hover) {
 		&:hover {
+			color: var(--text);
 			background-color: var(--dropdown-item-hover);
 		}
 	}

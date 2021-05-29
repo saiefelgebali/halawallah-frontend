@@ -6,6 +6,7 @@ import DropdownItemStyles from "./DropdownItem.module.scss";
 import DropdownMenuStyles from "./DropdownMenu.module.scss";
 import TransitionMenuPrimary from "./TransitionDropdownMenuPrimary.module.scss";
 import TransitionMenuSecondary from "./TransitionDropdownMenuSecondary.module.scss";
+import { Link } from "react-router-dom";
 
 function Dropdown({ open, setOpen, over, left, children }) {
 	const [activeMenu, setActiveMenu] = useState("main");
@@ -75,8 +76,16 @@ function Dropdown({ open, setOpen, over, left, children }) {
 	const DropdownItem = ({ item }) => {
 		if (!item) return null;
 
-		const { left, right, leftIcon, rightIcon, label, action, gotoMenu } =
-			item;
+		const {
+			left,
+			right,
+			leftIcon,
+			rightIcon,
+			label,
+			action,
+			gotoMenu,
+			link,
+		} = item;
 
 		// Element to be displayed on the left.
 		const LeftComponent = () => (
@@ -91,6 +100,17 @@ function Dropdown({ open, setOpen, over, left, children }) {
 				{rightIcon ? <FontAwesomeIcon icon={rightIcon} /> : right}
 			</div>
 		);
+
+		// Show link if provided
+		if (link) {
+			return (
+				<Link className={DropdownItemStyles.item} to={link}>
+					<LeftComponent />
+					<div className={DropdownItemStyles.label}>{label}</div>
+					<RightComponent />
+				</Link>
+			);
+		}
 
 		return (
 			<label
