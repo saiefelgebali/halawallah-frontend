@@ -9,13 +9,6 @@ $userInputHeight: 5.5rem;
 	margin-bottom: $userInputHeight;
 	margin-top: $navbar-height;
 
-	.messages {
-		padding: 1rem;
-		flex-grow: 1;
-		display: flex;
-		flex-direction: column;
-	}
-
 	.header,
 	.userInput {
 		@include breakpoint(sm) {

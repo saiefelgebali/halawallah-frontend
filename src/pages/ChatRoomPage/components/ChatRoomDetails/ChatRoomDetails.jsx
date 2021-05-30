@@ -8,9 +8,18 @@ function ChatRoomDetails({ className }) {
 	const history = useHistory();
 
 	return (
-		<Navbar className={className}>
-			<div className={styles.button} onClick={() => history.goBack()}>
+		<Navbar className={`${className} ${styles.chatRoomDetails}`}>
+			<div className={styles.backButton} onClick={() => history.goBack()}>
 				<FontAwesomeIcon icon={faArrowLeft} />
+			</div>
+			<div className={styles.details}>
+				<div className={styles.roomName}>Room Name</div>
+				<div className={styles.roomImage}>
+					<img
+						src='http://192.168.1.111:5000/api/media/img/post/saief-1622375387353.png'
+						alt=''
+					/>
+				</div>
 			</div>
 		</Navbar>
 	);

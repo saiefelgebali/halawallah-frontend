@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams } from "react-router";
-import Navbar from "../../components/Navbar/Navbar";
 import styles from "./ChatRoomPage.module.scss";
 import ChatRoomDetails from "./components/ChatRoomDetails/ChatRoomDetails";
+import ChatRoomMessages from "./components/ChatRoomMessages/ChatRoomMessages";
+import UserInput from "./components/UserInput/UserInput";
 
 function ChatRoomPage() {
 	const { room_id } = useParams();
@@ -10,17 +11,8 @@ function ChatRoomPage() {
 	return (
 		<div className={styles.chatRoom}>
 			<ChatRoomDetails className={styles.header} />
-			<div className={styles.messages}>
-				<div>Hi</div>
-				<div>Hi</div>
-				<div>Hi</div>
-			</div>
-			<Navbar className={styles.userInput} bottom>
-				<div className='input-group'>
-					<input type='text' className='form-control' />
-					<button className='btn btn-primary'>Send</button>
-				</div>
-			</Navbar>
+			<ChatRoomMessages />
+			<UserInput className={styles.userInput} />
 		</div>
 	);
 }

@@ -1,3 +1,29 @@
-.button {
-	cursor: pointer;
+@import "../../../../sassStyles/variables";
+
+.chatRoomDetails {
+	.backButton {
+		cursor: pointer;
+		margin-right: 1rem;
+	}
+	.details {
+		flex-grow: 1;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.roomName {
+			height: fit-content;
+			font-size: 1.4rem;
+			font-weight: 600;
+		}
+
+		.roomImage {
+			img {
+				width: 30px;
+				height: 30px;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+		}
+	}
 }
