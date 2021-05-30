@@ -2,14 +2,11 @@ import gql from "graphql-tag";
 
 export const PROFILE_FRAGMENT = gql`
 	fragment profile on Profile {
-		profile_id
+		username
 		pfp
 		display
 		bio
 		isFollowing
-		user {
-			username
-		}
 	}
 `;
 
@@ -18,11 +15,8 @@ export const COMMENT_FRAGMENT = gql`
 		comment_id
 		text
 		profile {
-			profile_id
+			username
 			pfp
-			user {
-				username
-			}
 		}
 	}
 `;
@@ -34,11 +28,8 @@ export const POST_FRAGMENT = gql`
 		caption
 		created_at
 		profile {
-			profile_id
+			username
 			pfp
-			user {
-				username
-			}
 		}
 		comments(offset: 0, limit: 3) {
 			count

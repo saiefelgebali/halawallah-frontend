@@ -43,13 +43,9 @@ function SearchPage() {
 
 	// Map out search results
 	const SearchResult = ({ result }) => (
-		<Link className={styles.result} to={`profile/${result.user.username}`}>
-			<ProfilePicture
-				username={result.user.username}
-				src={result.pfp}
-				block
-			/>
-			<div className={styles.username}>{result.user.username}</div>
+		<Link className={styles.result} to={`profile/${result.username}`}>
+			<ProfilePicture username={result.username} src={result.pfp} block />
+			<div className={styles.username}>{result.username}</div>
 		</Link>
 	);
 
@@ -84,7 +80,7 @@ function SearchPage() {
 		return (
 			<div className={styles.searchResults}>
 				{results.map((result) => (
-					<SearchResult key={result.profile_id} result={result} />
+					<SearchResult key={result.username} result={result} />
 				))}
 				<ShowMore />
 			</div>

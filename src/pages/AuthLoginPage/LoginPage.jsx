@@ -3,18 +3,16 @@ import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import { handleInvalid } from "../../util/form";
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
-import { LOGIN } from "../../graphql/mutation";
 import { Store } from "../../store/store";
 import { login as loginAction } from "../../store/actions";
+import { login } from "../../api/auth";
 
 function LoginPage() {
 	// Login State Management
 	const { dispatch } = useContext(Store);
 
+	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState({ message: null, type: null });
-
-	const [login, { loading }] = useMutation(LOGIN);
 
 	// Handle submit login form
 	async function handleSubmit(event) {
@@ -31,16 +29,20 @@ function LoginPage() {
 
 		try {
 			// Disable form while loading
+			setLoading(true);
 			fieldSet.disabled = true;
 
 			// Make Mutation & get tokens
-			const res = await login({ variables: { username, password } });
-			const { refreshToken, accessToken } = res.data?.login;
+			const res = await login({ username, password });
+
+			const { refreshToken, accessToken } = res;
 
 			// Save Login Details
+			setLoading(false);
 			loginAction(dispatch, { refreshToken, accessToken });
 		} catch (e) {
 			// Handle errors sent by server
+			setLoading(false);
 			setError({ message: e.message, type: "danger" });
 		}
 

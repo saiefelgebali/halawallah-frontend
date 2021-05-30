@@ -10,7 +10,7 @@ import styles from "./ProfileDetails.module.scss";
 // Fetch and show profile information
 export function ProfileDetails({ profile, me, setEditing }) {
 	const [toggleFollow] = useMutation(FOLLOW, {
-		variables: { following_id: profile.profile_id },
+		variables: { following_username: profile.username },
 
 		// Optimistic Response - Zero latency response
 		optimisticResponse: {
@@ -26,7 +26,7 @@ export function ProfileDetails({ profile, me, setEditing }) {
 			// Update the cached profile details with mutation result
 			cache.writeQuery({
 				query: PROFILE_DETAILS,
-				variables: { username: profile.user.username },
+				variables: { username: profile.username },
 				follow,
 			});
 		},
@@ -60,7 +60,7 @@ export function ProfileDetails({ profile, me, setEditing }) {
 		);
 
 		// If my profile
-		if (me.profile_id === profile.profile_id) {
+		if (me.username === profile.username) {
 			return (
 				<button
 					className='btn btn-primary'

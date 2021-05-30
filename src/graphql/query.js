@@ -4,10 +4,7 @@ import { POST_FRAGMENT, COMMENT_FRAGMENT, PROFILE_FRAGMENT } from "./fragments";
 export const ME = gql`
 	query Me {
 		me {
-			profile_id
-			user {
-				username
-			}
+			username
 			pfp
 		}
 	}
@@ -28,7 +25,7 @@ export const FEED = gql`
 
 export const PROFILE_DETAILS = gql`
 	query ProfileDetails($username: String!) {
-		getProfileByUsername(username: $username) {
+		getProfile(username: $username) {
 			...profile
 		}
 	}
@@ -36,11 +33,7 @@ export const PROFILE_DETAILS = gql`
 `;
 export const PROFILE_POSTS = gql`
 	query ProfilePosts($username: String!, $offset: Int!, $limit: Int!) {
-		getPostsByUsername(
-			username: $username
-			offset: $offset
-			limit: $limit
-		) {
+		getPostsByProfile(username: $username, offset: $offset, limit: $limit) {
 			count
 			hasMore
 			data {
@@ -57,11 +50,8 @@ export const SEARCH_PROFILE = gql`
 			count
 			hasMore
 			data {
-				profile_id
+				username
 				pfp
-				user {
-					username
-				}
 			}
 		}
 	}

@@ -16,7 +16,7 @@ function PostOptions({ me, post }) {
 	const [open, setOpen] = useState(false);
 
 	// Dont show options if not my post
-	if (me.profile_id !== post.profile.profile_id) {
+	if (me.username !== post.profile.username) {
 		return null;
 	}
 

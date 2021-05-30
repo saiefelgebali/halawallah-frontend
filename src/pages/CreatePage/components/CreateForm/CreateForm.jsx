@@ -36,7 +36,7 @@ function CreateForm() {
 
 		// Pass image through nsfw filter
 		const isCleanImage = await filterNSFW(canvas);
-		console.log(isCleanImage);
+
 		if (isCleanImage) {
 			// Image is deemed clean
 			// Convert canvas image to file

@@ -26,12 +26,12 @@ function Post({ post, observerRef }) {
 		<div className={styles.head} ref={observerRef}>
 			<div className={styles.section}>
 				<ProfilePicture
-					username={post.profile.user.username}
+					username={post.profile.username}
 					src={post.profile.pfp}
 					onDragStart={(e) => e.preventDefault()}
 				/>
 				<Username
-					username={post.profile.user.username}
+					username={post.profile.username}
 					className={styles.username}
 				/>
 				<div className={styles.timestamp}>
@@ -65,7 +65,7 @@ function Post({ post, observerRef }) {
 			<div className={styles.foot}>
 				<div className={styles.details}>
 					<Username
-						username={post.profile.user.username}
+						username={post.profile.username}
 						className={styles.username}
 					/>
 					<span className={styles.caption}>{post.caption}</span>

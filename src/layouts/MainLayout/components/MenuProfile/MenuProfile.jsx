@@ -32,7 +32,7 @@ function MenuProfile() {
 			</Dropdown>
 			<MenuItem
 				icon={faUser}
-				label={profileContext.user.username}
+				label={profileContext.username}
 				onClick={() => setOpen(!open)}
 			/>
 		</Menu>

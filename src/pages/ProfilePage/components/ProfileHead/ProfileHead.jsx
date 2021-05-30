@@ -14,7 +14,7 @@ function ProfileHead({ username }) {
 		fetchPolicy: "cache-first",
 	});
 
-	const profile = data?.getProfileByUsername;
+	const profile = data?.getProfile;
 
 	// Handle Edit mode
 	const [editing, setEditing] = useState(false);

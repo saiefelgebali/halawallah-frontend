@@ -25,9 +25,7 @@ function ProfileHeadTemplate({
 				</div>
 				<div className={styles.details}>
 					<div className={styles.display}>{display}</div>
-					<div className={styles.username}>
-						{profile.user.username}
-					</div>
+					<div className={styles.username}>{profile.username}</div>
 					<div className={styles.bio}>{bio}</div>
 				</div>
 			</div>

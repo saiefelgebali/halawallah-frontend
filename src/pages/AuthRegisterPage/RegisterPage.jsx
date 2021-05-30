@@ -3,16 +3,14 @@ import { Link, useHistory } from "react-router-dom";
 import { handleInvalid } from "../../util/form";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
-import { useMutation } from "@apollo/client";
-import { CREATE_USER } from "../../graphql/mutation";
+import { register } from "../../api/auth";
 
 function RegisterPage() {
 	// To enable redirecting
 	const history = useHistory();
 
 	const [error, setError] = useState({ message: null, type: null });
-
-	const [createUser, { loading }] = useMutation(CREATE_USER);
+	const [loading, setLoading] = useState(false);
 
 	async function handleSubmit(event) {
 		// Block default behaviour
@@ -28,17 +26,19 @@ function RegisterPage() {
 
 		try {
 			// Disable form while loading
+			setLoading(true);
 			fieldSet.disabled = true;
 
 			// Make Mutation & get details
-			const res = await createUser({ variables: { username, password } });
+			const res = await register({ username, password });
 
 			// Redirect to login page
-			if (res) {
+			if (res.username) {
 				history.push("/login");
 			}
 		} catch (e) {
 			// Handle errors sent by server
+			setLoading(false);
 			setError({ message: e.message, type: "danger" });
 		}
 

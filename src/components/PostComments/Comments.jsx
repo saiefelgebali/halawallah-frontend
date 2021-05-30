@@ -7,7 +7,7 @@ const Comment = ({ comment }) => {
 	return (
 		<div className={styles.comment}>
 			<Username
-				username={comment.profile.user.username}
+				username={comment.profile.username}
 				className={styles.username}
 			/>
 			<span>{comment.text}</span>

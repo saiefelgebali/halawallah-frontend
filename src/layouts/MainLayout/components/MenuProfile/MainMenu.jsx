@@ -17,13 +17,13 @@ function MainMenu() {
 			<div
 				left={
 					<ProfilePicture
-						username={profileContext.user.username}
+						username={profileContext.username}
 						src={profileContext.pfp}
 						block
 					/>
 				}
-				label={profileContext.user.username}
-				link='profile/saief'
+				label={profileContext.username}
+				link={`/profile/${profileContext.username}`}
 			/>
 		</div>
 	);

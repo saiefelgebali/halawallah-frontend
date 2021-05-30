@@ -9,7 +9,7 @@ import { uploadPfp } from "../../../../api/upload";
 
 function ProfileEdit({ profile, setEditing }) {
 	const [updateProfile, { loading }] = useMutation(UPDATE_PROFILE, {
-		variables: { profile_id: profile.profile_id },
+		variables: { username: profile.username },
 	});
 
 	const [loadingEdit, setLoadingEdit] = useState(false);

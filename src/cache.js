@@ -3,7 +3,7 @@ import { InMemoryCache } from "@apollo/client";
 export const cache = new InMemoryCache({
 	typePolicies: {
 		Profile: {
-			keyFields: ["profile_id"],
+			keyFields: ["username"],
 		},
 		Post: {
 			keyFields: ["post_id"],
