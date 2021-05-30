@@ -12,10 +12,12 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import CreatePage from "./pages/CreatePage/CreatePage";
 import NotificationPage from "./pages/NotificationPage/NotificatonPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
+import ChatPage from "./pages/ChatPage/ChatPage";
 
 import styles from "./App.module.scss";
 import { ProfileContextProvider } from "./context/profileContext";
-import SearchPage from "./pages/SearchPage/SearchPage";
+import ChatLayout from "./layouts/ChatLayout/ChatLayout";
 
 function Unauthenticated() {
 	// Route unauthenticated users
@@ -37,42 +39,50 @@ function Unauthenticated() {
 
 function Authenticated() {
 	// Route authenticated users
+
+	const ChatApp = () => (
+		<ChatLayout>
+			<Switch>
+				<Route exact path='/:room_id' component={ChatPage} />
+			</Switch>
+		</ChatLayout>
+	);
+
+	const MainApp = () => (
+		<MainLayout>
+			<Switch>
+				<Route exact path='/home' component={HomePage} />
+
+				<Route exact path='/create' component={CreatePage} />
+
+				<Route exact path='/search' component={SearchPage} />
+
+				<Route
+					exact
+					path='/notifications'
+					component={NotificationPage}
+				/>
+
+				<Route
+					exact
+					path='/profile/:username'
+					component={ProfilePage}
+				/>
+
+				{/* Default Route */}
+				<Route path='/' component={HomePage} />
+			</Switch>
+		</MainLayout>
+	);
+
 	return (
 		<div id={styles.app}>
 			<Router>
 				<ProfileContextProvider>
-					<MainLayout>
-						<Switch>
-							<Route exact path='/home' component={HomePage} />
-
-							<Route
-								exact
-								path='/create'
-								component={CreatePage}
-							/>
-
-							<Route
-								exact
-								path='/search'
-								component={SearchPage}
-							/>
-
-							<Route
-								exact
-								path='/notifications'
-								component={NotificationPage}
-							/>
-
-							<Route
-								exact
-								path='/profile/:username'
-								component={ProfilePage}
-							/>
-
-							{/* Default Route */}
-							<Route path='/' component={HomePage} />
-						</Switch>
-					</MainLayout>
+					<Switch>
+						<Route path='/chat' component={ChatApp} />
+						<Route path='/' component={MainApp} />
+					</Switch>
 				</ProfileContextProvider>
 			</Router>
 		</div>
