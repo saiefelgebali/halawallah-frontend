@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { faChevronRight, faCog } from "@fortawesome/free-solid-svg-icons";
-import { ProfileContext } from "../../../../context/profileContext";
-import ProfilePicture from "../../../../components/ProfilePicture/ProfilePicture";
+import { ProfileContext } from "../../../context/profileContext";
+import ProfilePicture from "../../../components/ProfilePicture/ProfilePicture";
 
 function MainMenu() {
 	const profileContext = useContext(ProfileContext);

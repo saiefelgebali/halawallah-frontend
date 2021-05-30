@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import Dropdown from "../../../../components/Dropdown/Dropdown";
-import Menu from "../../../../components/Menu/Menu";
-import MenuItem from "../../../../components/Menu/MenuItem";
+import Dropdown from "../../../components/Dropdown/Dropdown";
+import Menu from "../../../components/Menu/Menu";
+import MenuItem from "../../../components/Menu/MenuItem";
 import SettingsMenu from "./SettingsMenu";
 import MainMenu from "./MainMenu";
-import { ProfileContext } from "../../../../context/profileContext";
+import { ProfileContext } from "../../../context/profileContext";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function MenuProfile() {

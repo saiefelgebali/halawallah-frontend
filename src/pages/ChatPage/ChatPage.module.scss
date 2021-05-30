@@ -1,5 +1,66 @@
+@import "../../sassStyles/variables";
+@import "../../sassStyles/mixins";
+
 .chatPage {
-	background-color: red;
 	width: 100%;
-	height: 100vh;
+	height: fit-content;
+	background-color: var(--content-background);
+	border: 1px solid var(--content-border);
+	border-radius: $content-border-radius;
+	padding: 1rem;
+	margin-top: 1rem;
+
+	.title {
+		color: var(--text-title);
+	}
+
+	.chatRooms {
+		padding: 1rem 0rem;
+		.chatRoom {
+			display: flex;
+			padding: 1rem;
+			transition: background-color 0.2s ease;
+			border-bottom: 1px solid var(--content-border);
+
+			&:first-child {
+				border-top-right-radius: 1rem;
+				border-top-left-radius: 1rem;
+			}
+
+			&:last-child {
+				border-bottom: none;
+				border-bottom-right-radius: 1rem;
+				border-bottom-left-radius: 1rem;
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: var(--content-hover);
+				}
+			}
+
+			.image {
+				margin-right: 1rem;
+				img {
+					width: 4rem;
+					height: 4rem;
+					object-fit: cover;
+					border-radius: $content-border-radius;
+				}
+			}
+			.details {
+				.name {
+					font-weight: 600;
+					color: var(--text);
+				}
+				.latestMessage {
+					color: var(--text-secondary);
+					overflow: hidden;
+					line-height: 20px;
+					max-height: 40px;
+					text-overflow: ellipsis;
+				}
+			}
+		}
+	}
 }

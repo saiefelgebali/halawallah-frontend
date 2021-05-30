@@ -1,8 +1,8 @@
 import React from "react";
 import NavbarTop from "./components/NavbarTop/NavbarTop";
 import NavbarBottom from "./components/NavbarBottom/NavbarBottom";
-import SidebarMisc from "./components/SidebarMisc/SidebarMisc";
-import SidebarNav from "./components/SidebarNav/SidebarNav";
+import SidebarMisc from "../_components/SidebarMisc/SidebarMisc";
+import SidebarNav from "../_components/SidebarNav/SidebarNav";
 import styles from "./Main.module.scss";
 
 function MainLayout({ children }) {

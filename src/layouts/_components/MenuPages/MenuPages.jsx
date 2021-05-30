@@ -6,9 +6,9 @@ import {
 	faPlus,
 	faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import Menu from "../../../../components/Menu/Menu";
-import MenuItem from "../../../../components/Menu/MenuItem";
-import Logo from "../../../../assets/Logo";
+import Menu from "../../../components/Menu/Menu";
+import MenuItem from "../../../components/Menu/MenuItem";
+import Logo from "../../../assets/Logo";
 
 // Menu Setup
 export default function MenuPages() {

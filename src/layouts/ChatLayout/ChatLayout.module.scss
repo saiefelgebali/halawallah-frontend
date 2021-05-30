@@ -1,0 +1,18 @@
+@import "../../sassStyles/mixins";
+@import "../../sassStyles/variables";
+
+.chat {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	// Fill remaining area
+	> .content {
+		overflow: hidden;
+		width: $max-content-width;
+		max-width: $max-content-width;
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+	}
+}

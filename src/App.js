@@ -18,6 +18,7 @@ import ChatPage from "./pages/ChatPage/ChatPage";
 import styles from "./App.module.scss";
 import { ProfileContextProvider } from "./context/profileContext";
 import ChatLayout from "./layouts/ChatLayout/ChatLayout";
+import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
 
 function Unauthenticated() {
 	// Route unauthenticated users
@@ -42,15 +43,15 @@ function Authenticated() {
 
 	const ChatApp = () => (
 		<ChatLayout>
-			<Switch>
-				<Route exact path='/:room_id' component={ChatPage} />
-			</Switch>
+			<ChatRoomPage />
 		</ChatLayout>
 	);
 
 	const MainApp = () => (
 		<MainLayout>
 			<Switch>
+				<Route exact path='/chat' component={ChatPage} />
+
 				<Route exact path='/home' component={HomePage} />
 
 				<Route exact path='/create' component={CreatePage} />
@@ -80,7 +81,11 @@ function Authenticated() {
 			<Router>
 				<ProfileContextProvider>
 					<Switch>
-						<Route path='/chat' component={ChatApp} />
+						<Route
+							exact
+							path='/chat/:room_id'
+							component={ChatApp}
+						/>
 						<Route path='/' component={MainApp} />
 					</Switch>
 				</ProfileContextProvider>

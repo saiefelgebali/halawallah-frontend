@@ -1,11 +1,14 @@
 import React from "react";
+import SidebarMisc from "../_components/SidebarMisc/SidebarMisc";
+import SidebarNav from "../_components/SidebarNav/SidebarNav";
 import styles from "./ChatLayout.module.scss";
-import NavbarTop from "./components/NavbarTop/NavbarTop";
 
-function ChatLayout() {
+function ChatLayout({ children }) {
 	return (
 		<div className={styles.chat}>
-			<NavbarTop />
+			<SidebarNav />
+			<div className={styles.content}>{children}</div>
+			<SidebarMisc />
 		</div>
 	);
 }

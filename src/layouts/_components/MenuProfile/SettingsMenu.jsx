@@ -5,10 +5,10 @@ import {
 	faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect, useContext } from "react";
-import Switch from "../../../../components/_shared/Switch";
-import { Store } from "../../../../store/store";
-import { logout as logoutAction } from "../../../../store/actions";
-import { LOGOUT } from "../../../../graphql/mutation";
+import Switch from "../../../components/_shared/Switch";
+import { Store } from "../../../store/store";
+import { logout as logoutAction } from "../../../store/actions";
+import { LOGOUT } from "../../../graphql/mutation";
 
 function SettingsMenu() {
 	const { state, dispatch } = useContext(Store);

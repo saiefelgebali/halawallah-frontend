@@ -6,6 +6,7 @@ import { useMutation } from "@apollo/client";
 import { FOLLOW } from "../../../../graphql/mutation";
 import { PROFILE_DETAILS } from "../../../../graphql/query";
 import styles from "./ProfileDetails.module.scss";
+import { Link } from "react-router-dom";
 
 // Fetch and show profile information
 export function ProfileDetails({ profile, me, setEditing }) {
@@ -45,19 +46,18 @@ export function ProfileDetails({ profile, me, setEditing }) {
 	};
 
 	const Controls = () => {
-		const FollowButton = () => (
-			<div
-				className={`btn btn-primary ${styles.followButton}`}
-				onClick={() => toggleFollow()}
-			/>
-		);
-
-		const FollowingButton = () => (
-			<div
-				className={`btn btn-secondary ${styles.followingButton}`}
-				onClick={() => toggleFollow()}
-			/>
-		);
+		const FollowButton = () =>
+			profile.isFollowing ? (
+				<div
+					className={`btn btn-secondary ${styles.followingButton}`}
+					onClick={() => toggleFollow()}
+				/>
+			) : (
+				<div
+					className={`btn btn-primary ${styles.followButton}`}
+					onClick={() => toggleFollow()}
+				/>
+			);
 
 		// If my profile
 		if (me.username === profile.username) {
@@ -71,9 +71,16 @@ export function ProfileDetails({ profile, me, setEditing }) {
 		}
 
 		// Other profiles
-		if (profile.isFollowing) return <FollowingButton />;
-
-		return <FollowButton />;
+		return (
+			<>
+				<FollowButton />
+				<Link
+					to={`/chat/${profile.username}`}
+					className='btn btn-secondary'>
+					Message
+				</Link>
+			</>
+		);
 	};
 
 	return (
