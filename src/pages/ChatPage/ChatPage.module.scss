@@ -1,6 +1,17 @@
 @import "../../sassStyles/variables";
 @import "../../sassStyles/mixins";
 
+.loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.loadingElipses {
+		div {
+			background-color: var(--text-title);
+		}
+	}
+}
+
 .chatPage {
 	width: 100%;
 	height: fit-content;
@@ -16,50 +27,15 @@
 
 	.chatRooms {
 		padding: 1rem 0rem;
-		.chatRoom {
+
+		&:empty {
 			display: flex;
-			padding: 1rem;
-			transition: background-color 0.2s ease;
-			border-bottom: 1px solid var(--content-border);
-
-			&:first-child {
-				border-top-right-radius: 1rem;
-				border-top-left-radius: 1rem;
-			}
-
-			&:last-child {
-				border-bottom: none;
-				border-bottom-right-radius: 1rem;
-				border-bottom-left-radius: 1rem;
-			}
-
-			@media (hover: hover) {
-				&:hover {
-					background-color: var(--content-hover);
-				}
-			}
-
-			.image {
-				margin-right: 1rem;
-				img {
-					width: 4rem;
-					height: 4rem;
-					object-fit: cover;
-					border-radius: $content-border-radius;
-				}
-			}
-			.details {
-				.name {
-					font-weight: 600;
-					color: var(--text);
-				}
-				.latestMessage {
-					color: var(--text-secondary);
-					overflow: hidden;
-					line-height: 20px;
-					max-height: 40px;
-					text-overflow: ellipsis;
-				}
+			flex-direction: column;
+			&::before {
+				content: "You haven't started any chats yet.";
+				font-size: 1.4rem;
+				color: var(--text-title);
+				margin-bottom: 1rem;
 			}
 		}
 	}

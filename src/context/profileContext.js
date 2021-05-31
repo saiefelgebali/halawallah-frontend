@@ -1,12 +1,15 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { ME } from "../graphql/query";
 import styles from "./ContentLoading.module.scss";
 import Logo from "../assets/Logo";
+import { Store } from "../store/store";
+import { logout } from "../store/actions";
 
 export const ProfileContext = createContext();
 
 export function ProfileContextProvider({ children }) {
+	const { dispatch } = useContext(Store);
 	// Keep current profile details stored
 
 	const { data, loading, error } = useQuery(ME, {
@@ -30,9 +33,11 @@ export function ProfileContextProvider({ children }) {
 	if (error) {
 		return (
 			<div className={styles.container}>
-				<div>
-					<h1>Oops</h1>
-					<div>There was a problem logging you in</div>
+				<h1>There was a problem loggin you in</h1> <br />
+				<div
+					className='btn btn-primary'
+					onClick={() => logout(dispatch)}>
+					Click here to log back in
 				</div>
 			</div>
 		);
@@ -45,7 +50,11 @@ export function ProfileContextProvider({ children }) {
 			<div className={styles.container}>
 				<p>
 					You have been logged out <br />
-					<a href='/login'>Click here to log back in</a>
+					<div
+						className='btn btn-primary'
+						onClick={() => logout(dispatch)}>
+						Click here to log back in
+					</div>
 				</p>
 			</div>
 		);

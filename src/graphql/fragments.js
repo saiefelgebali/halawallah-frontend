@@ -41,3 +41,36 @@ export const POST_FRAGMENT = gql`
 	}
 	${COMMENT_FRAGMENT}
 `;
+
+export const MESSAGE_FRAGMENT = gql`
+	fragment message on Message {
+		message_id
+		profile {
+			username
+			pfp
+		}
+		text
+	}
+`;
+
+export const CHAT_ROOM_FRAGMENT = gql`
+	fragment chatRoom on ChatRoom {
+		room_id
+		group {
+			name
+			image
+		}
+		messages(offset: 0, limit: 10) {
+			count
+			hasMore
+			data {
+				...message
+			}
+		}
+		members {
+			username
+			pfp
+		}
+	}
+	${MESSAGE_FRAGMENT}
+`;

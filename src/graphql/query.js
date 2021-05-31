@@ -1,5 +1,11 @@
 import gql from "graphql-tag";
-import { POST_FRAGMENT, COMMENT_FRAGMENT, PROFILE_FRAGMENT } from "./fragments";
+import {
+	POST_FRAGMENT,
+	COMMENT_FRAGMENT,
+	PROFILE_FRAGMENT,
+	CHAT_ROOM_FRAGMENT,
+	MESSAGE_FRAGMENT,
+} from "./fragments";
 
 export const ME = gql`
 	query Me {
@@ -77,4 +83,57 @@ export const POST = gql`
 		}
 	}
 	${POST_FRAGMENT}
+`;
+
+export const CHAT_ROOMS = gql`
+	query ChatRooms($offset: Int!, $limit: Int!) {
+		getProfileChatRooms(offset: $offset, limit: $limit) {
+			count
+			hasMore
+			data {
+				room_id
+				group {
+					name
+					image
+				}
+				messages(offset: 0, limit: 10) {
+					count
+					hasMore
+					data {
+						message_id
+						text
+						profile {
+							username
+						}
+					}
+				}
+				members {
+					pfp
+					username
+				}
+			}
+		}
+	}
+`;
+
+export const CHAT_ROOM = gql`
+	query ChatRoom($room_id: Int!) {
+		getChatRoomById(room_id: $room_id) {
+			...chatRoom
+		}
+	}
+	${CHAT_ROOM_FRAGMENT}
+`;
+
+export const CHAT_ROOM_MESSAGES = gql`
+	query ChatRoomMessages($room_id: Int!, $offset: Int!, $limit: Int) {
+		getChatRoomMessages(room_id: $room_id, offset: $offset, limit: $limit) {
+			count
+			hasMore
+			data {
+				...message
+			}
+		}
+	}
+	${MESSAGE_FRAGMENT}
 `;

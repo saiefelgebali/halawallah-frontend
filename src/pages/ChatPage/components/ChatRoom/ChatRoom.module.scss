@@ -1,0 +1,58 @@
+@import "../../../../sassStyles/variables";
+@import "../../../../sassStyles/mixins";
+
+.chatRoom {
+	display: flex;
+	padding: 1rem;
+	transition: background-color 0.2s ease;
+	border-bottom: 1px solid var(--content-border);
+
+	&:first-child {
+		border-top-right-radius: 1rem;
+		border-top-left-radius: 1rem;
+	}
+
+	&:last-child {
+		border-bottom: none;
+		border-bottom-right-radius: 1rem;
+		border-bottom-left-radius: 1rem;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--content-hover);
+		}
+	}
+
+	.image {
+		margin-right: 1rem;
+		display: flex;
+		img,
+		svg {
+			color: var(--text-title);
+			width: 4rem;
+			height: 4rem;
+			object-fit: cover;
+			border-radius: $content-border-radius;
+		}
+	}
+	.details {
+		.name {
+			font-weight: 600;
+			color: var(--text);
+		}
+		.latestMessage {
+			overflow: hidden;
+			line-height: 20px;
+			max-height: 40px;
+			text-overflow: ellipsis;
+			.username {
+				color: var(--text);
+				margin-right: 1ch;
+			}
+			.text {
+				color: var(--text-secondary);
+			}
+		}
+	}
+}
