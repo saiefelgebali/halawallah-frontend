@@ -33,7 +33,7 @@ export function ProfileContextProvider({ children }) {
 	if (error) {
 		return (
 			<div className={styles.container}>
-				<h1>There was a problem loggin you in</h1> <br />
+				<h1>There was a problem loggin you in</h1>
 				<div
 					className='btn btn-primary'
 					onClick={() => logout(dispatch)}>
@@ -48,14 +48,12 @@ export function ProfileContextProvider({ children }) {
 		// Try to use refreshToken to get new accessToken
 		return (
 			<div className={styles.container}>
-				<p>
-					You have been logged out <br />
-					<div
-						className='btn btn-primary'
-						onClick={() => logout(dispatch)}>
-						Click here to log back in
-					</div>
-				</p>
+				<h1>You have been logged out </h1>
+				<div
+					className='btn btn-primary'
+					onClick={() => logout(dispatch)}>
+					Click here to log back in
+				</div>
 			</div>
 		);
 	}

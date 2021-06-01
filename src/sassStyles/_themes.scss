@@ -61,6 +61,12 @@
 	--auth-box-shadow: rgba(0, 0, 0, 0.4);
 	--auth-text: var(--black0);
 	--auth-text-title: var(--blue);
+
+	// Chat
+	--chat-message-other-bg: rgb(216, 216, 216);
+	--chat-message-other-fg: rgb(0, 0, 0);
+	--chat-message-my-bg: var(--blue);
+	--chat-message-my-fg: rgb(255, 255, 255);
 }
 
 .dark {
@@ -107,4 +113,10 @@
 	--auth-box-shadow: rgba(0, 0, 0, 0.4);
 	--auth-text: var(--black0);
 	--auth-text-title: var(--blue);
+
+	// Chat
+	--chat-message-other-bg: var(--gray4);
+	--chat-message-other-fg: rgb(255, 255, 255);
+	--chat-message-my-bg: var(--blue);
+	--chat-message-my-fg: rgb(255, 255, 255);
 }

@@ -31,6 +31,7 @@
 		&:empty {
 			display: flex;
 			flex-direction: column;
+			padding: 1rem;
 			&::before {
 				content: "You haven't started any chats yet.";
 				font-size: 1.4rem;

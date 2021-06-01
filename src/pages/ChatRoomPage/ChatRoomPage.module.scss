@@ -23,5 +23,11 @@ $userInputHeight: 5.5rem;
 
 	.userInput {
 		height: $userInputHeight;
+		form {
+			width: 100%;
+			> * {
+				width: 100%;
+			}
+		}
 	}
 }

@@ -1,13 +1,15 @@
 import React from "react";
 import Navbar from "../../../../components/Navbar/Navbar";
 
-function UserInput({ className }) {
+function UserInput({ className, handleSubmit }) {
 	return (
 		<Navbar className={className} bottom>
-			<div className='input-group'>
-				<input type='text' className='form-control' />
-				<button className='btn btn-primary'>Send</button>
-			</div>
+			<form onSubmit={handleSubmit}>
+				<div className='input-group'>
+					<input type='text' className='form-control' />
+					<button className='btn btn-primary'>Send</button>
+				</div>
+			</form>
 		</Navbar>
 	);
 }

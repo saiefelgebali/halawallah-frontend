@@ -11,19 +11,33 @@ function ChatRoomPage() {
 	const { room_id } = useParams();
 
 	// Query for room details
-	const { data, loading } = useQuery(CHAT_ROOM, {
+	const { data, loading, fetchMore } = useQuery(CHAT_ROOM, {
 		variables: {
 			room_id: parseInt(room_id),
 		},
+		notifyOnNetworkStatusChange: true,
 	});
 
-	console.log(data);
+	// Get chatRoom data
+	const chatRoom = data?.getChatRoomById;
+
+	// When user enters a message
+	function handleSubmitMessage(event) {
+		event.preventDefault();
+
+		// 1. Send send socket event
+
+		// 2. Clear input
+	}
 
 	return (
 		<div className={styles.chatRoom}>
 			<ChatRoomDetails className={styles.header} />
-			<ChatRoomMessages />
-			<UserInput className={styles.userInput} />
+			{chatRoom && <ChatRoomMessages room_id={room_id} />}
+			<UserInput
+				className={styles.userInput}
+				handleSubmit={handleSubmitMessage}
+			/>
 		</div>
 	);
 }
