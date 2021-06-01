@@ -35,3 +35,13 @@
 		}
 	}
 }
+
+.loading {
+	display: flex;
+	justify-content: center;
+	.loadingElipses {
+		div {
+			background-color: var(--text-title);
+		}
+	}
+}

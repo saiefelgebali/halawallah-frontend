@@ -6,6 +6,7 @@ import React, {
 	useRef,
 	useState,
 } from "react";
+import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses";
 import { ProfileContext } from "../../../../context/profileContext";
 import { CHAT_ROOM_MESSAGES } from "../../../../graphql/query";
 import styles from "./ChatRoomMessages.module.scss";
@@ -13,14 +14,12 @@ import styles from "./ChatRoomMessages.module.scss";
 function ChatRoomMessages({ room_id }) {
 	const profileContext = useContext(ProfileContext);
 
-	const messagesContainerRef = useRef();
-
 	// Query for room messages
 	const { data, loading, fetchMore } = useQuery(CHAT_ROOM_MESSAGES, {
 		variables: {
 			room_id: parseInt(room_id),
 			offset: 0,
-			limit: 11,
+			limit: 100,
 		},
 		notifyOnNetworkStatusChange: true,
 	});
@@ -30,12 +29,41 @@ function ChatRoomMessages({ room_id }) {
 
 	const [messages, setMessages] = useState([]);
 
+	// Keep data up to date
 	useEffect(() => {
 		if (!data) return;
 
 		// Scroll to bottom on initial load
 		setMessages(data.getChatRoomMessages.data);
 	}, [data]);
+
+	// Maintain scroll position on content load
+	const [height, setHeight] = useState(0);
+
+	// Maintain scroll position on content load upwards
+	const measuredRef = useCallback(
+		(node) => {
+			if (!messages) return;
+
+			if (!node) return;
+
+			if (!loading) {
+			}
+
+			// Get new height
+			const newHeight = node.getBoundingClientRect().height;
+
+			// Calculate difference of height
+			const heightDiff = newHeight - height;
+
+			// Scroll down to maintain scroll position
+			window.scrollBy({ top: heightDiff });
+
+			// Update height of container div
+			setHeight(newHeight);
+		},
+		[messages, loading, height]
+	);
 
 	// Infinite scroll
 	const observer = useRef();
@@ -70,6 +98,7 @@ function ChatRoomMessages({ room_id }) {
 	);
 
 	const Message = ({ message, observerRef }) => {
+		// Check if message belongs to current user
 		const myMessage = message.profile.username === profileContext.username;
 
 		return (
@@ -94,15 +123,19 @@ function ChatRoomMessages({ room_id }) {
 			<Message
 				key={message.message_id}
 				message={message}
-				// observerRef={index + 1 === observerIndex ? observerRef : null}
+				observerRef={index + 1 === observerIndex ? observerRef : null}
 			/>
 		));
 	};
 
-	const Loading = () => <div>Loading...</div>;
+	const Loading = () => (
+		<div className={styles.loading}>
+			<LoadingElipses className={styles.loadingElipses} />
+		</div>
+	);
 
 	return (
-		<div className={styles.messages} ref={messagesContainerRef}>
+		<div className={styles.messages} ref={measuredRef}>
 			{messages && <Messages />}
 			{loading && <Loading />}
 		</div>
