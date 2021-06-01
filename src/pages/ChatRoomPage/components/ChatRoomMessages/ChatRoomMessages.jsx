@@ -35,8 +35,7 @@ function ChatRoomMessages({ room_id }) {
 	useEffect(() => {
 		if (!data) return;
 
-		// Scroll to bottom on new messages
-		window.scrollTo(0, document.body.scrollHeight);
+		// Update messages state - keep synced with data
 		setMessages(data.getChatRoomMessages.data);
 	}, [data]);
 
