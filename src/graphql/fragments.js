@@ -45,10 +45,7 @@ export const POST_FRAGMENT = gql`
 export const MESSAGE_FRAGMENT = gql`
 	fragment message on Message {
 		message_id
-		profile {
-			username
-			pfp
-		}
+		username
 		text
 	}
 `;

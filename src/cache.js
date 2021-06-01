@@ -11,6 +11,12 @@ export const cache = new InMemoryCache({
 		Comment: {
 			keyFields: ["comment_id"],
 		},
+		ChatRoom: {
+			keyFields: ["room_id"],
+		},
+		Message: {
+			keyFields: ["message_id"],
+		},
 
 		Query: {
 			fields: {

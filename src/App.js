@@ -17,6 +17,7 @@ import ChatPage from "./pages/ChatPage/ChatPage";
 
 import styles from "./App.module.scss";
 import { ProfileContextProvider } from "./context/profileContext";
+import { SocketContextProvider } from "./context/socketContext";
 import ChatLayout from "./layouts/ChatLayout/ChatLayout";
 import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
 
@@ -80,14 +81,16 @@ function Authenticated() {
 		<div id={styles.app}>
 			<Router>
 				<ProfileContextProvider>
-					<Switch>
-						<Route
-							exact
-							path='/chat/:room_id'
-							component={ChatApp}
-						/>
-						<Route path='/' component={MainApp} />
-					</Switch>
+					<SocketContextProvider>
+						<Switch>
+							<Route
+								exact
+								path='/chat/:room_id'
+								component={ChatApp}
+							/>
+							<Route path='/' component={MainApp} />
+						</Switch>
+					</SocketContextProvider>
 				</ProfileContextProvider>
 			</Router>
 		</div>

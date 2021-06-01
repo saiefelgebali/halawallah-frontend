@@ -21,6 +21,8 @@ function ChatRoomMessages({ room_id }) {
 			offset: 0,
 			limit: 100,
 		},
+		fetchPolicy: "network-only",
+		nextFetchPolicy: "cache-only",
 		notifyOnNetworkStatusChange: true,
 	});
 
@@ -33,7 +35,8 @@ function ChatRoomMessages({ room_id }) {
 	useEffect(() => {
 		if (!data) return;
 
-		// Scroll to bottom on initial load
+		// Scroll to bottom on new messages
+		window.scrollTo(0, document.body.scrollHeight);
 		setMessages(data.getChatRoomMessages.data);
 	}, [data]);
 
@@ -99,7 +102,7 @@ function ChatRoomMessages({ room_id }) {
 
 	const Message = ({ message, observerRef }) => {
 		// Check if message belongs to current user
-		const myMessage = message.profile.username === profileContext.username;
+		const myMessage = message.username === profileContext.username;
 
 		return (
 			<div
@@ -107,9 +110,7 @@ function ChatRoomMessages({ room_id }) {
 					myMessage ? styles.myMessage : styles.otherMessage
 				}`}
 				ref={observerRef}>
-				<div className={styles.username}>
-					{message.profile.username}
-				</div>
+				<div className={styles.username}>{message.username}</div>
 				<div className={styles.text}>{message.text}</div>
 			</div>
 		);

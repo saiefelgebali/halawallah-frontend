@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "../../../../components/Navbar/Navbar";
 
-function UserInput({ className }) {
+function UserInput({ className, sendMessage }) {
 	// When user enters a message
 	function handleSubmitMessage(event) {
 		event.preventDefault();
 
 		// 1. Compile message details
 		const text = event.target.text.value;
-		console.log(text);
 
 		// 2. Send send socket event
+		sendMessage(text);
 
 		// 3. Clear input
 		event.target.text.value = "";
