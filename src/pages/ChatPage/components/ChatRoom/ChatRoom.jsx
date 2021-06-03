@@ -5,7 +5,7 @@ import { faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ChatRoom.module.scss";
 import { ProfileContext } from "../../../../context/profileContext";
 
-function ChatRoom({ room, observerRef }) {
+function ChatRoom({ room }) {
 	/**
 	 * Show preview of a chatRoom
 	 */
@@ -36,7 +36,7 @@ function ChatRoom({ room, observerRef }) {
 	// Style a chatRoom's name
 	const Name = () => {
 		return (
-			<div className={styles.name} ref={observerRef}>
+			<div className={styles.name}>
 				{group?.name || targetProfile?.username}
 			</div>
 		);

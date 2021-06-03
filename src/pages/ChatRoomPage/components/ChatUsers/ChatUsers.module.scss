@@ -1,10 +1,18 @@
+@import "../../../../sassStyles/variables";
+
 .usersTyping {
-	height: 2rem;
 	display: flex;
 	align-items: center;
 	margin-bottom: 1rem;
+	min-height: 3.5rem;
+
 	.messageTyping {
 		color: var(--text-title);
 		font-weight: 600;
+		padding: 1rem;
+		background-color: var(--chat-message-other-bg);
+		color: var(--chat-message-other-fg);
+		border-radius: $content-border-radius;
+		border-bottom-left-radius: 0rem;
 	}
 }

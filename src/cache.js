@@ -37,23 +37,6 @@ export const cache = new InMemoryCache({
 						return merged;
 					},
 				},
-				getProfileChatRooms: {
-					// Don't cache separate results based on
-					// any of this field's arguments.
-					keyArgs: ["room_id"],
-
-					merge: (existing, incoming, { args: { offset = 0 } }) => {
-						const merged = { ...incoming };
-
-						// Slicing is necessary because the existing data is
-						// immutable, and frozen in development.
-						merged.data = existing ? existing.data.slice(0) : [];
-						for (let i = 0; i < incoming.data.length; ++i) {
-							merged.data[offset + i] = incoming.data[i];
-						}
-						return merged;
-					},
-				},
 				getChatRoomMessages: {
 					// Don't cache separate results based on
 					// any of this field's arguments.

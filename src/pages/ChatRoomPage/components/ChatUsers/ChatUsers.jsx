@@ -2,6 +2,7 @@ import { useSubscription } from "@apollo/client";
 import React, { useContext, useEffect, useState } from "react";
 import { ProfileContext } from "../../../../context/profileContext";
 import { MESSAGE_TYPING_SUBSCRIPTION } from "../../../../graphql/subscription";
+import { removeDuplicates } from "../../../../util/array";
 import styles from "./ChatUsers.module.scss";
 
 function ChatUsers({ room_id }) {
@@ -28,7 +29,9 @@ function ChatUsers({ room_id }) {
 
 		// Add user to usersTyping
 		if (newMessageTyping.isTyping) {
-			setUsersTyping((prev) => [newMessageTyping, ...prev]);
+			setUsersTyping((prev) =>
+				removeDuplicates([newMessageTyping, ...prev], "username")
+			);
 		}
 
 		// Remove user from usersTyping
@@ -44,7 +47,7 @@ function ChatUsers({ room_id }) {
 		if (!usersTyping.length) return null;
 
 		// Last user who is not myself will be shown
-		const displayUser = usersTyping[usersTyping.length - 1];
+		const displayUser = usersTyping[0];
 
 		console.log(displayUser);
 		console.log(usersTyping);

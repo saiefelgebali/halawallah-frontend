@@ -86,31 +86,27 @@ export const POST = gql`
 `;
 
 export const CHAT_ROOMS = gql`
-	query ChatRooms($offset: Int!, $limit: Int!) {
-		getProfileChatRooms(offset: $offset, limit: $limit) {
-			count
-			hasMore
-			data {
-				room_id
-				group {
-					name
-					image
-				}
-				messages(offset: 0, limit: 10) {
-					count
-					hasMore
-					data {
-						message_id
-						text
-						profile {
-							username
-						}
+	query ChatRooms {
+		getProfileChatRooms {
+			room_id
+			group {
+				name
+				image
+			}
+			messages(offset: 0, limit: 1) {
+				count
+				hasMore
+				data {
+					message_id
+					text
+					profile {
+						username
 					}
 				}
-				members {
-					pfp
-					username
-				}
+			}
+			members {
+				pfp
+				username
 			}
 		}
 	}
