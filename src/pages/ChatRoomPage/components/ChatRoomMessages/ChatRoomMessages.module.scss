@@ -33,6 +33,10 @@
 			}
 			border-bottom-right-radius: 0rem;
 		}
+
+		&:first-of-type {
+			margin-bottom: 4rem;
+		}
 	}
 }
 

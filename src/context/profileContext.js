@@ -33,7 +33,7 @@ export function ProfileContextProvider({ children }) {
 	if (error) {
 		return (
 			<div className={styles.container}>
-				<h1>There was a problem loggin you in</h1>
+				<h1 className='mb-3'>There was a problem logging you in</h1>
 				<div
 					className='btn btn-primary'
 					onClick={() => logout(dispatch)}>

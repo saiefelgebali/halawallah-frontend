@@ -1,4 +1,4 @@
-const AUTH = `${process.env.REACT_APP_BACKEND}/auth`;
+const AUTH = `http://${process.env.REACT_APP_SERVER_HOST}/auth`;
 const LOGIN = `${AUTH}/login`;
 const REGISTER = `${AUTH}/register`;
 

@@ -1,0 +1,10 @@
+.usersTyping {
+	position: absolute;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	.messageTyping {
+		color: var(--text-title);
+		font-weight: 600;
+	}
+}

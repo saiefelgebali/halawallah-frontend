@@ -63,3 +63,15 @@ export const CREATE_MESSAGE = gql`
 		}
 	}
 `;
+
+export const START_TYPING = gql`
+	mutation StartTyping($room_id: Int!) {
+		startTyping(room_id: $room_id)
+	}
+`;
+
+export const STOP_TYPING = gql`
+	mutation StopTyping($room_id: Int!) {
+		stopTyping(room_id: $room_id)
+	}
+`;

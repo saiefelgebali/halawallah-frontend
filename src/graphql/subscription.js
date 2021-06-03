@@ -9,3 +9,12 @@ export const MESSAGES_SUBSCRIPTION = gql`
 		}
 	}
 `;
+
+export const MESSAGE_TYPING_SUBSCRIPTION = gql`
+	subscription OnMessageTyping($room_id: Int!) {
+		messageTyping(room_id: $room_id) {
+			username
+			isTyping
+		}
+	}
+`;

@@ -10,6 +10,7 @@ import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses
 import { ProfileContext } from "../../../../context/profileContext";
 import { CHAT_ROOM_MESSAGES } from "../../../../graphql/query";
 import { MESSAGES_SUBSCRIPTION } from "../../../../graphql/subscription";
+import ChatUsers from "../ChatUsers/ChatUsers";
 import styles from "./ChatRoomMessages.module.scss";
 
 function ChatRoomMessages({ room_id }) {
@@ -168,6 +169,7 @@ function ChatRoomMessages({ room_id }) {
 		<div className={styles.messages} ref={measuredRef}>
 			{messages && <Messages />}
 			{loading && <Loading />}
+			<ChatUsers room_id={room_id} />
 		</div>
 	);
 }
