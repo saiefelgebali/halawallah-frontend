@@ -1,7 +1,6 @@
 @import "../../../../sassStyles/variables";
 
 .messages {
-	padding: 1rem;
 	display: flex;
 	flex-direction: column-reverse;
 	.message {
@@ -32,10 +31,6 @@
 				display: none;
 			}
 			border-bottom-right-radius: 0rem;
-		}
-
-		&:first-of-type {
-			margin-bottom: 4rem;
 		}
 	}
 }

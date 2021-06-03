@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import styles from "./ChatRoomPage.module.scss";
 import ChatRoomDetails from "./components/ChatRoomDetails/ChatRoomDetails";
 import ChatRoomMessages from "./components/ChatRoomMessages/ChatRoomMessages";
+import ChatUsers from "./components/ChatUsers/ChatUsers";
 import UserInput from "./components/UserInput/UserInput";
 import { CHAT_ROOM } from "../../graphql/query";
 
@@ -22,18 +23,16 @@ function ChatRoomPage() {
 	// Get chatRoom data
 	const chatRoom = data?.getChatRoomById;
 
+	if (!room_id) return null;
+
 	return (
 		<div className={styles.chatRoom}>
-			{chatRoom && (
-				<ChatRoomDetails
-					className={styles.header}
-					chatRoom={chatRoom}
-				/>
-			)}
-			{chatRoom && <ChatRoomMessages room_id={room_id} />}
-			{chatRoom && (
-				<UserInput className={styles.userInput} room_id={room_id} />
-			)}
+			<ChatRoomDetails className={styles.header} chatRoom={chatRoom} />
+			<div className={styles.content}>
+				<ChatRoomMessages room_id={room_id} />
+				<ChatUsers room_id={room_id} />
+			</div>
+			<UserInput className={styles.userInput} room_id={room_id} />
 		</div>
 	);
 }
