@@ -2,9 +2,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Store } from "./store/store";
 import { useContext } from "react";
 import { setTheme } from "./util/theme";
-import { ApolloClient, ApolloProvider, createHttpLink } from "@apollo/client";
+import {
+	ApolloClient,
+	ApolloProvider,
+	createHttpLink,
+	split,
+} from "@apollo/client";
 import { cache } from "./cache";
 import { setContext } from "@apollo/client/link/context";
+import { WebSocketLink } from "@apollo/client/link/ws";
 import LoginPage from "./pages/AuthLoginPage/LoginPage";
 import RegisterPage from "./pages/AuthRegisterPage/RegisterPage";
 import MainLayout from "./layouts/MainLayout/MainLayout";
@@ -17,9 +23,9 @@ import ChatPage from "./pages/ChatPage/ChatPage";
 
 import styles from "./App.module.scss";
 import { ProfileContextProvider } from "./context/profileContext";
-import { SocketContextProvider } from "./context/socketContext";
 import ChatLayout from "./layouts/ChatLayout/ChatLayout";
 import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
+import { getMainDefinition } from "@apollo/client/utilities";
 
 function Unauthenticated() {
 	// Route unauthenticated users
@@ -81,16 +87,14 @@ function Authenticated() {
 		<div id={styles.app}>
 			<Router>
 				<ProfileContextProvider>
-					<SocketContextProvider>
-						<Switch>
-							<Route
-								exact
-								path='/chat/:room_id'
-								component={ChatApp}
-							/>
-							<Route path='/' component={MainApp} />
-						</Switch>
-					</SocketContextProvider>
+					<Switch>
+						<Route
+							exact
+							path='/chat/:room_id'
+							component={ChatApp}
+						/>
+						<Route path='/' component={MainApp} />
+					</Switch>
 				</ProfileContextProvider>
 			</Router>
 		</div>
@@ -112,8 +116,27 @@ function App() {
 
 	// Set up Apollo Client for graphql
 	const httpLink = createHttpLink({
-		uri: `${process.env.REACT_APP_BACKEND}/graphql`,
+		uri: `http://${process.env.REACT_APP_SERVER_HOST}/graphql`,
 	});
+
+	const wsLink = new WebSocketLink({
+		uri: `ws://${process.env.REACT_APP_SERVER_HOST}/graphql`,
+		options: {
+			reconnect: true,
+		},
+	});
+
+	const splitLink = split(
+		({ query }) => {
+			const definition = getMainDefinition(query);
+			return (
+				definition.kind === "OperationDefinition" &&
+				definition.operation === "subscription"
+			);
+		},
+		wsLink,
+		httpLink
+	);
 
 	const authLink = setContext((_, { headers }) => {
 		// get the authentication token from state
@@ -128,7 +151,7 @@ function App() {
 	});
 
 	const client = new ApolloClient({
-		link: authLink.concat(httpLink),
+		link: authLink.concat(splitLink),
 		cache: cache,
 		fetchOptions: {
 			mode: "no-cors",

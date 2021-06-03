@@ -23,11 +23,11 @@ function ChatRoomDetails({ className, chatRoom }) {
 			</div>
 			<div className={styles.details}>
 				<div className={styles.roomName}>
-					{chatRoom.group?.name || targetProfile.username}
+					{chatRoom.group?.name || targetProfile?.username}
 				</div>
 				<div className={styles.roomImage}>
 					<img
-						src={chatRoom.group?.image || targetProfile.pfp}
+						src={chatRoom.group?.image || targetProfile?.pfp}
 						alt=''
 					/>
 				</div>

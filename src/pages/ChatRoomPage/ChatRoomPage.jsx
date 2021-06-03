@@ -6,18 +6,15 @@ import ChatRoomDetails from "./components/ChatRoomDetails/ChatRoomDetails";
 import ChatRoomMessages from "./components/ChatRoomMessages/ChatRoomMessages";
 import UserInput from "./components/UserInput/UserInput";
 import { CHAT_ROOM } from "../../graphql/query";
-import useChat from "../../hooks/useChat";
 
 function ChatRoomPage() {
-	const { room_id } = useParams();
-
-	// Use sockets for messaging
-	const { sendMessage } = useChat(room_id);
+	const params = useParams();
+	const room_id = parseInt(params.room_id);
 
 	// Query for room details
 	const { data } = useQuery(CHAT_ROOM, {
 		variables: {
-			room_id: parseInt(room_id),
+			room_id,
 		},
 		notifyOnNetworkStatusChange: true,
 	});
@@ -34,7 +31,9 @@ function ChatRoomPage() {
 				/>
 			)}
 			{chatRoom && <ChatRoomMessages room_id={room_id} />}
-			<UserInput className={styles.userInput} sendMessage={sendMessage} />
+			{chatRoom && (
+				<UserInput className={styles.userInput} room_id={room_id} />
+			)}
 		</div>
 	);
 }

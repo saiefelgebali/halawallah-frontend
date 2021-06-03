@@ -1,7 +1,15 @@
+import { useMutation } from "@apollo/client";
 import React from "react";
 import Navbar from "../../../../components/Navbar/Navbar";
+import { CREATE_MESSAGE } from "../../../../graphql/mutation";
 
-function UserInput({ className, sendMessage }) {
+function UserInput({ className, room_id }) {
+	const [sendMessage] = useMutation(CREATE_MESSAGE, {
+		variables: {
+			room_id,
+		},
+	});
+
 	// When user enters a message
 	function handleSubmitMessage(event) {
 		event.preventDefault();
@@ -9,8 +17,17 @@ function UserInput({ className, sendMessage }) {
 		// 1. Compile message details
 		const text = event.target.text.value;
 
-		// 2. Send send socket event
-		sendMessage(text);
+		// 1b. Check text is empty
+		if (text.match(/^ *$/) !== null) {
+			return;
+		}
+
+		// 2. Make Mutation
+		sendMessage({
+			variables: {
+				text,
+			},
+		});
 
 		// 3. Clear input
 		event.target.text.value = "";

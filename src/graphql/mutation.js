@@ -53,3 +53,13 @@ export const FOLLOW = gql`
 	}
 	${PROFILE_FRAGMENT}
 `;
+
+export const CREATE_MESSAGE = gql`
+	mutation CreateMessage($room_id: Int!, $text: String!) {
+		createMessage(room_id: $room_id, text: $text) {
+			message_id
+			text
+			username
+		}
+	}
+`;

@@ -9,22 +9,52 @@ import React, {
 import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses";
 import { ProfileContext } from "../../../../context/profileContext";
 import { CHAT_ROOM_MESSAGES } from "../../../../graphql/query";
+import { MESSAGES_SUBSCRIPTION } from "../../../../graphql/subscription";
 import styles from "./ChatRoomMessages.module.scss";
 
 function ChatRoomMessages({ room_id }) {
 	const profileContext = useContext(ProfileContext);
 
 	// Query for room messages
-	const { data, loading, fetchMore } = useQuery(CHAT_ROOM_MESSAGES, {
-		variables: {
-			room_id: parseInt(room_id),
-			offset: 0,
-			limit: 100,
-		},
-		fetchPolicy: "network-only",
-		nextFetchPolicy: "cache-only",
-		notifyOnNetworkStatusChange: true,
-	});
+	const { data, loading, fetchMore, subscribeToMore } = useQuery(
+		CHAT_ROOM_MESSAGES,
+		{
+			variables: {
+				room_id: parseInt(room_id),
+				offset: 0,
+				limit: 100,
+			},
+			fetchPolicy: "network-only",
+			nextFetchPolicy: "cache-only",
+			notifyOnNetworkStatusChange: true,
+		}
+	);
+
+	// Subscribe to updates in data
+	useEffect(() => {
+		subscribeToMore({
+			document: MESSAGES_SUBSCRIPTION,
+			variables: { room_id },
+			updateQuery: (prev, { subscriptionData }) => {
+				if (!subscriptionData.data) return prev;
+
+				// Access newly received data
+				const newMessage = subscriptionData.data.messageCreated;
+
+				// Access previous data
+				const prevChatRoomMessages = prev.getChatRoomMessages;
+
+				// Return updated data
+				return {
+					getChatRoomMessages: {
+						...prevChatRoomMessages,
+						count: prevChatRoomMessages.count + 1,
+						data: [newMessage, ...prevChatRoomMessages.data],
+					},
+				};
+			},
+		});
+	}, [room_id, subscribeToMore]);
 
 	// Messages from chatRoom
 	const hasMore = data?.getChatRoomMessages?.hasMore;
