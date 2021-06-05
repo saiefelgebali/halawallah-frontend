@@ -40,7 +40,7 @@ export const cache = new InMemoryCache({
 				getChatRoomMessages: {
 					// Don't cache separate results based on
 					// any of this field's arguments.
-					keyArgs: ["message_id"],
+					keyArgs: ["room_id"],
 
 					merge: (existing, incoming, { args: { offset = 0 } }) => {
 						const merged = { ...incoming };

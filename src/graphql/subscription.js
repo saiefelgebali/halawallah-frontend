@@ -2,10 +2,26 @@ import gql from "graphql-tag";
 
 export const MESSAGES_SUBSCRIPTION = gql`
 	subscription OnMessageCreated($room_id: Int!) {
-		messageCreated(room_id: $room_id) {
+		messageCreated(rooms: [$room_id]) {
 			message_id
 			text
 			username
+			room {
+				room_id
+			}
+		}
+	}
+`;
+
+export const PROFILE_MESSAGES_SUBSCRIPTION = gql`
+	subscription OnMessageCreated($rooms: [Int]!) {
+		messageCreated(rooms: $rooms) {
+			message_id
+			text
+			username
+			room {
+				room_id
+			}
 		}
 	}
 `;

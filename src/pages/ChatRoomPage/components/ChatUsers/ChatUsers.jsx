@@ -49,9 +49,6 @@ function ChatUsers({ room_id }) {
 		// Last user who is not myself will be shown
 		const displayUser = usersTyping[0];
 
-		console.log(displayUser);
-		console.log(usersTyping);
-
 		return (
 			<div className={styles.messageTyping}>
 				{displayUser.username} is typing...

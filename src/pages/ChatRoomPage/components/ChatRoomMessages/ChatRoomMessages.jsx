@@ -1,4 +1,4 @@
-import { useQuery } from "@apollo/client";
+import { NetworkStatus, useQuery } from "@apollo/client";
 import React, {
 	useCallback,
 	useContext,
@@ -16,19 +16,17 @@ function ChatRoomMessages({ room_id }) {
 	const profileContext = useContext(ProfileContext);
 
 	// Query for room messages
-	const { data, loading, fetchMore, subscribeToMore } = useQuery(
-		CHAT_ROOM_MESSAGES,
-		{
+	const { data, loading, networkStatus, fetchMore, subscribeToMore } =
+		useQuery(CHAT_ROOM_MESSAGES, {
 			variables: {
 				room_id: parseInt(room_id),
 				offset: 0,
 				limit: 100,
 			},
-			fetchPolicy: "network-only",
+			fetchPolicy: "cache-and-network",
 			nextFetchPolicy: "cache-only",
 			notifyOnNetworkStatusChange: true,
-		}
-	);
+		});
 
 	// Subscribe to updates in data
 	useEffect(() => {
@@ -59,7 +57,9 @@ function ChatRoomMessages({ room_id }) {
 	// Messages from chatRoom
 	const hasMore = data?.getChatRoomMessages?.hasMore;
 
-	const [messages, setMessages] = useState([]);
+	const [messages, setMessages] = useState(
+		data?.getChatRoomMessages?.data || []
+	);
 
 	// Keep data up to date
 	useEffect(() => {
@@ -146,6 +146,8 @@ function ChatRoomMessages({ room_id }) {
 	};
 
 	const Messages = () => {
+		if (!messages) return null;
+
 		// Threshold to start loading more
 		const observerIndex = Math.floor(messages.length * 0.8);
 
@@ -158,16 +160,22 @@ function ChatRoomMessages({ room_id }) {
 		));
 	};
 
-	const Loading = () => (
-		<div className={styles.loading}>
-			<LoadingElipses className={styles.loadingElipses} />
-		</div>
-	);
+	const Loading = () => {
+		if ((loading && !data) || networkStatus === NetworkStatus.fetchMore) {
+			return (
+				<div className={styles.loading}>
+					<LoadingElipses className={styles.loadingElipses} />
+				</div>
+			);
+		}
+
+		return null;
+	};
 
 	return (
 		<div className={styles.messages} ref={measuredRef}>
-			{messages && <Messages />}
-			{loading && <Loading />}
+			<Messages />
+			<Loading />
 		</div>
 	);
 }

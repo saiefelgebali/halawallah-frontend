@@ -17,7 +17,6 @@ function ChatRoomPage() {
 		variables: {
 			room_id,
 		},
-		notifyOnNetworkStatusChange: true,
 	});
 
 	// Get chatRoom data

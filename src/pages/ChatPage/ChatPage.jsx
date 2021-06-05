@@ -10,7 +10,9 @@ function ChatPage() {
 	/**
 	 * Handle pagination of chatRooms
 	 */
-	const { data, loading } = useQuery(CHAT_ROOMS);
+	const { data } = useQuery(CHAT_ROOMS, {
+		fetchPolicy: "cache-and-network",
+	});
 
 	const chatRooms = data?.getProfileChatRooms;
 
@@ -23,18 +25,22 @@ function ChatPage() {
 	};
 
 	// Show loading elipses
-	const Loading = () => (
-		<div className={styles.loading}>
-			<LoadingElipses className={styles.loadingElipses} />
-		</div>
-	);
+	const Loading = () => {
+		if (data) return null;
+
+		return (
+			<div className={styles.loading}>
+				<LoadingElipses className={styles.loadingElipses} />
+			</div>
+		);
+	};
 
 	return (
 		<div className={styles.chatPage}>
 			<h1 className={styles.title}>Messages</h1>
 			<div className={styles.chatRooms}>
 				{data && <ChatRooms />}
-				{loading && <Loading />}
+				<Loading />
 			</div>
 		</div>
 	);
