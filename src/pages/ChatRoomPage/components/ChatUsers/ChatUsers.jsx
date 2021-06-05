@@ -1,5 +1,6 @@
 import { useSubscription } from "@apollo/client";
 import React, { useContext, useEffect, useState } from "react";
+import TextElipses from "../../../../components/TextElipses/TextElipses";
 import { ProfileContext } from "../../../../context/profileContext";
 import { MESSAGE_TYPING_SUBSCRIPTION } from "../../../../graphql/subscription";
 import { removeDuplicates } from "../../../../util/array";
@@ -49,9 +50,11 @@ function ChatUsers({ room_id }) {
 		// Last user who is not myself will be shown
 		const displayUser = usersTyping[0];
 
+		const text = `${displayUser.username} is typing`;
+
 		return (
 			<div className={styles.messageTyping}>
-				{displayUser.username} is typing...
+				<TextElipses text={text} />
 			</div>
 		);
 	};

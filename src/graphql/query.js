@@ -114,8 +114,8 @@ export const CHAT_ROOMS = gql`
 `;
 
 export const CHAT_ROOM = gql`
-	query ChatRoom($room_id: Int!) {
-		getChatRoomById(room_id: $room_id) {
+	query ChatRoom($room_id: Int, $username: String) {
+		getChatRoom(room_id: $room_id, username: $username) {
 			...chatRoom
 		}
 	}

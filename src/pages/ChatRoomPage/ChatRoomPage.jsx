@@ -10,28 +10,35 @@ import { CHAT_ROOM } from "../../graphql/query";
 
 function ChatRoomPage() {
 	const params = useParams();
-	const room_id = parseInt(params.room_id);
+
+	// Make sure only one variable is passed
+	const room_id = parseInt(params.room_id) || null;
+	const username = room_id ? null : params.room_id;
 
 	// Query for room details
 	const { data } = useQuery(CHAT_ROOM, {
 		variables: {
 			room_id,
+			username,
 		},
 	});
 
 	// Get chatRoom data
-	const chatRoom = data?.getChatRoomById;
+	const chatRoom = data?.getChatRoom;
 
-	if (!room_id) return null;
+	if (!chatRoom) return null;
 
 	return (
 		<div className={styles.chatRoom}>
 			<ChatRoomDetails className={styles.header} chatRoom={chatRoom} />
 			<div className={styles.content}>
-				<ChatRoomMessages room_id={room_id} />
-				<ChatUsers room_id={room_id} />
+				<ChatRoomMessages room_id={chatRoom.room_id} />
+				<ChatUsers room_id={chatRoom.room_id} />
 			</div>
-			<UserInput className={styles.userInput} room_id={room_id} />
+			<UserInput
+				className={styles.userInput}
+				room_id={chatRoom.room_id}
+			/>
 		</div>
 	);
 }
