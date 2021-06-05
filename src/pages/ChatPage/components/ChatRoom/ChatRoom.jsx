@@ -12,32 +12,28 @@ function ChatRoom({ room }) {
 
 	const profileContext = useContext(ProfileContext);
 
-	// Filter group chats from private chats
-	const group = room.group;
+	// Filter public chats from private chats
+	const roomPublic = room.public;
 
 	// Get other profile in private chat
-	const targetProfile =
-		!group &&
-		room.members.filter(
-			(member) => member.username !== profileContext.username
-		)[0];
+	const roomPrivate = room.private;
 
 	// Style chatRoom image
 	const Image = () => {
 		// Group image or targetProfile pfp
-		if (group?.image || targetProfile?.pfp) {
-			return <img src={group?.image || targetProfile?.pfp} alt='' />;
+		if (roomPublic?.image || roomPrivate?.pfp) {
+			return <img src={roomPublic?.image || roomPrivate?.pfp} alt='' />;
 		}
 
 		// Generic icons
-		return <FontAwesomeIcon icon={group ? faUsers : faUser} />;
+		return <FontAwesomeIcon icon={roomPublic ? faUsers : faUser} />;
 	};
 
 	// Style a chatRoom's name
 	const Name = () => {
 		return (
 			<div className={styles.name}>
-				{group?.name || targetProfile?.username}
+				{roomPublic?.name || roomPrivate?.username}
 			</div>
 		);
 	};
@@ -48,9 +44,9 @@ function ChatRoom({ room }) {
 		if (!latestMessage) return null;
 
 		const username =
-			latestMessage.profile.username === profileContext.username
+			latestMessage.username === profileContext.username
 				? "You"
-				: latestMessage.profile.username;
+				: latestMessage.username;
 
 		return (
 			<div className={styles.latestMessage}>

@@ -1,4 +1,4 @@
-const API = `${process.env.REACT_APP_BACKEND}/api`;
+const API = `http://${process.env.REACT_APP_SERVER_HOST}/api`;
 const UPLOAD_POST = `${API}/upload/post/`;
 const UPLOAD_PFP = `${API}/upload/pfp/`;
 

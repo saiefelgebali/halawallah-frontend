@@ -53,9 +53,13 @@ export const MESSAGE_FRAGMENT = gql`
 export const CHAT_ROOM_FRAGMENT = gql`
 	fragment chatRoom on ChatRoom {
 		room_id
-		group {
+		public {
 			name
 			image
+		}
+		private {
+			username
+			pfp
 		}
 		messages(offset: 0, limit: 10) {
 			count
@@ -63,10 +67,6 @@ export const CHAT_ROOM_FRAGMENT = gql`
 			data {
 				...message
 			}
-		}
-		members {
-			username
-			pfp
 		}
 	}
 	${MESSAGE_FRAGMENT}

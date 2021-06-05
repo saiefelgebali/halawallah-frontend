@@ -15,9 +15,12 @@
 [X] Block NSFW Posts
 [ ] Delete comments
 [X] Follow Profile
-[ ] Add posts on upload dynamically 
+[ ] Add posts on upload dynamically
 
-[ ] Messages page
+[ ] Use serviceWorker for offline mode
+[ ] implement system dark mode
+
+[X] Messages page
 [ ] Notifications page
 [ ] Notification Sounds
 

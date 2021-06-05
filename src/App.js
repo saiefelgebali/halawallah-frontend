@@ -7,6 +7,7 @@ import {
 	ApolloProvider,
 	createHttpLink,
 	split,
+	useSubscription,
 } from "@apollo/client";
 import { cache } from "./cache";
 import { setContext } from "@apollo/client/link/context";
@@ -47,6 +48,9 @@ function Unauthenticated() {
 
 function Authenticated() {
 	// Route authenticated users
+
+	// Establish socket connection for use with chat app
+	// const chat = useSubscription();
 
 	const ChatApp = () => (
 		<ChatLayout>
