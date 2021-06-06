@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Store } from "./store/store";
 import { useContext } from "react";
 import { setTheme } from "./util/theme";
@@ -11,95 +10,9 @@ import {
 import { cache } from "./cache";
 import { setContext } from "@apollo/client/link/context";
 import { WebSocketLink } from "@apollo/client/link/ws";
-import LoginPage from "./pages/AuthLoginPage/LoginPage";
-import RegisterPage from "./pages/AuthRegisterPage/RegisterPage";
-import MainLayout from "./layouts/MainLayout/MainLayout";
-import HomePage from "./pages/HomePage/HomePage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import CreatePage from "./pages/CreatePage/CreatePage";
-import NotificationPage from "./pages/NotificationPage/NotificatonPage";
-import SearchPage from "./pages/SearchPage/SearchPage";
-import ChatPage from "./pages/ChatPage/ChatPage";
-
-import styles from "./App.module.scss";
-import { ProfileContextProvider } from "./context/profileContext";
-import ChatLayout from "./layouts/ChatLayout/ChatLayout";
-import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
 import { getMainDefinition } from "@apollo/client/utilities";
-
-function Unauthenticated() {
-	// Route unauthenticated users
-	return (
-		<div id={styles.app}>
-			<Router>
-				<Switch>
-					<Route exact path='/login' component={LoginPage} />
-
-					<Route exact path='/register' component={RegisterPage} />
-
-					{/* Default Route */}
-					<Route path='/' component={LoginPage} />
-				</Switch>
-			</Router>
-		</div>
-	);
-}
-
-function Authenticated() {
-	// Route authenticated users
-
-	const ChatApp = () => (
-		<ChatLayout>
-			<ChatRoomPage />
-		</ChatLayout>
-	);
-
-	const MainApp = () => (
-		<MainLayout>
-			<Switch>
-				<Route exact path='/chat' component={ChatPage} />
-
-				<Route exact path='/home' component={HomePage} />
-
-				<Route exact path='/create' component={CreatePage} />
-
-				<Route exact path='/search' component={SearchPage} />
-
-				<Route
-					exact
-					path='/notifications'
-					component={NotificationPage}
-				/>
-
-				<Route
-					exact
-					path='/profile/:username'
-					component={ProfilePage}
-				/>
-
-				{/* Default Route */}
-				<Route path='/' component={HomePage} />
-			</Switch>
-		</MainLayout>
-	);
-
-	return (
-		<div id={styles.app}>
-			<Router>
-				<ProfileContextProvider>
-					<Switch>
-						<Route
-							exact
-							path='/chat/:room_id'
-							component={ChatApp}
-						/>
-						<Route path='/' component={MainApp} />
-					</Switch>
-				</ProfileContextProvider>
-			</Router>
-		</div>
-	);
-}
+import Authenticated from "./routing/Authenticated";
+import Unauthenticated from "./routing/Unauthenticated";
 
 function App() {
 	/**

@@ -54,8 +54,7 @@
 			width: 100%;
 			img {
 				max-width: 100%;
-				width: $max-content-width;
-				object-fit: cover;
+				height: auto;
 			}
 		}
 	}

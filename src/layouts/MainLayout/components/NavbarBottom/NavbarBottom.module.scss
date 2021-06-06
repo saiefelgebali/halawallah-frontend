@@ -1,0 +1,16 @@
+.navItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+
+	&:first-of-type {
+		justify-content: flex-start;
+		width: 50%;
+	}
+
+	&:last-of-type {
+		justify-content: flex-end;
+		width: 50%;
+	}
+}

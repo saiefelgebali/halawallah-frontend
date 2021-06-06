@@ -19,7 +19,27 @@ function ChatPage() {
 	// Map chat rooms
 	const ChatRooms = () => {
 		// Determine which index to be observer
-		return chatRooms.map((room, index) => {
+
+		// Order rooms by latestMessage
+		const compareChatRooms = (a, b) => {
+			// Access timestamps, convert to dates
+			const dateA = new Date(parseInt(a.messages.data[0]?.created_at));
+			const dateB = new Date(parseInt(b.messages.data[0]?.created_at));
+
+			// Order by ascending timestamps
+			const diff = dateB - dateA;
+
+			if (Number.isNaN(diff)) {
+				return 0;
+			}
+
+			return diff;
+		};
+
+		// Return sorted chatRooms
+		const sortedChatRooms = chatRooms.slice().sort(compareChatRooms);
+
+		return sortedChatRooms.map((room, index) => {
 			return <ChatRoom key={room.room_id} room={room} />;
 		});
 	};

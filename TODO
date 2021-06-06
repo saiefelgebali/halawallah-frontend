@@ -17,6 +17,8 @@
 [X] Follow Profile
 [ ] Add posts on upload dynamically
 
+[] Make bottom nav buttons wider to touch
+
 [ ] Use serviceWorker for offline mode
 [ ] implement system dark mode
 

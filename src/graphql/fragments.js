@@ -47,6 +47,10 @@ export const MESSAGE_FRAGMENT = gql`
 		message_id
 		username
 		text
+		created_at
+		room {
+			room_id
+		}
 	}
 `;
 

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ProfilePicture.module.scss";
+import Image from "../Image/Image";
 
-const ProfilePicture = ({ username, src, block }) => {
+const ProfilePicture = React.memo(({ username, src, block, className }) => {
 	// Determine pfp content - placeholder or not
 	const Content = () => {
 		if (!src) {
@@ -12,7 +13,7 @@ const ProfilePicture = ({ username, src, block }) => {
 				<FontAwesomeIcon icon={faUser} className={styles.placeholder} />
 			);
 		}
-		return <img src={src} alt='' />;
+		return <Image src={src} />;
 	};
 
 	// Check if block - (non link)
@@ -26,10 +27,12 @@ const ProfilePicture = ({ username, src, block }) => {
 
 	// Regular link pfp
 	return (
-		<Link to={`/profile/${username}`} className={styles.pfp}>
+		<Link
+			to={`/profile/${username}`}
+			className={`${styles.pfp} ${className}`}>
 			<Content />
 		</Link>
 	);
-};
+});
 
 export default ProfilePicture;
