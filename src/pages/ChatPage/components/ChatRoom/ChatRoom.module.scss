@@ -53,6 +53,12 @@
 			.text {
 				color: var(--text-secondary);
 			}
+			&:empty {
+				&::after {
+					content: "Open to start a chat!";
+					color: var(--text);
+				}
+			}
 		}
 	}
 }

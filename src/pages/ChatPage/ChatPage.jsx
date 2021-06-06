@@ -5,6 +5,8 @@ import { CHAT_ROOMS } from "../../graphql/query";
 import LoadingElipses from "../../components/LoadingElipses/LoadingElipses";
 
 import ChatRoom from "./components/ChatRoom/ChatRoom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 function ChatPage() {
 	/**
@@ -18,8 +20,6 @@ function ChatPage() {
 
 	// Map chat rooms
 	const ChatRooms = () => {
-		// Determine which index to be observer
-
 		// Order rooms by latestMessage
 		const compareChatRooms = (a, b) => {
 			// Access timestamps, convert to dates
@@ -57,7 +57,13 @@ function ChatPage() {
 
 	return (
 		<div className={styles.chatPage}>
-			<h1 className={styles.title}>Messages</h1>
+			<div className={styles.header}>
+				<h1 className={styles.title}>Messages</h1>
+				<FontAwesomeIcon
+					icon={faPlusCircle}
+					className={styles.addButton}
+				/>
+			</div>
 			<div className={styles.chatRooms}>
 				{data && <ChatRooms />}
 				<Loading />

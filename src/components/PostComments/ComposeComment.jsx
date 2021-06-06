@@ -65,10 +65,9 @@ function ComposeComment({ post }) {
 						className='form-control'
 						required
 					/>
-					<input
-						type='submit'
-						className='form-control btn btn-primary'
-					/>
+					<button className='form-control btn btn-primary'>
+						Comment!
+					</button>
 				</fieldset>
 			</form>
 		</div>

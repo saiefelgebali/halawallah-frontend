@@ -49,12 +49,12 @@ function ChatRoom({ room }) {
 				: latestMessage.username;
 
 		return (
-			<div className={styles.latestMessage}>
+			<>
 				<span className={styles.username}>{username}:</span>
 				<span className={styles.text}>
 					{room.messages.data[0]?.text}
 				</span>
-			</div>
+			</>
 		);
 	};
 
@@ -68,7 +68,9 @@ function ChatRoom({ room }) {
 			</div>
 			<div className={styles.details}>
 				<Name />
-				<LatestMessage />
+				<div className={styles.latestMessage}>
+					<LatestMessage />
+				</div>
 			</div>
 		</Link>
 	);

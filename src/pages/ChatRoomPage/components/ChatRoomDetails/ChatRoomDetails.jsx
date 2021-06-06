@@ -1,6 +1,11 @@
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+	faArrowLeft,
+	faUser,
+	faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import Navbar from "../../../../components/Navbar/Navbar";
 import styles from "./ChatRoomDetails.module.scss";
 
@@ -11,6 +16,18 @@ function ChatRoomDetails({ className, chatRoom }) {
 	const chatPublic = chatRoom?.public;
 	const chatPrivate = chatRoom?.private;
 
+	const Image = () => {
+		if (chatPublic?.image || chatPrivate?.pfp) {
+			return <img src={chatPublic?.image || chatPrivate?.pfp} alt='' />;
+		} else if (chatPublic) {
+			return <FontAwesomeIcon icon={faUsers} />;
+		} else if (chatPrivate) {
+			return <FontAwesomeIcon icon={faUser} />;
+		}
+
+		return null;
+	};
+
 	return (
 		<Navbar className={`${className} ${styles.chatRoomDetails}`}>
 			<div className={styles.backButton} onClick={() => history.goBack()}>
@@ -20,9 +37,11 @@ function ChatRoomDetails({ className, chatRoom }) {
 				<div className={styles.roomName}>
 					{chatPublic?.name || chatPrivate?.username}
 				</div>
-				<div className={styles.roomImage}>
-					<img src={chatPublic?.image || chatPrivate?.pfp} alt='' />
-				</div>
+				<Link
+					className={styles.roomImage}
+					to={`/profile/${chatPrivate.username}`}>
+					<Image />
+				</Link>
 			</div>
 		</Navbar>
 	);

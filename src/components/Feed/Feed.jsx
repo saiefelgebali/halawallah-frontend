@@ -18,7 +18,7 @@ function Feed({ query, variables, grid }) {
 			offset: 0,
 			limit: 6,
 		},
-		fetchPolicy: "cache-first",
+		// fetchPolicy: "cache-and-network",
 	});
 
 	const paginatedPostsData = (() => {

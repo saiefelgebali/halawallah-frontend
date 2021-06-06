@@ -21,8 +21,20 @@
 	padding: 1rem;
 	margin-top: 1rem;
 
-	.title {
-		color: var(--text-title);
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.title {
+			color: var(--text-title);
+			margin: 0;
+		}
+		.addButton {
+			cursor: pointer;
+			color: var(--text-title);
+			width: 2rem;
+			height: 2rem;
+		}
 	}
 
 	.chatRooms {

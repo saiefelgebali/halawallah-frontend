@@ -42,6 +42,8 @@ function useNotification() {
 			// Route to message chat '/chat/room_id'
 			history.push(`/chat/${tag}`);
 		});
+
+		return notification;
 	};
 
 	return { sendNotification };

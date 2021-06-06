@@ -18,9 +18,10 @@
 		}
 
 		.roomImage {
-			img {
-				width: 30px;
-				height: 30px;
+			img,
+			svg {
+				width: 2rem;
+				height: 2rem;
 				object-fit: cover;
 				border-radius: 50%;
 			}
