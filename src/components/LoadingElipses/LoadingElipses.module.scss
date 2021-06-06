@@ -1,13 +1,15 @@
 // https://loading.io/css/
 
+$side-length: 80px;
+
 .ldsEllipsis {
 	display: inline-block;
 	position: relative;
 	width: 80px;
-	height: 80px;
+	height: $side-length;
 	div {
 		position: absolute;
-		top: 33px;
+		top: (33px / 80px) * $side-length;
 		width: 13px;
 		height: 13px;
 		border-radius: 50%;

@@ -13,6 +13,7 @@ import { ProfileContextProvider } from "../context/profileContext";
 import ChatLayout from "../layouts/ChatLayout/ChatLayout";
 import ChatRoomPage from "../pages/ChatRoomPage/ChatRoomPage";
 import ChatNotifications from "./ChatNotifications";
+import CreatePublicChatPage from "../pages/CreatePublicChatPage/CreatePublicChatPage";
 
 function Authenticated() {
 	// Route authenticated users
@@ -30,6 +31,12 @@ function Authenticated() {
 			<ChatNotifications>
 				<MainLayout>
 					<Switch>
+						<Route
+							exact
+							path='/create/chat'
+							component={CreatePublicChatPage}
+						/>
+
 						<Route exact path='/chat' component={ChatPage} />
 
 						<Route exact path='/home' component={HomePage} />

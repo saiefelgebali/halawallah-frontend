@@ -7,6 +7,7 @@ import LoadingElipses from "../../components/LoadingElipses/LoadingElipses";
 import ChatRoom from "./components/ChatRoom/ChatRoom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function ChatPage() {
 	/**
@@ -59,10 +60,12 @@ function ChatPage() {
 		<div className={styles.chatPage}>
 			<div className={styles.header}>
 				<h1 className={styles.title}>Messages</h1>
-				<FontAwesomeIcon
-					icon={faPlusCircle}
-					className={styles.addButton}
-				/>
+				<Link to='/create/chat' className={styles.link}>
+					<FontAwesomeIcon
+						icon={faPlusCircle}
+						className={styles.addButton}
+					/>
+				</Link>
 			</div>
 			<div className={styles.chatRooms}>
 				{data && <ChatRooms />}

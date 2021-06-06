@@ -1,7 +1,7 @@
 @import "../../sassStyles/variables";
-@import "../../sassStyles/animations";
+@import "../../sassStyles/mixins";
 
-.searchPage {
+.createPublicPage {
 	width: 100%;
 	height: fit-content;
 	background-color: var(--content-background);
@@ -27,6 +27,22 @@
 				color: var(--text-title);
 				width: 2rem;
 				height: 2rem;
+			}
+		}
+	}
+
+	.chatRooms {
+		padding: 1rem 0rem;
+
+		&:empty {
+			display: flex;
+			flex-direction: column;
+			padding: 1rem;
+			&::before {
+				content: "You haven't started any chats yet.";
+				font-size: 1.4rem;
+				color: var(--text-title);
+				margin-bottom: 1rem;
 			}
 		}
 	}

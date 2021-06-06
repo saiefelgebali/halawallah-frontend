@@ -55,8 +55,8 @@
 			}
 			&:empty {
 				&::after {
-					content: "Open to start a chat!";
-					color: var(--text);
+					content: "Start a chat!";
+					color: var(--text-secondary);
 				}
 			}
 		}

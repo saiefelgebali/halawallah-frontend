@@ -29,11 +29,16 @@
 			color: var(--text-title);
 			margin: 0;
 		}
-		.addButton {
-			cursor: pointer;
-			color: var(--text-title);
-			width: 2rem;
-			height: 2rem;
+		.link {
+			display: flex;
+			align-items: center;
+
+			.addButton {
+				cursor: pointer;
+				color: var(--text-title);
+				width: 2rem;
+				height: 2rem;
+			}
 		}
 	}
 
