@@ -28,6 +28,29 @@ function ChatRoomDetails({ className, chatRoom }) {
 		return null;
 	};
 
+	const LinkPage = () => {
+		// Show link to profile page
+		if (chatPrivate) {
+			return (
+				<Link
+					className={styles.roomImage}
+					to={`/profile/${chatPrivate.username}`}>
+					<Image />
+				</Link>
+			);
+		}
+
+		// Show link to group chat info
+		else if (chatPublic) {
+			return (
+				<div className={styles.roomImage}>
+					<Image />
+				</div>
+			);
+		}
+		return null;
+	};
+
 	return (
 		<Navbar className={`${className} ${styles.chatRoomDetails}`}>
 			<div className={styles.backButton} onClick={() => history.goBack()}>
@@ -37,11 +60,7 @@ function ChatRoomDetails({ className, chatRoom }) {
 				<div className={styles.roomName}>
 					{chatPublic?.name || chatPrivate?.username}
 				</div>
-				<Link
-					className={styles.roomImage}
-					to={`/profile/${chatPrivate.username}`}>
-					<Image />
-				</Link>
+				<LinkPage />
 			</div>
 		</Navbar>
 	);

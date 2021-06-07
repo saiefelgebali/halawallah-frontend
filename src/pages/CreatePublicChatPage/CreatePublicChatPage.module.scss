@@ -31,19 +31,81 @@
 		}
 	}
 
-	.chatRooms {
+	.selectedMembers {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
 		padding: 1rem 0rem;
-
-		&:empty {
+		color: var(--text-title);
+		> * {
 			display: flex;
-			flex-direction: column;
-			padding: 1rem;
-			&::before {
-				content: "You haven't started any chats yet.";
-				font-size: 1.4rem;
-				color: var(--text-title);
-				margin-bottom: 1rem;
+			align-items: center;
+			height: 3rem;
+			align-items: center;
+		}
+
+		.member {
+			padding: 0.5rem 1rem;
+			background-color: var(--content-background-secondary);
+			border-radius: $content-border-radius;
+			&:hover {
+				background-color: var(--content-hover);
 			}
 		}
+		&:empty {
+			&::after {
+				content: "Search for the profiles you would like to add";
+				height: 3rem;
+				padding: 0.5rem;
+			}
+		}
+		.doneButton,
+		.addButton {
+			cursor: pointer;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem;
+			background-color: var(--blue);
+			color: var(--white0);
+			border-radius: $content-border-radius;
+		}
+	}
+
+	.result {
+		&.selected {
+			background-color: var(--content-background-secondary);
+			transition: none;
+			&::after {
+				content: "Remove";
+				margin-left: auto;
+				opacity: 0;
+			}
+			@media (hover: hover) {
+				&:hover {
+					background-color: var(--content-hover);
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		&::after {
+			content: "Add";
+			margin-left: auto;
+			opacity: 0;
+		}
+		@media (hover: hover) {
+			&:hover {
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.groupForm {
+		padding: 1rem 0rem;
 	}
 }

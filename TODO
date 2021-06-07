@@ -16,8 +16,12 @@
 [ ] Delete comments
 [X] Follow Profile
 [ ] Add posts on upload dynamically
+[ ] Upload public chat images
+[ ] Update public chat details
 
-[] Make bottom nav buttons wider to touch
+[O] Make bottom nav buttons wider to touch // Couldnt do without breaking even spacing
+
+[ ] Skeleton UI Loading to stop severe layout shifts (Youtube & Twitter do this well)
 
 [ ] Use serviceWorker for offline mode
 [ ] implement system dark mode
@@ -27,4 +31,4 @@
 [ ] Notification Sounds
 
 [X] Apollo Client
-[ ] Socket.io Connection
+[R] Socket.io Connection // Used graphql subscriptions instead to handle WebSocket connections 

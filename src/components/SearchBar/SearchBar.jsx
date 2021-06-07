@@ -6,9 +6,9 @@ import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import LoadingElipses from "../LoadingElipses/LoadingElipses";
 import styles from "./SearchBar.module.scss";
 
-function SearchBar() {
+function SearchBar({ CustomSearchResult }) {
 	const [loadSearchResults, { data, loading }] = useLazyQuery(SEARCH_PROFILE);
-	const searchLimit = 2;
+	const searchLimit = 10;
 
 	// Data kept in state variables for better UX
 	const [results, setResults] = useState([]);
@@ -59,6 +59,13 @@ function SearchBar() {
 				</div>
 			);
 
+		// If a custom search result component is provided, use it instead of default
+		if (CustomSearchResult) {
+			return results.map((result) => (
+				<CustomSearchResult key={result.username} result={result} />
+			));
+		}
+
 		return results.map((result) => (
 			<SearchResult key={result.username} result={result} />
 		));
@@ -68,7 +75,7 @@ function SearchBar() {
 	const SearchResult = ({ result }) => (
 		<Link className={styles.result} to={`/profile/${result.username}`}>
 			<ProfilePicture username={result.username} src={result.pfp} block />
-			<div className={styles.username}>{result.username}</div>
+			<div>{result.username}</div>
 		</Link>
 	);
 

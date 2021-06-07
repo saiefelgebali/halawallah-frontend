@@ -5,7 +5,7 @@ import { faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ChatRoom.module.scss";
 import { ProfileContext } from "../../../../context/profileContext";
 
-function ChatRoom({ room }) {
+const ChatRoom = ({ room }) => {
 	/**
 	 * Show preview of a chatRoom
 	 */
@@ -74,6 +74,6 @@ function ChatRoom({ room }) {
 			</div>
 		</Link>
 	);
-}
+};
 
 export default ChatRoom;

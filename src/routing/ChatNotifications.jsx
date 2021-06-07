@@ -35,9 +35,11 @@ function ChatNotifications({ children }) {
 			});
 
 			// Play sound on notification show
-			notification.onshow = () => {
-				playNewMessageSound();
-			};
+			if (notification) {
+				notification.onshow = () => {
+					playNewMessageSound();
+				};
+			}
 
 			clearMessage();
 		}
