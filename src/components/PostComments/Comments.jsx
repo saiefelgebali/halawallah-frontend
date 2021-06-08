@@ -34,7 +34,7 @@ export const CommentOptions = ({ comment }) => {
 
 	const [open, setOpen] = useState(false);
 
-	// Mutation and optimistic response
+	// Mutation and then refetch
 	const [deleteComment] = useMutation(DELETE_COMMENT, {
 		variables: {
 			comment_id: comment.comment_id,

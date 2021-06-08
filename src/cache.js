@@ -87,6 +87,7 @@ export const cache = new InMemoryCache({
 						for (let i = 0; i < incoming.data.length; ++i) {
 							merged.data[offset + i] = incoming.data[i];
 						}
+
 						return merged;
 					},
 				},

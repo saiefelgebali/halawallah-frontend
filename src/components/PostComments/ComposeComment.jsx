@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_COMMENT } from "../../graphql/mutation";
 import { POST_COMMENTS } from "../../graphql/query";
 import styles from "./ComposeComment.module.scss";
+import { ProfileContext } from "../../context/profileContext";
 
 function ComposeComment({ post }) {
+	const profileContext = useContext(ProfileContext);
+
 	// Mutation to create a new comment
 	const [createComment, { loading }] = useMutation(CREATE_COMMENT, {
 		// update function: runs when mutation is finished
@@ -46,6 +49,16 @@ function ComposeComment({ post }) {
 			variables: {
 				post_id: post.post_id,
 				text,
+			},
+
+			// Optimistic Response - Zero latency response
+			optimisticResponse: {
+				createComment: {
+					comment_id: Math.random() * -1000,
+					username: profileContext.username,
+					text,
+					__typename: "Comment",
+				},
 			},
 		});
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { uploadPost } from "../../../../api/upload";
 import { handleInvalid } from "../../../../util/form";
@@ -6,22 +6,23 @@ import ErrorAlert from "../../../../components/ErrorAlert/ErrorAlert";
 import LoadingElipses from "../../../../components/LoadingElipses/LoadingElipses";
 import ImageCanvas from "../ImageCanvas/ImageCanvas";
 import styles from "./CreateForm.module.scss";
-
+import { FEED } from "../../../../graphql/query";
 import * as nsfwjs from "nsfwjs";
+import { useQuery } from "@apollo/client";
 
 function CreateForm() {
 	const history = useHistory();
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState({ message: null, type: null });
-	const [success, setSuccess] = useState();
 
-	useEffect(() => {
-		// Redirect to home on successful post
-		if (success) {
-			history.push("/home");
-			window.location.reload();
-		}
-	}, [success, history]);
+	// To refetch feed on upload
+	const { refetch } = useQuery(FEED, {
+		variables: {
+			offset: 0,
+			limit: 4,
+		},
+		fetchPolicy: "cache-and-network",
+	});
 
 	async function handleSubmit(e) {
 		// Cancel default refresh screen
@@ -63,6 +64,7 @@ function CreateForm() {
 				case "Hentai":
 				case "Porn":
 				case "Sexy":
+					console.log(predictions);
 					return false;
 
 				default:
@@ -72,8 +74,12 @@ function CreateForm() {
 
 		async function handleUpload(image) {
 			try {
+				// Make upload
 				await uploadPost({ image, caption });
-				setSuccess(true);
+				// Refetch feed
+				await refetch();
+				// Redirect to /home
+				history.push("/home");
 			} catch (e) {
 				console.log(e);
 				setError({

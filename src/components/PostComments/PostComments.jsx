@@ -12,7 +12,7 @@ function PostComments({ post }) {
 	// Max comments from a single query
 	const { data, loading, fetchMore } = useQuery(POST_COMMENTS, {
 		variables: { post_id: post.post_id, offset: 0, limit: 10 },
-		notifyOnNetworkStatusChange: true,
+		// notifyOnNetworkStatusChange: true,
 	});
 
 	const [comments, setComments] = useState([]);
@@ -49,6 +49,7 @@ function PostComments({ post }) {
 
 	const Loading = () => {
 		if (!loading) return null;
+		// if ()
 		return (
 			<div className={styles.loading}>
 				<LoadingElipses />
