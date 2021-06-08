@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Comments from "./Comments";
@@ -15,9 +15,16 @@ function PostComments({ post }) {
 		notifyOnNetworkStatusChange: true,
 	});
 
-	const comments = data?.getCommentsByPost?.data;
+	const [comments, setComments] = useState([]);
+
 	const count = data?.getCommentsByPost?.count;
 	const hasMore = data?.getCommentsByPost?.hasMore;
+
+	useEffect(() => {
+		if (!data) return;
+
+		setComments(data.getCommentsByPost.data);
+	}, [data]);
 
 	// Handle UI
 	const [collapsed, setCollapsed] = useState(true);

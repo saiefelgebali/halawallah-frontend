@@ -1,10 +1,26 @@
-.comment {
-	.username {
-		margin-right: 0.5rem;
-	}
+.entry {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: 1rem 0rem;
 	border-bottom: 1px solid var(--content-border);
 	&:last-of-type {
 		border-bottom: none;
+	}
+	.comment {
+		.username {
+			margin-right: 0.5rem;
+		}
+	}
+	.options {
+		cursor: pointer;
+		position: relative;
+		display: flex;
+		align-items: center;
+		.icon {
+			color: var(--text-title);
+			height: 1.4rem;
+			width: 1.4rem;
+		}
 	}
 }

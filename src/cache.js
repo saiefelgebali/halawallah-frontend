@@ -80,6 +80,8 @@ export const cache = new InMemoryCache({
 					merge: (existing, incoming, { args: { offset = 0 } }) => {
 						const merged = { ...incoming };
 
+						if (offset === 0) return merged;
+
 						// Paginated requests
 						merged.data = existing ? existing.data.slice(0) : [];
 						for (let i = 0; i < incoming.data.length; ++i) {

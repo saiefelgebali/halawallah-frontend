@@ -18,6 +18,9 @@ export const COMMENT_FRAGMENT = gql`
 			username
 			pfp
 		}
+		post {
+			post_id
+		}
 	}
 `;
 

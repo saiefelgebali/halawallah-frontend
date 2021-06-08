@@ -13,7 +13,7 @@
 [R] Delete Post update cache // Refresh page on delete
 [X] Edit Profile
 [X] Block NSFW Posts
-[ ] Delete comments
+[X] Delete comments
 [X] Follow Profile
 [ ] Add posts on upload dynamically
 [ ] Upload public chat images

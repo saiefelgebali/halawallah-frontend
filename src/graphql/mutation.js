@@ -31,8 +31,14 @@ export const CREATE_COMMENT = gql`
 `;
 
 export const DELETE_POST = gql`
-	mutation DeletePosst($post_id: Int!) {
+	mutation DeletePost($post_id: Int!) {
 		deletePost(post_id: $post_id)
+	}
+`;
+
+export const DELETE_COMMENT = gql`
+	mutation DeleteComment($comment_id: Int!) {
+		deleteComment(comment_id: $comment_id)
 	}
 `;
 
