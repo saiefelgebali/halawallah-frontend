@@ -1,6 +1,4 @@
-@import "../../../../sassStyles/variables";
-
-.chatRoomDetails {
+.chatRoomInfoHeader {
 	.backButton {
 		cursor: pointer;
 		margin-right: 1rem;
@@ -15,17 +13,6 @@
 			height: fit-content;
 			font-size: 1.4rem;
 			font-weight: 600;
-		}
-
-		.roomImage {
-			img,
-			svg {
-				width: 2rem;
-				height: 2rem;
-				object-fit: cover;
-				border-radius: 50%;
-				color: var(--text-title);
-			}
 		}
 	}
 }

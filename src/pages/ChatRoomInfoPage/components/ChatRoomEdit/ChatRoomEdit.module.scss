@@ -1,0 +1,35 @@
+@import "../../../../sassStyles/variables";
+
+.members {
+	display: flex;
+	flex-direction: column;
+	.title {
+		padding: 1rem;
+		border-bottom: 1px solid var(--content-border);
+	}
+	.member {
+		display: flex;
+		align-items: center;
+		padding: 1rem;
+		border-bottom: 1px solid var(--content-border);
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.pfp {
+			display: flex;
+			margin-right: 1rem;
+			img,
+			svg {
+				width: 2rem;
+				height: 2rem;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+		}
+		.username {
+			color: var(--text-title);
+			font-weight: 600;
+		}
+	}
+}

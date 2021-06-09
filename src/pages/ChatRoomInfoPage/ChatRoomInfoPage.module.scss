@@ -1,0 +1,60 @@
+@import "../../sassStyles/variables";
+@import "../../sassStyles/mixins";
+
+$userInputHeight: 5.5rem;
+
+.chatRoomInfoPage {
+	width: 100%;
+	position: relative;
+	margin-bottom: $userInputHeight;
+	margin-top: $navbar-height;
+	background-color: var(--content-background);
+
+	.content {
+		padding: 1rem;
+	}
+
+	.header,
+	.userInput {
+		@include breakpoint(sm) {
+			display: block;
+			width: $max-content-width;
+			left: auto;
+			right: auto;
+			box-shadow: none;
+			// border: 1px solid var(--content-border);
+		}
+	}
+
+	.image {
+		position: relative;
+		width: 100%;
+		img {
+			width: 100%;
+		}
+		.editImage {
+			cursor: pointer;
+			position: absolute;
+			bottom: 8px;
+			right: 8px;
+			width: 4rem;
+			height: 4rem;
+			padding: 1rem;
+			border-radius: 50%;
+			background-color: var(--blue);
+			color: var(--white0);
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	#imgInput {
+		position: absolute !important;
+		height: 1px;
+		width: 1px;
+		overflow: hidden;
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+}

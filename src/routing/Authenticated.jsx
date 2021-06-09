@@ -14,13 +14,19 @@ import ChatLayout from "../layouts/ChatLayout/ChatLayout";
 import ChatRoomPage from "../pages/ChatRoomPage/ChatRoomPage";
 import ChatNotifications from "./ChatNotifications";
 import CreatePublicChatPage from "../pages/CreatePublicChatPage/CreatePublicChatPage";
+import ChatRoomInfoPage from "../pages/ChatRoomInfoPage/ChatRoomInfoPage";
 
 function Authenticated() {
 	// Route authenticated users
 
 	const ChatApp = () => (
 		<ChatLayout>
-			<ChatRoomPage />
+			<Route exact path='/chat/:room_id' component={ChatRoomPage} />
+			<Route
+				exact
+				path='/chat/edit/:room_id'
+				component={ChatRoomInfoPage}
+			/>
 		</ChatLayout>
 	);
 
@@ -72,7 +78,7 @@ function Authenticated() {
 					<Switch>
 						<Route
 							exact
-							path='/chat/:room_id'
+							path={["/chat/:room_id", "/chat/edit/:room_id"]}
 							component={ChatApp}
 						/>
 						<Route path='/' component={MainApp} />

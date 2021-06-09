@@ -75,6 +75,10 @@ export const CHAT_ROOM_FRAGMENT = gql`
 				...message
 			}
 		}
+		members {
+			username
+			pfp
+		}
 	}
 	${MESSAGE_FRAGMENT}
 `;

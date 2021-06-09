@@ -1,0 +1,81 @@
+.image {
+	position: relative;
+	width: 100%;
+
+	img {
+		width: 100%;
+	}
+
+	.editImage {
+		cursor: pointer;
+		position: absolute;
+		bottom: 8px;
+		right: 8px;
+		width: 4rem;
+		height: 4rem;
+		padding: 1rem;
+		border-radius: 50%;
+		background-color: var(--blue);
+		color: var(--white0);
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.acceptImage {
+		cursor: pointer;
+		position: absolute;
+		bottom: 8px;
+		right: 8px;
+		margin-right: 5rem;
+		width: 4rem;
+		height: 4rem;
+		padding: 1rem;
+		border-radius: 50%;
+		background-color: var(--green);
+		color: var(--white0);
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.loadingImage {
+		position: absolute;
+		bottom: 8px;
+		right: 8px;
+		margin-right: 5rem;
+		width: 4rem;
+		height: 4rem;
+		padding: 1rem;
+		border-radius: 50%;
+		background-color: var(--green);
+		color: var(--white0);
+		.loading {
+			width: 2rem;
+			height: 2rem;
+			border: 4px solid transparent;
+			border-top: 4px solid var(--white0);
+			border-radius: 50%;
+			animation: spin 1s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+			@keyframes spin {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+		}
+	}
+
+	#imgInput {
+		position: absolute !important;
+		height: 1px;
+		width: 1px;
+		overflow: hidden;
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+}

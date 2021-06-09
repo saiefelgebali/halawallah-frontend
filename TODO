@@ -17,12 +17,14 @@
 [X] Follow Profile
 [X] Add posts on upload dynamically
 [ ] Remove posts from cache on delete
-[ ] Upload public chat images
+[X] Upload public chat images
 [ ] Update public chat details
 
 
 [O] Make bottom nav buttons wider to touch // Couldnt do without breaking even spacing
 
+[ ] Use image canvas to upload pfp and public chat images
+[ ] Form limit handling
 [ ] Skeleton UI Loading to stop severe layout shifts (Youtube & Twitter do this well)
 
 [ ] Use serviceWorker for offline mode

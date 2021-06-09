@@ -43,9 +43,11 @@ function ChatRoomDetails({ className, chatRoom }) {
 		// Show link to group chat info
 		else if (chatPublic) {
 			return (
-				<div className={styles.roomImage}>
+				<Link
+					className={styles.roomImage}
+					to={`/chat/edit/${chatRoom.room_id}`}>
 					<Image />
-				</div>
+				</Link>
 			);
 		}
 		return null;

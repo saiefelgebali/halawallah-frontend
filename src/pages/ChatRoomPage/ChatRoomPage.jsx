@@ -29,7 +29,7 @@ function ChatRoomPage() {
 	if (!chatRoom) return null;
 
 	return (
-		<div className={styles.chatRoom}>
+		<div className={styles.chatRoomPage}>
 			<ChatRoomDetails className={styles.header} chatRoom={chatRoom} />
 			<div className={styles.content}>
 				<ChatRoomMessages room_id={chatRoom.room_id} />
