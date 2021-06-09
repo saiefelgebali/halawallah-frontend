@@ -15,9 +15,11 @@
 [X] Block NSFW Posts
 [X] Delete comments
 [X] Follow Profile
-[ ] Add posts on upload dynamically
+[X] Add posts on upload dynamically
+[ ] Remove posts from cache on delete
 [ ] Upload public chat images
 [ ] Update public chat details
+
 
 [O] Make bottom nav buttons wider to touch // Couldnt do without breaking even spacing
 

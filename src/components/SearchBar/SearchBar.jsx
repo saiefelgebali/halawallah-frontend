@@ -75,7 +75,7 @@ function SearchBar({ CustomSearchResult }) {
 	const SearchResult = ({ result }) => (
 		<Link className={styles.result} to={`/profile/${result.username}`}>
 			<ProfilePicture username={result.username} src={result.pfp} block />
-			<div>{result.username}</div>
+			<div className={styles.username}>{result.username}</div>
 		</Link>
 	);
 

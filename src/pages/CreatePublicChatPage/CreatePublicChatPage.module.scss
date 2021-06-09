@@ -69,6 +69,9 @@
 			background-color: var(--blue);
 			color: var(--white0);
 			border-radius: $content-border-radius;
+			> svg {
+				width: 1rem;
+			}
 		}
 	}
 
