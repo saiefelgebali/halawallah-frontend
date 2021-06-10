@@ -19,6 +19,8 @@
 [ ] Remove posts from cache on delete
 [X] Upload public chat images
 [ ] Update public chat details
+[ ] Leave public chat
+[ ] Show info messages (null usernames)
 
 
 [O] Make bottom nav buttons wider to touch // Couldnt do without breaking even spacing
