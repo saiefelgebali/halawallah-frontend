@@ -6,7 +6,7 @@ import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import LoadingElipses from "../LoadingElipses/LoadingElipses";
 import styles from "./SearchBar.module.scss";
 
-function SearchBar({ CustomSearchResult }) {
+function SearchBar({ filter, CustomSearchResult }) {
 	const [loadSearchResults, { data, loading }] = useLazyQuery(SEARCH_PROFILE);
 	const searchLimit = 10;
 
@@ -32,9 +32,13 @@ function SearchBar({ CustomSearchResult }) {
 	useEffect(() => {
 		if (!data) return;
 
-		setResults(data.searchProfile.data);
+		if (filter) {
+			setResults(data.searchProfile.data.filter(filter));
+		} else {
+			setResults(data.searchProfile.data);
+		}
 		setHasMore(data.searchProfile.hasMore);
-	}, [data]);
+	}, [data, filter]);
 
 	// Query on input change
 	function handleQueryChange(event) {

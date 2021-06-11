@@ -18,8 +18,8 @@
 [X] Add posts on upload dynamically
 [ ] Remove posts from cache on delete
 [X] Upload public chat images
-[ ] Update public chat details
-[ ] Leave public chat
+[X] Update public chat details // chat name
+[X] Leave public chat
 [ ] Show info messages (null usernames)
 
 

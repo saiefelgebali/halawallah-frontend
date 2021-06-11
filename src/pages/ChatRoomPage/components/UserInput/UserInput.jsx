@@ -71,6 +71,7 @@ function UserInput({ className, room_id }) {
 						type='text'
 						name='text'
 						autoComplete='off'
+						placeholder='Type a message'
 						className='form-control'
 						onChange={handleChangeMessage}
 					/>

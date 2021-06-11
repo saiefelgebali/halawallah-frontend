@@ -3,13 +3,31 @@
 .members {
 	display: flex;
 	flex-direction: column;
-	.title {
-		color: var(--text-title);
-		padding: 1rem;
+	background-color: var(--content-background);
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		border-bottom: 1px solid var(--content-border);
-		margin-bottom: 0rem;
+		padding: 1rem;
+		.title {
+			color: var(--text-title);
+			margin-bottom: 0rem;
+		}
+
+		.addUser {
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: var(--text-title);
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+		}
 	}
-	.member {
+	> .member {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -46,6 +64,86 @@
 
 			.item {
 				color: var(--text-title);
+			}
+		}
+	}
+}
+
+.addMembers {
+	padding: 1rem;
+	.selectedMembers {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		padding: 1rem 0rem;
+		color: var(--text-title);
+		> * {
+			display: flex;
+			align-items: center;
+			height: 3rem;
+			align-items: center;
+		}
+
+		.member {
+			padding: 0.5rem 1rem;
+			background-color: var(--content-background-secondary);
+			border-radius: $content-border-radius;
+			&:hover {
+				background-color: var(--content-hover);
+			}
+		}
+		&:empty {
+			&::after {
+				content: "Search for the profiles you would like to add";
+				height: 3rem;
+				padding: 0.5rem;
+			}
+		}
+		.doneButton,
+		.addButton {
+			cursor: pointer;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem;
+			background-color: var(--blue);
+			color: var(--white0);
+			border-radius: $content-border-radius;
+			> svg {
+				width: 1rem;
+			}
+		}
+	}
+
+	.result {
+		&.selected {
+			background-color: var(--content-background-secondary);
+			transition: none;
+			&::after {
+				content: "Remove";
+				margin-left: auto;
+				opacity: 0;
+			}
+			@media (hover: hover) {
+				&:hover {
+					background-color: var(--content-hover);
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		&::after {
+			content: "Add";
+			margin-left: auto;
+			opacity: 0;
+		}
+		@media (hover: hover) {
+			&:hover {
+				&::after {
+					opacity: 1;
+				}
 			}
 		}
 	}

@@ -6,8 +6,33 @@
 	.details {
 		flex-grow: 1;
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
 		align-items: center;
+
+		form {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+		}
+
+		.editButton {
+			cursor: pointer;
+			margin-left: 1rem;
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+
+		.doneButton {
+			cursor: pointer;
+			margin-left: 1rem;
+			background-color: transparent;
+			border: transparent;
+			color: var(--text-title);
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+		}
 
 		.roomName {
 			height: fit-content;

@@ -36,6 +36,9 @@ function App() {
 		uri: `ws://${process.env.REACT_APP_SERVER_HOST}/graphql`,
 		options: {
 			reconnect: true,
+			connectionParams: {
+				accessToken: state.accessToken,
+			},
 		},
 	});
 

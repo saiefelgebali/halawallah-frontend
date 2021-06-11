@@ -76,6 +76,57 @@ export const CREATE_PUBLIC_CHAT = gql`
 	}
 `;
 
+export const ADD_MEMBERS_TO_CHAT = gql`
+	mutation AddMembersToChat($room_id: Int!, $usernames: [String]!) {
+		addMembersToChatRoom(room_id: $room_id, profileUsernames: $usernames) {
+			room_id
+			members {
+				username
+				pfp
+			}
+			public {
+				name
+				image
+			}
+		}
+	}
+`;
+
+export const UPDATE_CHAT_NAME = gql`
+	mutation UpdateChatName($room_id: Int!, $name: String!) {
+		updatePublicChatName(room_id: $room_id, name: $name) {
+			room_id
+			members {
+				username
+				pfp
+			}
+			public {
+				name
+				image
+			}
+		}
+	}
+`;
+
+export const LEAVE_PUBLIC_CHAT = gql`
+	mutation LeavePublicChat($room_id: Int!, $username: String!) {
+		removeMembersFromChatRoom(
+			room_id: $room_id
+			profileUsernames: [$username]
+		) {
+			room_id
+			members {
+				username
+				pfp
+			}
+			public {
+				name
+				image
+			}
+		}
+	}
+`;
+
 export const CREATE_MESSAGE = gql`
 	mutation CreateMessage($room_id: Int!, $text: String!) {
 		createMessage(room_id: $room_id, text: $text) {
