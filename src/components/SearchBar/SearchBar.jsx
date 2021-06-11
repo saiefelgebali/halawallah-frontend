@@ -33,8 +33,10 @@ function SearchBar({ filter, CustomSearchResult }) {
 		if (!data) return;
 
 		if (filter) {
+			console.log(data.searchProfile.data);
 			setResults(data.searchProfile.data.filter(filter));
 		} else {
+			console.log(data.searchProfile.data);
 			setResults(data.searchProfile.data);
 		}
 		setHasMore(data.searchProfile.hasMore);
@@ -54,7 +56,7 @@ function SearchBar({ filter, CustomSearchResult }) {
 
 	// Map out results in a list
 	const SearchResults = () => {
-		if (!results.length && data)
+		if (!results.length && data) {
 			return (
 				<div className={styles.searchResult}>
 					<div className={styles.error}>
@@ -62,6 +64,7 @@ function SearchBar({ filter, CustomSearchResult }) {
 					</div>
 				</div>
 			);
+		}
 
 		// If a custom search result component is provided, use it instead of default
 		if (CustomSearchResult) {
