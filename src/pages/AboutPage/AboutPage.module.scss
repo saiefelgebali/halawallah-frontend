@@ -1,0 +1,36 @@
+@import "../../sassStyles/variables";
+
+.aboutPage {
+	background-color: var(--content-background);
+	width: 100%;
+	border-radius: $content-border-radius;
+	padding: 1rem;
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		color: var(--text-title);
+		margin-bottom: 1rem;
+	}
+
+	.status {
+		margin: 2rem 0rem;
+		font-style: italic;
+	}
+
+	.block {
+		color: var(--text);
+
+		> * {
+			&:last-child {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	.usernameLink {
+		color: var(--text-title);
+		font-weight: 600;
+	}
+}

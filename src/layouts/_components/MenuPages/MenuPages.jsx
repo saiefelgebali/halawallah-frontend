@@ -1,9 +1,9 @@
 import React from "react";
 import {
-	faBell,
 	faComments,
 	faHome,
 	faPlus,
+	faQuestion,
 	faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import Menu from "../../../components/Menu/Menu";
@@ -23,7 +23,7 @@ export default function MenuPages() {
 			<MenuItem icon={faPlus} label='Create' to='/create' />
 			<MenuItem icon={faComments} label='Chat' to='/chat' />
 			<MenuItem icon={faSearch} label='Search' to='/search' />
-			<MenuItem icon={faBell} label='Notifications' to='/notifications' />
+			<MenuItem icon={faQuestion} label='About' to='/about' />
 		</Menu>
 	);
 }

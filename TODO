@@ -9,32 +9,27 @@
 [X] Register page
 [X] Login page
 [X] Search page
-
 [R] Delete Post update cache // Refresh page on delete
 [X] Edit Profile
 [X] Block NSFW Posts
 [X] Delete comments
 [X] Follow Profile
 [X] Add posts on upload dynamically
-[ ] Remove posts from cache on delete
 [X] Upload public chat images
 [X] Update public chat details // chat name
 [X] Leave public chat
-[ ] Show info messages (null usernames)
-
-
 [O] Make bottom nav buttons wider to touch // Couldnt do without breaking even spacing
+[X] Messages page
+[X] Apollo Client
+[R] Socket.io Connection // Used graphql subscriptions instead to handle WebSocket connections 
 
+[ ] Remove posts from cache on delete
+[ ] Add settings page link to personal profile (dark mode, sounds, logout)
+[ ] Show info messages (null usernames)
 [ ] Use image canvas to upload pfp and public chat images
 [ ] Form limit handling
 [ ] Skeleton UI Loading to stop severe layout shifts (Youtube & Twitter do this well)
-
-[ ] Use serviceWorker for offline mode
-[ ] implement system dark mode
-
-[X] Messages page
 [ ] Notifications page
 [ ] Notification Sounds
-
-[X] Apollo Client
-[R] Socket.io Connection // Used graphql subscriptions instead to handle WebSocket connections 
+[ ] Use serviceWorker for offline mode
+[ ] implement system dark mode
