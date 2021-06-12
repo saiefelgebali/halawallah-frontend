@@ -38,7 +38,10 @@
 }
 @media all and (max-width: 576px) {
 	.auth {
-		background-color: var(--auth-form-background);
+		background-color: var(--white0);
+		.content {
+			background-color: var(--white0);
+		}
 	}
 	.auth {
 		.content {
