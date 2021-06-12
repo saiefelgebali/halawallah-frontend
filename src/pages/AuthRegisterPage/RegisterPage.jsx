@@ -22,7 +22,23 @@ function RegisterPage() {
 
 		const username = form.elements.username.value;
 		const password = form.elements.password.value;
-		// const email = form.elements.email.value;
+		const confirm = form.elements.confirm.value;
+
+		// Check password length
+		if (password.length < 8) {
+			return setError({
+				message: "Password must be at least 8 characters long",
+				type: "warning",
+			});
+		}
+
+		// Check password match
+		if (confirm !== password) {
+			return setError({
+				message: "Passwords do not match",
+				type: "warning",
+			});
+		}
 
 		try {
 			// Disable form while loading
@@ -35,11 +51,16 @@ function RegisterPage() {
 			// Redirect to login page
 			if (res.username) {
 				history.push("/login");
+			} else if (!res.username) {
+				// Handle 400 error
+				setLoading(false);
+				setError({ message: res, type: "warning" });
 			}
 		} catch (e) {
-			// Handle errors sent by server
+			// Handle 500 error
+			console.log(e);
 			setLoading(false);
-			setError({ message: e.message, type: "danger" });
+			setError({ message: e, type: "danger" });
 		}
 
 		// Re-enable fieldset
@@ -59,13 +80,13 @@ function RegisterPage() {
 						name='username'
 						required
 					/>
-					<input
+					{/* <input
 						type='text'
 						className='form-control mb-3'
 						placeholder='Email Address'
 						name='email'
 						required
-					/>
+					/> */}
 					<input
 						type='password'
 						className='form-control mb-3'
@@ -77,7 +98,7 @@ function RegisterPage() {
 						type='password'
 						className='form-control mb-3'
 						placeholder='Confirm Password'
-						name='confirm password'
+						name='confirm'
 						required
 					/>
 					<input

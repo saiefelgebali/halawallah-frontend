@@ -33,10 +33,8 @@ function SearchBar({ filter, CustomSearchResult }) {
 		if (!data) return;
 
 		if (filter) {
-			console.log(data.searchProfile.data);
 			setResults(data.searchProfile.data.filter(filter));
 		} else {
-			console.log(data.searchProfile.data);
 			setResults(data.searchProfile.data);
 		}
 		setHasMore(data.searchProfile.hasMore);

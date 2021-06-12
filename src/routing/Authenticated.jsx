@@ -16,6 +16,7 @@ import ChatNotifications from "./ChatNotifications";
 import CreatePublicChatPage from "../pages/CreatePublicChatPage/CreatePublicChatPage";
 import ChatRoomInfoPage from "../pages/ChatRoomInfoPage/ChatRoomInfoPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
+import SettingsPage from "../pages/SettingsPage/SettingsPage";
 
 function Authenticated() {
 	// Route authenticated users
@@ -59,6 +60,12 @@ function Authenticated() {
 						/>
 
 						<Route exact path='/about' component={AboutPage} />
+
+						<Route
+							exact
+							path='/settings'
+							component={SettingsPage}
+						/>
 
 						<Route
 							exact

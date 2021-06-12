@@ -23,11 +23,11 @@
 [X] Apollo Client
 [R] Socket.io Connection // Used graphql subscriptions instead to handle WebSocket connections 
 
+[X] Form limit handling
+[X] Add settings page link to personal profile (dark mode, sounds, logout) // Need to add sounds slider && global settings state
 [ ] Remove posts from cache on delete
-[ ] Add settings page link to personal profile (dark mode, sounds, logout)
 [ ] Show info messages (null usernames)
 [ ] Use image canvas to upload pfp and public chat images
-[ ] Form limit handling
 [ ] Skeleton UI Loading to stop severe layout shifts (Youtube & Twitter do this well)
 [ ] Notifications page
 [ ] Notification Sounds

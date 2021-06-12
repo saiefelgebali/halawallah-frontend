@@ -58,7 +58,7 @@ function ProfileEdit({ profile, setEditing }) {
 			type='text'
 			name='display'
 			defaultValue={profile.display}
-			maxLength={32}
+			maxLength={24}
 		/>
 	);
 

@@ -1,0 +1,45 @@
+@import "../../sassStyles/variables";
+
+.settingsPage {
+	width: 100%;
+	padding: 1rem;
+	border: 1px solid var(--content-border);
+	border-radius: $content-border-radius;
+	background-color: var(--content-background);
+
+	.title {
+		color: var(--text-title);
+	}
+
+	.options {
+		color: var(--text);
+		> .option {
+			height: 4rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			cursor: pointer;
+			padding: 1rem;
+			border-bottom: 1px solid var(--content-border);
+
+			> .icon {
+				color: var(--text-title);
+				height: 1.5rem;
+				width: 1.5rem;
+			}
+
+			&:last-child {
+				border-bottom: 0px solid transparent;
+				border-bottom-left-radius: $content-border-radius;
+				border-bottom-right-radius: $content-border-radius;
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: var(--content-hover);
+				}
+			}
+		}
+	}
+}

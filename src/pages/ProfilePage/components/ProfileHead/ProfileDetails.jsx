@@ -62,11 +62,16 @@ export function ProfileDetails({ profile, me, setEditing }) {
 		// If my profile
 		if (me.username === profile.username) {
 			return (
-				<button
-					className='btn btn-primary'
-					onClick={() => setEditing(true)}>
-					Edit
-				</button>
+				<>
+					<button
+						className='btn btn-primary'
+						onClick={() => setEditing(true)}>
+						Edit
+					</button>
+					<Link className='btn btn-secondary' to='/settings'>
+						Settings
+					</Link>
+				</>
 			);
 		}
 
