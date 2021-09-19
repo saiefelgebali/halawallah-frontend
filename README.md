@@ -11,11 +11,11 @@ I created Hala as an alternative option for those who seek to rid themselves of 
 Excessive use of social media has been proven to cause feelings of depression and anxiety.
 This project aims to create a social platform without the features that are known to cause mental health problems. 
 
-This includes features such as
-- Likes
-- Follower counts
-- Excessive Advertisments
-- NSFW Content
+Hala fixes some of these problems by
+- Omitting user likes
+- Hiding follower counts
+- No Advertisments
+- Blocking NSFW content
 
 This project is an EPQ (Extended Project Qualification) entry.
 
