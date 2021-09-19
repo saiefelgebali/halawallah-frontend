@@ -29,17 +29,3 @@ https://user-images.githubusercontent.com/77067634/133919340-7f6d4379-6ae4-47b2-
 Here is a video demonstrating the instant-messaging feature on desktop
 
 https://user-images.githubusercontent.com/77067634/133919231-18799164-1b7f-4bc8-b154-11c46a1e3b99.mp4
-
-
-
-## Tech Stack
-![React JS Logo](https://files.readme.io/320345b-React_Logo_256x256.png)
-![Node JS Logo](https://d2m06gn7cjwia2.cloudfront.net/nodejs.png)
-![PostgreSQL Logo](https://cdn.iconscout.com/icon/free/png-256/postgresql-226047.png)
-
-
-
-
-
-
-
