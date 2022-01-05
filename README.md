@@ -14,7 +14,7 @@ This project aims to create a social platform without the features that are know
 Hala fixes some of these problems by
 - Omitting user likes
 - Hiding follower counts
-- No Advertisments
+- No Advertisements
 - Blocking NSFW content
 
 This project is an EPQ (Extended Project Qualification) entry.
